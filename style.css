@@ -427,7 +427,7 @@ footer {
     font-size: 14px;
     opacity: 0.75;
 }
-/* Mobile navigation */
+/* Mobile side navigation */
 .menu-toggle {
     display: none;
     background: transparent;
@@ -446,21 +446,34 @@ footer {
 @media (max-width: 600px) {
     .menu-toggle {
         display: block;
-        margin: 0 auto;
+        margin-left: auto;
     }
 
     .nav-links {
-        display: none;
+        position: fixed;
+        top: 0;
+        right: -280px;
+        width: 280px;
+        height: 100vh;
+        background: #17120e;
+        display: flex;
         flex-direction: column;
-        gap: 10px;
-        margin-top: 15px;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding: 90px 30px 30px;
+        gap: 20px;
+        z-index: 9998;
+        transition: right 0.3s ease;
+        box-shadow: -5px 0 20px rgba(0,0,0,0.3);
     }
 
     .nav-links.active {
-        display: flex;
+        right: 0;
     }
 
     .nav-links a {
-        margin: 5px 0;
+        color: white;
+        font-size: 18px;
+        margin: 0;
     }
 }
