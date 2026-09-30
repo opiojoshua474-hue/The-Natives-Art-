@@ -14,8 +14,16 @@ body {
 header {
     background: #17120e;
     color: white;
-    padding: 20px;
+    padding: 25px 20px;
     text-align: center;
+    border-bottom: 3px solid #c47b32;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+header h1 {
+    font-size: 32px;
+    letter-spacing: 1px;
+    margin-bottom: 18px;
 }
 
 header h1 {
@@ -25,7 +33,15 @@ header h1 {
 nav a {
     color: white;
     text-decoration: none;
-    margin: 0 10px;
+    margin: 0 12px;
+    padding: 8px 4px;
+    font-weight: 600;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+}
+
+nav a:hover {
+    color: #c47b32;
+    border-bottom: 2px solid #c47b32;
 }
 
 .hero {
