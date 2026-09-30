@@ -24,3 +24,27 @@ lightbox.addEventListener("click", function (event) {
         lightbox.style.display = "none";
     }
 });
+
+
+// Artwork details buttons
+document.querySelectorAll(".details-button").forEach(function (button) {
+    button.addEventListener("click", function (event) {
+        event.preventDefault();
+
+        const card = button.closest(".art-card");
+        const title = card.querySelector("h3").textContent;
+        const description = card.querySelector("p:not(.price)").textContent;
+        const price = card.querySelector(".price").textContent;
+        const image = card.querySelector("img").src;
+
+        lightboxImg.src = image;
+        lightboxImg.alt = title + " artwork";
+        lightbox.style.display = "flex";
+
+        alert(
+            title + "\n\n" +
+            description + "\n\n" +
+            "Price: " + price
+        );
+    });
+});
