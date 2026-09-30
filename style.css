@@ -351,3 +351,18 @@ footer {
     margin-bottom: 20px;
     line-height: 1.8;
 }
+
+#about {
+    background: #17120e !important;
+    color: white !important;
+    max-width: none;
+    padding: 80px 20px;
+}
+
+#about h2 {
+    color: #c47b32;
+}
+
+#about p {
+    color: white;
+}
