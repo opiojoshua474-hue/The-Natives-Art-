@@ -602,3 +602,12 @@ footer {
         z-index: 1;
     }
 }
+
+@media (max-width: 600px) {
+    .nav-links {
+        background-color: #17120e !important;
+        background-image: url("images/african-pattern.svg") !important;
+        background-repeat: repeat !important;
+        background-size: 120px 120px !important;
+    }
+}
