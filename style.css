@@ -399,3 +399,31 @@ footer {
 .contact-content .button {
     margin-top: 15px;
 }
+
+footer {
+    background: #17120e;
+    color: white;
+    padding: 45px 20px;
+    text-align: center;
+}
+
+.footer-content {
+    max-width: 800px;
+    margin: auto;
+}
+
+.footer-content h3 {
+    font-size: 26px;
+    color: #c47b32;
+    margin-bottom: 10px;
+}
+
+.footer-content p {
+    margin-bottom: 10px;
+}
+
+.footer-content .copyright {
+    margin-top: 20px;
+    font-size: 14px;
+    opacity: 0.75;
+}
