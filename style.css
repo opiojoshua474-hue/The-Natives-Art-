@@ -496,3 +496,26 @@ footer {
         display: block;
     }
 }
+
+/* Mobile menu overlay */
+.menu-overlay {
+    display: none;
+}
+
+@media (max-width: 600px) {
+    .menu-overlay {
+        display: block;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 9997;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+    }
+
+    .menu-overlay.active {
+        opacity: 1;
+        pointer-events: auto;
+    }
+}

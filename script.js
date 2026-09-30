@@ -82,6 +82,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     menuToggle.addEventListener("click", function () {
         navLinks.classList.toggle("active");
+        menuOverlay.classList.toggle("active");
     });
 
       navLinks.querySelectorAll("a").forEach(function (link) {
@@ -93,6 +94,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
+    const menuOverlay = document.querySelector(".menu-overlay");
     const menuClose = document.querySelector(".menu-close");
     const navLinks = document.querySelector(".nav-links");
 
@@ -100,5 +102,24 @@ document.addEventListener("DOMContentLoaded", function () {
         menuClose.addEventListener("click", function () {
             navLinks.classList.remove("active");
         });
+    }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const menuOverlay = document.querySelector(".menu-overlay");
+    const navLinks = document.querySelector(".nav-links");
+    const menuClose = document.querySelector(".menu-close");
+
+    function closeMenu() {
+        navLinks.classList.remove("active");
+        menuOverlay.classList.remove("active");
+    }
+
+    if (menuOverlay) {
+        menuOverlay.addEventListener("click", closeMenu);
+    }
+
+    if (menuClose) {
+        menuClose.addEventListener("click", closeMenu);
     }
 });
