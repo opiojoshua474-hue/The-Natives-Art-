@@ -45,8 +45,8 @@ nav a:hover {
 }
 
 .hero {
-    min-height: 500px;
-    padding: 100px 20px;
+    min-height: 600px;
+    padding: 120px 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -54,21 +54,27 @@ nav a:hover {
     text-align: center;
     color: white;
     background-image:
-        linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+        linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
         url("images/hero.jpg");
     background-size: cover;
     background-position: center;
+    background-attachment: fixed;
 }
 
 .hero h2 {
-    font-size: 42px;
-    margin-bottom: 15px;
+    font-size: 52px;
+    line-height: 1.15;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    text-shadow: 0 4px 12px rgba(0,0,0,0.5);
 }
 
 .hero p {
-    max-width: 650px;
-    font-size: 18px;
-    margin-bottom: 25px;
+    max-width: 700px;
+    font-size: 19px;
+    margin-bottom: 30px;
+    line-height: 1.7;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.5);
 }
 
 .button {
