@@ -540,3 +540,20 @@ footer {
         color: white;
     }
 }
+
+/* Brand logo */
+.site-logo {
+    width: 58px;
+    height: 58px;
+    display: block;
+    margin: 0 auto 10px;
+    border-radius: 14px;
+}
+
+@media (max-width: 600px) {
+    .site-logo {
+        width: 48px;
+        height: 48px;
+        margin-bottom: 8px;
+    }
+}
