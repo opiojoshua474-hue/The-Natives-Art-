@@ -91,3 +91,14 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const menuClose = document.querySelector(".menu-close");
+    const navLinks = document.querySelector(".nav-links");
+
+    if (menuClose && navLinks) {
+        menuClose.addEventListener("click", function () {
+            navLinks.classList.remove("active");
+        });
+    }
+});
