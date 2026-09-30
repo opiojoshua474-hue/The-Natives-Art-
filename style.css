@@ -326,3 +326,28 @@ footer {
     transform: translateY(-2px);
     box-shadow: 0 5px 12px rgba(0,0,0,0.2);
 }
+
+/* About section */
+#about {
+    background: #17120e;
+    color: white;
+    max-width: none;
+    padding: 80px 20px;
+}
+
+.about-content {
+    max-width: 800px;
+    margin: auto;
+}
+
+.about-content h2 {
+    font-size: 36px;
+    margin-bottom: 25px;
+    color: #c47b32;
+}
+
+.about-content p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
