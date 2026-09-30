@@ -141,3 +141,21 @@ footer {
 .art-card .button {
     margin-top: 10px;
 }
+
+
+.art-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.art-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.18);
+}
+
+.art-card .button {
+    transition: transform 0.2s ease;
+}
+
+.art-card .button:hover {
+    transform: scale(1.05);
+}
