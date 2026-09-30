@@ -522,85 +522,6 @@ footer {
 
 /* African-inspired pattern for mobile menu */
 @media (max-width: 600px) {
-    .nav-links {
-        background-color: #17120e;
-        background-image:
-            linear-gradient(45deg, rgba(196,123,50,0.12) 25%, transparent 25%),
-            linear-gradient(-45deg, rgba(196,123,50,0.12) 25%, transparent 25%),
-            linear-gradient(45deg, transparent 75%, rgba(196,123,50,0.12) 75%),
-            linear-gradient(-45deg, transparent 75%, rgba(196,123,50,0.12) 75%);
-        background-size: 32px 32px;
-        background-position: 0 0, 0 16px, 16px -16px, -16px 0;
-    }
-}
-
-@media (max-width: 600px) {
-    .nav-links {
-        background-color: #17120e !important;
-        background-image:
-            repeating-linear-gradient(
-                45deg,
-                transparent,
-                transparent 18px,
-                rgba(196,123,50,0.18) 18px,
-                rgba(196,123,50,0.18) 20px
-            ),
-            repeating-linear-gradient(
-                -45deg,
-                transparent,
-                transparent 18px,
-                rgba(196,123,50,0.18) 18px,
-                rgba(196,123,50,0.18) 20px
-            ) !important;
-        background-size: 40px 40px !important;
-    }
-}
-
-@media (max-width: 600px) {
-    .nav-links {
-        z-index: 10000 !important;
-        background-color: #17120e !important;
-        background-image:
-            radial-gradient(circle at 10px 10px, rgba(196,123,50,0.35) 3px, transparent 4px),
-            radial-gradient(circle at 30px 30px, rgba(196,123,50,0.35) 3px, transparent 4px) !important;
-        background-size: 40px 40px !important;
-    }
-}
-
-@media (max-width: 600px) {
-    .nav-links {
-        background: #17120e !important;
-        overflow: hidden;
-    }
-
-    .nav-links::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background-image:
-            repeating-linear-gradient(
-                45deg,
-                transparent 0,
-                transparent 18px,
-                rgba(196,123,50,0.22) 18px,
-                rgba(196,123,50,0.22) 20px
-            ),
-            repeating-linear-gradient(
-                -45deg,
-                transparent 0,
-                transparent 18px,
-                rgba(196,123,50,0.22) 18px,
-                rgba(196,123,50,0.22) 20px
-            );
-        background-size: 40px 40px;
-        pointer-events: none;
-        z-index: 0;
-    }
-
-    .nav-links > * {
-        position: relative;
-        z-index: 1;
-    }
 }
 
 @media (max-width: 600px) {
@@ -609,5 +530,13 @@ footer {
         background-image: url("images/african-pattern.svg") !important;
         background-repeat: repeat !important;
         background-size: 120px 120px !important;
+    }
+
+    .nav-links .menu-close {
+        position: absolute;
+        top: 20px;
+        right: 25px;
+        z-index: 2;
+        color: white;
     }
 }
