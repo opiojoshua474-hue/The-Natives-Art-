@@ -543,17 +543,17 @@ footer {
 
 /* Brand logo */
 .site-logo {
-    width: 58px;
-    height: 58px;
+    width: 38px;
+    height: 38px;
     display: block;
-    margin: 0 auto 10px;
+    margin: 0 auto 6px;
     border-radius: 14px;
 }
 
 @media (max-width: 600px) {
     .site-logo {
-        width: 48px;
-        height: 48px;
-        margin-bottom: 8px;
+        width: 34px;
+        height: 34px;
+        margin-bottom: 5px;
     }
 }
