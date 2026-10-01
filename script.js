@@ -1,31 +1,32 @@
 document.addEventListener("DOMContentLoaded", function () {
-
-    // Lightbox
+    // Artwork lightbox
     const lightbox = document.getElementById("lightbox");
     const lightboxImg = document.getElementById("lightbox-img");
-    const closeButton = document.querySelector(".lightbox .close");
+    const lightboxClose = document.querySelector(".lightbox .close");
 
-    document.querySelectorAll(".art-card img").forEach(function (image) {
-        image.addEventListener("click", function (event) {
-            event.preventDefault();
-            lightboxImg.src = image.src;
-            lightboxImg.alt = image.alt;
-            lightbox.style.display = "flex";
+    if (lightbox && lightboxImg) {
+        document.querySelectorAll(".art-card img").forEach(function (image) {
+            image.addEventListener("click", function () {
+                lightboxImg.src = image.src;
+                lightboxImg.alt = image.alt;
+                lightbox.style.display = "flex";
+            });
         });
-    });
 
-    closeButton.addEventListener("click", function () {
-        lightbox.style.display = "none";
-    });
-
-    lightbox.addEventListener("click", function (event) {
-        if (event.target === lightbox) {
-            lightbox.style.display = "none";
+        if (lightboxClose) {
+            lightboxClose.addEventListener("click", function () {
+                lightbox.style.display = "none";
+            });
         }
-    });
 
+        lightbox.addEventListener("click", function (event) {
+            if (event.target === lightbox) {
+                lightbox.style.display = "none";
+            }
+        });
+    }
 
-    // Artwork Details Modal
+    // Artwork details modal
     const detailsModal = document.getElementById("details-modal");
     const detailsImage = document.getElementById("details-image");
     const detailsTitle = document.getElementById("details-title");
@@ -34,92 +35,66 @@ document.addEventListener("DOMContentLoaded", function () {
     const detailsWhatsApp = document.getElementById("details-whatsapp");
     const detailsClose = document.querySelector(".details-close");
 
-    document.querySelectorAll(".details-button").forEach(function (button) {
+    if (detailsModal && detailsImage && detailsTitle && detailsDescription && detailsPrice && detailsWhatsApp) {
+        document.querySelectorAll(".details-button").forEach(function (button) {
+            button.addEventListener("click", function (event) {
+                event.preventDefault();
 
-        button.addEventListener("click", function (event) {
-            event.preventDefault();
+                const card = button.closest(".art-card");
+                if (!card) return;
 
-            const card = button.closest(".art-card");
+                const title = card.querySelector("h3")?.textContent.trim() || "Artwork";
+                const description = card.querySelector(".art-info > p:not(.art-category):not(.price)")?.textContent.trim() || "An artwork from The Natives Art collection.";
+                const price = card.querySelector(".price")?.textContent.trim() || "Price available on inquiry";
+                const image = card.querySelector("img")?.src || "";
 
-            const title = card.querySelector("h3").textContent;
-            const description = card.querySelector("p:not(.price)").textContent;
-            const price = card.querySelector(".price").textContent;
-            const image = card.querySelector("img").src;
+                detailsImage.src = image;
+                detailsImage.alt = title + " artwork";
+                detailsTitle.textContent = title;
+                detailsDescription.textContent = description;
+                detailsPrice.textContent = price;
 
-            detailsImage.src = image;
-            detailsImage.alt = title + " artwork";
-            detailsTitle.textContent = title;
-            detailsDescription.textContent = description;
-            detailsPrice.textContent = price;
-
-            const message =
-                "Hello The Natives Art, I'm interested in the " +
-                title + " artwork.";
-
-            detailsWhatsApp.href =
-                "https://wa.me/256787551195?text=" +
-                encodeURIComponent(message);
-
-            detailsModal.style.display = "flex";
+                const message = "Hello The Natives Art, I'm interested in the " + title + " artwork.";
+                detailsWhatsApp.href = "https://wa.me/256787551195?text=" + encodeURIComponent(message);
+                detailsModal.style.display = "flex";
+            });
         });
 
-    });
-
-    detailsClose.addEventListener("click", function () {
-        detailsModal.style.display = "none";
-    });
-
-    detailsModal.addEventListener("click", function (event) {
-        if (event.target === detailsModal) {
-            detailsModal.style.display = "none";
+        if (detailsClose) {
+            detailsClose.addEventListener("click", function () {
+                detailsModal.style.display = "none";
+            });
         }
-    });
 
+        detailsModal.addEventListener("click", function (event) {
+            if (event.target === detailsModal) {
+                detailsModal.style.display = "none";
+            }
+        });
+    }
 
     // Mobile navigation
     const menuToggle = document.querySelector(".menu-toggle");
-    const navLinks = document.querySelector(".nav-links");
-
-    menuToggle.addEventListener("click", function () {
-        navLinks.classList.toggle("active");
-        menuOverlay.classList.toggle("active");
-    });
-
-      navLinks.querySelectorAll("a").forEach(function (link) {
-        link.addEventListener("click", function () {
-            navLinks.classList.remove("active");
-        });
-    });
-
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-    const menuOverlay = document.querySelector(".menu-overlay");
-    const menuClose = document.querySelector(".menu-close");
-    const navLinks = document.querySelector(".nav-links");
-
-    if (menuClose && navLinks) {
-        menuClose.addEventListener("click", function () {
-            navLinks.classList.remove("active");
-        });
-    }
-});
-
-document.addEventListener("DOMContentLoaded", function () {
     const menuOverlay = document.querySelector(".menu-overlay");
     const navLinks = document.querySelector(".nav-links");
     const menuClose = document.querySelector(".menu-close");
 
     function closeMenu() {
-        navLinks.classList.remove("active");
-        menuOverlay.classList.remove("active");
+        if (navLinks) navLinks.classList.remove("active");
+        if (menuOverlay) menuOverlay.classList.remove("active");
     }
 
-    if (menuOverlay) {
-        menuOverlay.addEventListener("click", closeMenu);
+    if (menuToggle && navLinks) {
+        menuToggle.addEventListener("click", function () {
+            navLinks.classList.toggle("active");
+            if (menuOverlay) menuOverlay.classList.toggle("active");
+        });
+
+        navLinks.querySelectorAll("a").forEach(function (link) {
+            link.addEventListener("click", closeMenu);
+        });
     }
 
-    if (menuClose) {
-        menuClose.addEventListener("click", closeMenu);
-    }
+    if (menuClose) menuClose.addEventListener("click", closeMenu);
+    if (menuOverlay) menuOverlay.addEventListener("click", closeMenu);
 });
