@@ -557,3 +557,85 @@ footer {
         margin-bottom: 5px;
     }
 }
+/* ===== PREMIUM HERO ===== */
+
+.hero {
+    min-height: 75vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    padding: 80px 8%;
+    background:
+        linear-gradient(90deg, rgba(23, 18, 14, 0.98) 0%, rgba(23, 18, 14, 0.88) 48%, rgba(23, 18, 14, 0.55) 100%),
+        url("images/art1.jpg") center/cover no-repeat;
+    color: #fff;
+}
+
+.hero-content {
+    max-width: 720px;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-label {
+    margin: 0 0 18px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    opacity: 0.8;
+}
+
+.hero h2 {
+    margin: 0;
+    font-size: clamp(3rem, 7vw, 6rem);
+    line-height: 0.95;
+    letter-spacing: -2px;
+}
+
+.hero-text {
+    max-width: 560px;
+    margin: 28px 0;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    opacity: 0.88;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.secondary-button {
+    background: transparent !important;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.hero-decoration {
+    position: absolute;
+    right: 5%;
+    bottom: 5%;
+    writing-mode: vertical-rl;
+    font-size: clamp(4rem, 10vw, 9rem);
+    font-weight: 800;
+    letter-spacing: 12px;
+    opacity: 0.08;
+    pointer-events: none;
+}
+
+@media (max-width: 700px) {
+    .hero {
+        min-height: 70vh;
+        padding: 70px 6%;
+    }
+
+    .hero h2 {
+        font-size: clamp(2.8rem, 14vw, 4.5rem);
+    }
+
+    .hero-text {
+        font-size: 1rem;
+    }
+}
