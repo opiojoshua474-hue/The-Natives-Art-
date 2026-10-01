@@ -1075,3 +1075,138 @@ header h1 {
         visibility: visible;
     }
 }
+
+/* ===== INDIVIDUAL ARTWORK PAGE ===== */
+
+.artwork-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 50px 20px 80px;
+}
+
+.back-link {
+    display: inline-block;
+    margin-bottom: 35px;
+    color: #8a6a43;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.back-link:hover {
+    color: #c47b32;
+}
+
+.artwork-detail {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.artwork-detail-image {
+    background: #eee;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.14);
+}
+
+.artwork-detail-image img {
+    width: 100%;
+    height: 620px;
+    object-fit: cover;
+    display: block;
+}
+
+.artwork-detail-info {
+    padding: 20px 0;
+}
+
+.artwork-detail-info .art-category {
+    color: #c47b32;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.artwork-detail-info h2 {
+    font-family: Georgia, serif;
+    font-size: clamp(2.3rem, 5vw, 4rem);
+    line-height: 1.05;
+    color: #17120e;
+    margin: 0 0 25px;
+}
+
+.artwork-description {
+    color: #756b63;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.artwork-price {
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: #17120e;
+    margin-bottom: 25px;
+}
+
+.artwork-meta {
+    border-top: 1px solid #ddd5ca;
+    border-bottom: 1px solid #ddd5ca;
+    padding: 20px 0;
+    margin-bottom: 30px;
+}
+
+.artwork-meta p {
+    margin: 9px 0;
+    color: #756b63;
+}
+
+.artwork-meta strong {
+    color: #17120e;
+}
+
+.artwork-detail-info .button {
+    display: inline-block;
+    text-decoration: none;
+}
+
+@media (max-width: 800px) {
+    .artwork-page {
+        padding: 35px 15px 60px;
+    }
+
+    .artwork-detail {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .artwork-detail-image img {
+        height: 450px;
+    }
+
+    .artwork-detail-info h2 {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .artwork-detail-image img {
+        height: 380px;
+    }
+
+    .artwork-detail-info h2 {
+        font-size: 2.1rem;
+    }
+
+    .artwork-description {
+        font-size: 1rem;
+    }
+
+    .artwork-detail-info .button {
+        width: 100%;
+        text-align: center;
+    }
+}
