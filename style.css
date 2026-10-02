@@ -1555,3 +1555,164 @@ footer {
         transform: none;
     }
 }
+
+/* =========================================
+   FINAL MOBILE EXPERIENCE POLISH
+   ========================================= */
+
+@media (max-width: 700px) {
+
+    body {
+        overflow-x: hidden;
+    }
+
+    header {
+        padding: 14px 18px;
+    }
+
+    .logo {
+        gap: 10px;
+    }
+
+    .site-logo {
+        width: 48px;
+        height: 48px;
+    }
+
+    .logo h1 {
+        font-size: 1.25rem;
+    }
+
+    .artwork-page {
+        padding: 28px 18px 50px;
+    }
+
+    .back-link {
+        display: inline-block;
+        margin-bottom: 22px;
+    }
+
+    .artwork-detail {
+        gap: 28px;
+    }
+
+    .artwork-detail-image img {
+        width: 100%;
+        height: auto;
+        border-radius: 12px;
+    }
+
+    .artwork-detail-info h2 {
+        font-size: 2rem;
+        line-height: 1.1;
+        margin-bottom: 14px;
+    }
+
+    .artwork-description {
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+
+    .artwork-price {
+        font-size: 1.35rem;
+        margin: 20px 0;
+    }
+
+    .artwork-meta {
+        margin-bottom: 24px;
+    }
+
+    .artwork-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .artwork-actions .button {
+        width: 100%;
+        text-align: center;
+        box-sizing: border-box;
+    }
+
+    .related-artworks {
+        padding: 45px 18px;
+    }
+
+    .related-heading h2 {
+        font-size: 1.8rem;
+    }
+
+    .related-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .related-card img {
+        width: 100%;
+        height: auto;
+    }
+
+    footer {
+        padding: 25px 18px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+
+    header {
+        padding: 12px 15px;
+    }
+
+    .site-logo {
+        width: 44px;
+        height: 44px;
+    }
+
+    .logo h1 {
+        font-size: 1.1rem;
+    }
+
+    .artwork-page {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .artwork-detail-info h2 {
+        font-size: 1.75rem;
+    }
+
+    .related-artworks {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+}
+
+
+/* Mobile artwork overflow fix */
+@media (max-width: 700px) {
+
+    .artwork-detail,
+    .artwork-detail-image,
+    .artwork-detail-info {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+    }
+
+    .artwork-detail-image {
+        overflow: hidden;
+    }
+
+    .artwork-detail-image img {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        object-fit: contain;
+        box-sizing: border-box;
+    }
+
+}
