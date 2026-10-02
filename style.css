@@ -1716,3 +1716,49 @@ footer {
     }
 
 }
+
+/* =========================================
+   FINAL NAVIGATION & BRANDING POLISH
+   ========================================= */
+
+.main-nav .nav-links a {
+    position: relative;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.main-nav .nav-links a:hover {
+    opacity: 0.75;
+    transform: translateY(-1px);
+}
+
+.main-nav .nav-links a::after {
+    height: 2px;
+    border-radius: 2px;
+    transition: width 0.25s ease;
+}
+
+.site-logo {
+    object-fit: contain;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.site-logo:hover {
+    transform: scale(1.04);
+}
+
+@media (max-width: 700px) {
+
+    .main-nav .nav-links a {
+        transform: none;
+    }
+
+    .main-nav .nav-links a:hover {
+        transform: none;
+        opacity: 1;
+    }
+
+    .site-logo:hover {
+        transform: none;
+    }
+
+}
