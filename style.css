@@ -1387,3 +1387,106 @@ header h1 {
         font-size: 1rem;
     }
 }
+
+/* ===== TNA FINAL VISUAL POLISH ===== */
+
+body {
+    background: #f5f1e8;
+    color: #17120e;
+}
+
+header {
+    border-bottom: 2px solid #c47b32;
+}
+
+.site-logo {
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.site-logo:hover {
+    transform: scale(1.04);
+}
+
+header h1 {
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+.hero {
+    min-height: 78vh;
+}
+
+.hero h2 {
+    font-family: Georgia, "Times New Roman", serif;
+    text-wrap: balance;
+}
+
+.hero-label {
+    color: #d19a5c;
+}
+
+.hero-text {
+    text-wrap: balance;
+}
+
+.button {
+    border-radius: 3px;
+}
+
+#about {
+    position: relative;
+    overflow: hidden;
+}
+
+#about::before {
+    content: "";
+    position: absolute;
+    width: 320px;
+    height: 320px;
+    border: 1px solid rgba(196, 123, 50, 0.18);
+    border-radius: 50%;
+    top: -170px;
+    right: -100px;
+    pointer-events: none;
+}
+
+#about::after {
+    content: "";
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    border: 1px solid rgba(196, 123, 50, 0.14);
+    border-radius: 50%;
+    bottom: -120px;
+    left: -80px;
+    pointer-events: none;
+}
+
+.about-content,
+.contact-content {
+    position: relative;
+    z-index: 1;
+}
+
+.contact-content h2,
+.about-content h2 {
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+footer {
+    border-top: 2px solid rgba(196, 123, 50, 0.45);
+}
+
+@media (max-width: 700px) {
+    .hero {
+        min-height: 75vh;
+    }
+
+    .hero h2 {
+        letter-spacing: -1px;
+    }
+
+    .site-logo {
+        border-radius: 8px;
+    }
+}
