@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Featured Works | The Natives Art</title>
+    <meta name="description" content="Explore featured African-inspired artworks from The Natives Art, celebrating heritage, identity and creativity.">
+    <title>Gallery | The Natives Art</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -12,39 +13,116 @@
     <header>
         <img src="images/tna-logo.jpg" alt="The Natives Art Logo" class="site-logo">
         <h1>The Natives Art</h1>
+
+        <nav class="main-nav">
+            <button class="menu-toggle" type="button" aria-label="Open menu">☰</button>
+            <div class="menu-overlay"></div>
+
+            <div class="nav-links">
+                <button class="menu-close" type="button" aria-label="Close menu">×</button>
+                <a href="index.html">Home</a>
+                <a href="featured.html">Gallery</a>
+                <a href="index.html#about">About</a>
+                <a href="index.html#contact">Contact</a>
+            </div>
+        </nav>
     </header>
 
     <main>
+
         <section class="gallery-page">
-            <h2>Featured Works</h2>
-            <p>Explore a collection of African-inspired artworks celebrating heritage, identity and creativity.</p>
+
+            <div class="gallery-intro">
+                <p class="gallery-label">THE NATIVES ART</p>
+                <h2>Featured Works</h2>
+                <p>
+                    Explore a collection of African-inspired artworks celebrating
+                    heritage, identity, culture and creativity.
+                </p>
+            </div>
 
             <div class="gallery">
 
-                <div class="art-card">
-                    <a href="artwork-heritage.html"><img src="images/art1.jpg" alt="Carriers of Heritage artwork"></a>
-                    <h3>Carriers of Heritage</h3>
-                    <p>A celebration of African heritage, identity and the stories carried from one generation to another.</p>
-                </div>
+                <article class="art-card">
+                    <a href="artwork-heritage.html" class="art-image-link">
+                        <img src="images/art1.jpg"
+                             alt="Carriers of Heritage artwork"
+                             class="art-image">
+                    </a>
 
-                <div class="art-card">
-                    <a href="artwork-mother-continent.html"><img src="images/art2.jpeg" alt="Mother Continent artwork"></a>
-                    <h3>Mother Continent</h3>
-                    <p>An artistic expression inspired by the beauty, strength and cultural richness of Africa.</p>
-                </div>
+                    <div class="art-info">
+                        <span class="art-category">HERITAGE &amp; IDENTITY</span>
+                        <h3>Carriers of Heritage</h3>
+                        <p>
+                            A celebration of African heritage, identity and the
+                            stories carried from one generation to another.
+                        </p>
 
-                <div class="art-card">
-                    <a href="artwork-roots-rhythm.html"><img src="images/art3.jpeg" alt="Roots and Rhythm artwork"></a>
-                    <h3>Roots &amp; Rhythm</h3>
-                    <p>A visual journey through African culture, tradition and contemporary artistic expression.</p>
-                </div>
+                        <a href="artwork-heritage.html" class="button">
+                            View Artwork
+                        </a>
+                    </div>
+                </article>
+
+                <article class="art-card">
+                    <a href="artwork-mother-continent.html" class="art-image-link">
+                        <img src="images/art2.jpeg"
+                             alt="Mother Continent artwork"
+                             class="art-image">
+                    </a>
+
+                    <div class="art-info">
+                        <span class="art-category">AFRICA &amp; CULTURE</span>
+                        <h3>Mother Continent</h3>
+                        <p>
+                            An artistic expression inspired by the beauty,
+                            strength and cultural richness of Africa.
+                        </p>
+
+                        <a href="artwork-mother-continent.html" class="button">
+                            View Artwork
+                        </a>
+                    </div>
+                </article>
+
+                <article class="art-card">
+                    <a href="artwork-roots-rhythm.html" class="art-image-link">
+                        <img src="images/art3.jpeg"
+                             alt="Roots and Rhythm artwork"
+                             class="art-image">
+                    </a>
+
+                    <div class="art-info">
+                        <span class="art-category">ROOTS &amp; EXPRESSION</span>
+                        <h3>Roots &amp; Rhythm</h3>
+                        <p>
+                            A visual journey through African culture, tradition
+                            and contemporary artistic expression.
+                        </p>
+
+                        <a href="artwork-roots-rhythm.html" class="button">
+                            View Artwork
+                        </a>
+                    </div>
+                </article>
 
             </div>
 
-            <a href="index.html" class="button">← Back to Home</a>
-        </section>
-    </main>
+            <div class="collection-note">
+                <span>THE COLLECTION</span>
+                <p>
+                    Each work tells a story. Discover the meaning, inspiration
+                    and details behind every piece.
+                </p>
+            </div>
 
+            <a href="index.html" class="button secondary-button">
+                ← Back to Home
+            </a>
+
+        </section>
+
+    </main>
 
     <script src="script.js" defer></script>
 
@@ -52,5 +130,6 @@
         <span class="close">&times;</span>
         <img id="lightbox-img" src="" alt="Artwork">
     </div>
-\n</body>
+
+</body>
 </html>
