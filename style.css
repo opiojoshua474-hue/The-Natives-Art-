@@ -1762,3 +1762,79 @@ footer {
     }
 
 }
+
+/* =========================================
+   FINAL ANIMATION & INTERACTION POLISH
+   ========================================= */
+
+html {
+    scroll-behavior: smooth;
+}
+
+.art-card,
+.related-card,
+.button {
+    -webkit-tap-highlight-color: transparent;
+}
+
+.button {
+    transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+.button:hover {
+    transform: translateY(-2px);
+}
+
+.button:active {
+    transform: translateY(0);
+}
+
+.art-card,
+.related-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.art-card:hover,
+.related-card:hover {
+    transform: translateY(-4px);
+}
+
+.artwork-detail-image {
+    overflow: hidden;
+}
+
+.artwork-detail-image img {
+    transition: transform 0.5s ease;
+}
+
+.artwork-detail-image:hover img {
+    transform: scale(1.02);
+}
+
+@media (hover: none) {
+
+    .button:hover,
+    .art-card:hover,
+    .related-card:hover,
+    .artwork-detail-image:hover img {
+        transform: none;
+    }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+}
