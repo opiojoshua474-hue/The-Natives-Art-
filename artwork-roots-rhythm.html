@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Roots & Rhythm | The Natives Art</title>
+    <meta name="description" content="Discover Roots & Rhythm, an African-inspired artwork from The Natives Art collection.">
+    <title>Roots &amp; Rhythm | The Natives Art</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
 <header>
@@ -14,17 +16,25 @@
         <h1>The Natives Art</h1>
     </div>
 
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="featured.html">Gallery</a>
-        <a href="index.html#about">About</a>
-        <a href="index.html#contact">Contact</a>
+    <nav class="main-nav">
+        <button class="menu-toggle" type="button" aria-label="Open menu">☰</button>
+        <div class="menu-overlay"></div>
+
+        <div class="nav-links">
+            <button class="menu-close" type="button" aria-label="Close menu">×</button>
+            <a href="index.html">Home</a>
+            <a href="featured.html">Gallery</a>
+            <a href="index.html#about">About</a>
+            <a href="index.html#contact">Contact</a>
+        </div>
     </nav>
 </header>
 
 <main class="artwork-page">
 
-    <a href="featured.html" class="back-link">← Back to Gallery</a>
+    <a href="featured.html" class="back-link">
+        ← Back to Gallery
+    </a>
 
     <section class="artwork-detail">
 
@@ -33,30 +43,57 @@
         </div>
 
         <div class="artwork-detail-info">
-            <p class="art-category">THE NATIVES ART COLLECTION</p>
 
-            <h2>Roots & Rhythm</h2>
+            <p class="art-category">
+                THE NATIVES ART COLLECTION
+            </p>
+
+            <h2>Roots &amp; Rhythm</h2>
 
             <p class="artwork-description">
-                Roots & Rhythm explores the relationship between heritage,
+                Roots &amp; Rhythm explores the relationship between heritage,
                 movement and the rhythms that shape African cultural life.
                 It is a celebration of tradition expressed through contemporary art.
             </p>
 
-            <div class="artwork-price">UGX 180,000</div>
-
-            <div class="artwork-meta">
-                <p><strong>Collection:</strong> African Heritage</p>
-                <p><strong>Medium:</strong> Contemporary African Art</p>
-                <p><strong>Availability:</strong> Available</p>
+            <div class="artwork-price">
+                UGX 180,000
             </div>
 
-            <a
-                href="https://wa.me/256787551195?text=Hello%20The%20Natives%20Art%2C%20I'm%20interested%20in%20the%20Roots%20%26%20Rhythm%20artwork."
-                class="button"
-                target="_blank">
-                Inquire on WhatsApp
-            </a>
+            <div class="artwork-meta">
+
+                <p>
+                    <strong>Collection</strong>
+                    <span>African Heritage</span>
+                </p>
+
+                <p>
+                    <strong>Medium</strong>
+                    <span>Contemporary African Art</span>
+                </p>
+
+                <p>
+                    <strong>Status</strong>
+                    <span>Available</span>
+                </p>
+
+            </div>
+
+            <div class="artwork-actions">
+
+                <a
+                    href="https://wa.me/256787551195?text=Hello%20The%20Natives%20Art%2C%20I'm%20interested%20in%20the%20Roots%20%26%20Rhythm%20artwork."
+                    class="button"
+                    target="_blank"
+                    rel="noopener">
+                    Inquire on WhatsApp
+                </a>
+
+                <a href="featured.html" class="button secondary-button">
+                    View Gallery
+                </a>
+
+            </div>
 
         </div>
 
@@ -64,14 +101,15 @@
 
 </main>
 
-
 <section class="related-artworks">
+
     <div class="related-heading">
         <p>THE COLLECTION</p>
         <h2>More from the Collection</h2>
     </div>
 
     <div class="related-grid">
+
         <a href="artwork-heritage.html" class="related-card">
             <img src="images/art1.jpg" alt="Carriers of Heritage artwork">
             <div>
@@ -87,7 +125,9 @@
                 <h3>Mother Continent</h3>
             </div>
         </a>
+
     </div>
+
 </section>
 
 <footer>
