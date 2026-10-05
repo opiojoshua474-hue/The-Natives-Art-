@@ -98,3 +98,53 @@ document.addEventListener("DOMContentLoaded", function () {
     if (menuClose) menuClose.addEventListener("click", closeMenu);
     if (menuOverlay) menuOverlay.addEventListener("click", closeMenu);
 });
+
+/* =========================================
+   TNA — GALLERY FILTERS
+   ========================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const filterButtons = document.querySelectorAll(".filter-btn");
+    const artworkCards = document.querySelectorAll(".gallery .art-card");
+
+    if (!filterButtons.length || !artworkCards.length) return;
+
+    filterButtons.forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            const filter = button.dataset.filter;
+
+            filterButtons.forEach(btn => {
+                btn.classList.remove("active");
+            });
+
+            button.classList.add("active");
+
+            artworkCards.forEach(card => {
+
+                const category = card.dataset.category;
+
+                if (filter === "all" || category === filter) {
+                    card.style.display = "";
+                    requestAnimationFrame(() => {
+                        card.classList.remove("filter-hidden");
+                    });
+                } else {
+                    card.classList.add("filter-hidden");
+
+                    setTimeout(() => {
+                        if (card.classList.contains("filter-hidden")) {
+                            card.style.display = "none";
+                        }
+                    }, 250);
+                }
+
+            });
+
+        });
+
+    });
+
+});

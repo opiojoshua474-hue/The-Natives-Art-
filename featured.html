@@ -12,6 +12,7 @@
 
     <title>Gallery | The Natives Art</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="gallery-premium.css">
 </head>
 
 <body>
@@ -36,97 +37,110 @@
 
     <main>
 
-        <section class="gallery-page">
+        <section class="gallery-page gallery-premium-clean">
 
-            <div class="gallery-intro">
-                <p class="gallery-label">THE NATIVES ART</p>
-                <h2>Featured Works</h2>
-                <p>
-                    Explore a collection of African-inspired artworks celebrating
-                    heritage, identity, culture and creativity.
-                </p>
-            </div>
+    <div class="gallery-intro">
+        <span class="gallery-label">THE COLLECTION</span>
+        <h2>Art With a Story to Tell</h2>
+        <p>
+            Discover original works shaped by heritage, identity and
+            the rhythm of African expression.
+        </p>
+    </div>
 
-            <div class="gallery">
+    <div class="featured-spotlight">
 
-                <article class="art-card">
-                    <a href="artwork-heritage.html" class="art-image-link">
-                        <img src="images/art1.jpg"
-                             alt="Carriers of Heritage artwork"
-                             class="art-image">
-                    </a>
+        <div class="spotlight-image">
+            <img src="images/art1.jpg" alt="Carriers of Heritage">
+        </div>
 
-                    <div class="art-info">
-                        <span class="art-category">HERITAGE &amp; IDENTITY</span>
-                        <h3>Carriers of Heritage</h3>
-                        <p>
-                            A celebration of African heritage, identity and the
-                            stories carried from one generation to another.
-                        </p>
+        <div class="spotlight-content">
+            <span class="spotlight-label">FEATURED WORK</span>
 
-                        <a href="artwork-heritage.html" class="button">
-                            View Artwork
-                        </a>
-                    </div>
-                </article>
+            <h2>Carriers of Heritage</h2>
 
-                <article class="art-card">
-                    <a href="artwork-mother-continent.html" class="art-image-link">
-                        <img src="images/art2.jpeg"
-                             alt="Mother Continent artwork"
-                             class="art-image">
-                    </a>
+            <p class="spotlight-category">
+                HERITAGE &amp; IDENTITY
+            </p>
 
-                    <div class="art-info">
-                        <span class="art-category">AFRICA &amp; CULTURE</span>
-                        <h3>Mother Continent</h3>
-                        <p>
-                            An artistic expression inspired by the beauty,
-                            strength and cultural richness of Africa.
-                        </p>
+            <p>
+                A celebration of the people, stories and traditions
+                carried from one generation to another. This work
+                reflects the quiet strength of heritage and the
+                responsibility of preserving what defines us.
+            </p>
 
-                        <a href="artwork-mother-continent.html" class="button">
-                            View Artwork
-                        </a>
-                    </div>
-                </article>
+            <a href="artwork-heritage.html" class="spotlight-button">
+                Explore Artwork
+            </a>
+        </div>
 
-                <article class="art-card">
-                    <a href="artwork-roots-rhythm.html" class="art-image-link">
-                        <img src="images/art3.jpeg"
-                             alt="Roots and Rhythm artwork"
-                             class="art-image">
-                    </a>
+    </div>
 
-                    <div class="art-info">
-                        <span class="art-category">ROOTS &amp; EXPRESSION</span>
-                        <h3>Roots &amp; Rhythm</h3>
-                        <p>
-                            A visual journey through African culture, tradition
-                            and contemporary artistic expression.
-                        </p>
+    <div class="gallery-filters" aria-label="Artwork categories">
+    <button class="filter-btn active" data-filter="all">All Works</button>
+    <button class="filter-btn" data-filter="heritage">Heritage &amp; Identity</button>
+    <button class="filter-btn" data-filter="africa">Africa &amp; Culture</button>
+    <button class="filter-btn" data-filter="roots">Roots &amp; Expression</button>
+</div>
 
-                        <a href="artwork-roots-rhythm.html" class="button">
-                            View Artwork
-                        </a>
-                    </div>
-                </article>
+<div class="gallery-divider">
+        <span>THE COLLECTION</span>
+    </div>
 
-            </div>
+    <div class="gallery">
 
-            <div class="collection-note">
-                <span>THE COLLECTION</span>
-                <p>
-                    Each work tells a story. Discover the meaning, inspiration
-                    and details behind every piece.
-                </p>
-            </div>
-
-            <a href="index.html" class="button secondary-button">
-                ← Back to Home
+        <article class="art-card" data-category="africa">
+            <a href="artwork-mother-continent.html" class="art-image-link">
+                <img src="images/art2.jpeg"
+                     alt="Mother Continent"
+                     class="art-image">
             </a>
 
-        </section>
+            <div class="art-info">
+                <span class="art-category">AFRICA &amp; CULTURE</span>
+                <h3>Mother Continent</h3>
+                <p>
+                    A visual tribute to Africa, its identity,
+                    strength and enduring spirit.
+                </p>
+                <a href="artwork-mother-continent.html" class="view-btn">
+                    View Artwork
+                </a>
+            </div>
+        </article>
+
+        <article class="art-card" data-category="roots">
+            <a href="artwork-roots-rhythm.html" class="art-image-link">
+                <img src="images/art3.jpeg"
+                     alt="Roots &amp; Rhythm"
+                     class="art-image">
+            </a>
+
+            <div class="art-info">
+                <span class="art-category">ROOTS &amp; EXPRESSION</span>
+                <h3>Roots &amp; Rhythm</h3>
+                <p>
+                    Where ancestral roots meet movement,
+                    expression and contemporary African creativity.
+                </p>
+                <a href="artwork-roots-rhythm.html" class="view-btn">
+                    View Artwork
+                </a>
+            </div>
+        </article>
+
+    </div>
+
+    <div class="collection-note">
+        <p>Each artwork carries a story. Explore the collection.</p>
+    </div>
+
+    <a href="index.html" class="back-home">
+        ← Back to Home
+    </a>
+
+</section>
 
     </main>
 
