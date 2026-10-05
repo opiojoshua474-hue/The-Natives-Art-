@@ -2802,3 +2802,240 @@ footer::before {
     }
 }
 
+
+/* =========================================
+   TNA — HERITAGE ARTWORK REFINEMENT
+   ========================================= */
+
+body.artwork-page-redesign .artwork-detail-image {
+    position: relative;
+    background: #e9e1d5;
+    padding: 28px;
+    border: 1px solid rgba(138, 106, 67, 0.18);
+    box-shadow: 0 22px 55px rgba(23, 18, 14, 0.12);
+}
+
+body.artwork-page-redesign .artwork-detail-image::after {
+    content: "THE NATIVES ART";
+    position: absolute;
+    left: 28px;
+    bottom: 12px;
+    font-size: 0.58rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: rgba(23, 18, 14, 0.42);
+    pointer-events: none;
+}
+
+body.artwork-page-redesign .artwork-detail-image img {
+    transition: transform 0.7s ease;
+}
+
+body.artwork-page-redesign .artwork-detail-image:hover img {
+    transform: scale(1.015);
+}
+
+body.artwork-page-redesign .artwork-detail-info .art-category {
+    margin-bottom: 20px;
+    color: #a8753f;
+    letter-spacing: 3px;
+}
+
+body.artwork-page-redesign .artwork-detail-info h2 {
+    font-size: clamp(2.8rem, 4.5vw, 4.6rem);
+    line-height: 0.98;
+    letter-spacing: -1.8px;
+}
+
+body.artwork-page-redesign .artwork-description {
+    max-width: 500px;
+}
+
+body.artwork-page-redesign .artwork-price {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.9rem;
+    letter-spacing: 0.2px;
+}
+
+body.artwork-page-redesign .artwork-meta {
+    max-width: 500px;
+}
+
+body.artwork-page-redesign .artwork-actions .button {
+    min-width: 175px;
+}
+
+@media (max-width: 800px) {
+    body.artwork-page-redesign .artwork-detail-image {
+        padding: 14px;
+    }
+
+    body.artwork-page-redesign .artwork-detail-image::after {
+        left: 15px;
+        bottom: 5px;
+        font-size: 0.5rem;
+    }
+
+    body.artwork-page-redesign .artwork-detail-info h2 {
+        font-size: clamp(2.5rem, 10vw, 3.6rem);
+    }
+}
+
+
+/* =========================================
+   TNA — MOTHER CONTINENT ARTWORK REFINEMENT
+   ========================================= */
+
+body.artwork-page-redesign .artwork-detail-image {
+    position: relative;
+    background: #e6ddd0;
+    padding: 30px;
+    border: 1px solid rgba(138, 106, 67, 0.20);
+    box-shadow: 0 24px 60px rgba(23, 18, 14, 0.13);
+}
+
+body.artwork-page-redesign .artwork-detail-image::after {
+    content: "MOTHER CONTINENT";
+    position: absolute;
+    left: 30px;
+    bottom: 12px;
+    font-size: 0.56rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: rgba(23, 18, 14, 0.40);
+    pointer-events: none;
+}
+
+body.artwork-page-redesign .artwork-detail-image img {
+    transition: transform 0.7s ease;
+}
+
+body.artwork-page-redesign .artwork-detail-image:hover img {
+    transform: scale(1.015);
+}
+
+body.artwork-page-redesign .artwork-detail-info .art-category {
+    color: #a8753f;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+}
+
+body.artwork-page-redesign .artwork-detail-info h2 {
+    font-size: clamp(2.8rem, 4.5vw, 4.6rem);
+    line-height: 0.98;
+    letter-spacing: -1.8px;
+}
+
+body.artwork-page-redesign .artwork-description {
+    max-width: 500px;
+}
+
+body.artwork-page-redesign .artwork-price {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.9rem;
+    letter-spacing: 0.2px;
+}
+
+body.artwork-page-redesign .artwork-meta {
+    max-width: 500px;
+}
+
+body.artwork-page-redesign .artwork-actions .button {
+    min-width: 175px;
+}
+
+@media (max-width: 800px) {
+    body.artwork-page-redesign .artwork-detail-image {
+        padding: 14px;
+    }
+
+    body.artwork-page-redesign .artwork-detail-image::after {
+        left: 15px;
+        bottom: 5px;
+        font-size: 0.48rem;
+    }
+
+    body.artwork-page-redesign .artwork-detail-info h2 {
+        font-size: clamp(2.5rem, 10vw, 3.6rem);
+    }
+}
+
+
+/* =========================================
+   TNA — ROOTS & RHYTHM ARTWORK REFINEMENT
+   ========================================= */
+
+body.roots-rhythm-page .artwork-detail-image {
+    position: relative;
+    background: #e6ddd0;
+    padding: 18px;
+    border: 1px solid rgba(138, 106, 67, 0.20);
+    box-shadow: 0 24px 60px rgba(23, 18, 14, 0.13);
+}
+
+body.roots-rhythm-page .artwork-detail-image::after {
+    content: "ROOTS & RHYTHM";
+    position: absolute;
+    left: 18px;
+    bottom: 7px;
+    font-size: 0.54rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: rgba(23, 18, 14, 0.40);
+    pointer-events: none;
+}
+
+body.roots-rhythm-page .artwork-detail-image img {
+    transition: transform 0.7s ease;
+}
+
+body.roots-rhythm-page .artwork-detail-image:hover img {
+    transform: scale(1.012);
+}
+
+body.roots-rhythm-page .artwork-detail-info .art-category {
+    color: #a8753f;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+}
+
+body.roots-rhythm-page .artwork-detail-info h2 {
+    font-size: clamp(2.8rem, 4.5vw, 4.6rem);
+    line-height: 0.98;
+    letter-spacing: -1.8px;
+}
+
+body.roots-rhythm-page .artwork-description {
+    max-width: 500px;
+}
+
+body.roots-rhythm-page .artwork-price {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.9rem;
+    letter-spacing: 0.2px;
+}
+
+body.roots-rhythm-page .artwork-meta {
+    max-width: 500px;
+}
+
+body.roots-rhythm-page .artwork-actions .button {
+    min-width: 175px;
+}
+
+@media (max-width: 800px) {
+    body.roots-rhythm-page .artwork-detail-image {
+        padding: 10px;
+    }
+
+    body.roots-rhythm-page .artwork-detail-image::after {
+        left: 11px;
+        bottom: 4px;
+        font-size: 0.46rem;
+    }
+
+    body.roots-rhythm-page .artwork-detail-info h2 {
+        font-size: clamp(2.5rem, 10vw, 3.6rem);
+    }
+}
+
