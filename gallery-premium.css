@@ -469,3 +469,43 @@
     }
 }
 
+
+/* =========================================
+   TNA — MOBILE GALLERY POLISH
+   ========================================= */
+
+@media (max-width: 600px) {
+
+    .gallery-premium-clean .gallery {
+        gap: 24px;
+    }
+
+    .gallery-premium-clean .gallery .art-image-link {
+        height: 320px;
+    }
+
+    .gallery-premium-clean .gallery .art-info {
+        padding: 26px 22px 28px;
+    }
+
+    .gallery-premium-clean .gallery .art-info h3 {
+        font-size: 28px;
+        line-height: 1.2;
+    }
+
+    .gallery-premium-clean .gallery .art-info p {
+        font-size: 0.93rem;
+        line-height: 1.7;
+        margin-bottom: 21px;
+    }
+
+    .gallery-premium-clean .gallery .view-btn {
+        min-height: 44px;
+        padding: 0 17px;
+    }
+
+    .gallery-premium-clean .gallery .art-card {
+        box-shadow: 0 9px 28px rgba(23, 18, 14, 0.09);
+    }
+}
+
