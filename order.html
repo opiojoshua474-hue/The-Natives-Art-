@@ -219,6 +219,26 @@
             background: #f3ebdd;
         }
 
+        .order-review[hidden] {
+            display: none !important;
+        }
+
+        .order-review {
+            margin-top: 24px;
+            scroll-margin-top: 24px;
+        }
+
+        .order-review .order-summary-row strong {
+            max-width: 62%;
+            overflow-wrap: anywhere;
+            text-align: right;
+        }
+
+        .order-review button + button,
+        .order-review button + a {
+            margin-top: 12px;
+        }
+
         @media (max-width: 540px) {
             .order-page {
                 padding: 38px 14px 55px;
@@ -358,7 +378,7 @@
                 </p>
 
                 <button class="order-submit" type="submit">
-                    Continue to WhatsApp
+                    Review Order
                 </button>
 
                 <a class="order-back" href="featured.html">
@@ -366,6 +386,66 @@
                 </a>
 
             </form>
+
+            <section class="order-card order-review" id="order-review" hidden>
+                <h2 class="order-section-title">Review Your Order</h2>
+                <p class="order-note">
+                    Check your artwork selection and contact details before continuing.
+                </p>
+
+                <div class="order-summary">
+                    <div class="order-summary-row">
+                        <span>Artwork</span>
+                        <strong id="review-artwork"></strong>
+                    </div>
+                    <div class="order-summary-row">
+                        <span>Unit price</span>
+                        <strong id="review-price"></strong>
+                    </div>
+                    <div class="order-summary-row">
+                        <span>Quantity</span>
+                        <strong id="review-quantity"></strong>
+                    </div>
+                    <div class="order-summary-row total">
+                        <span>Subtotal</span>
+                        <strong id="review-total"></strong>
+                    </div>
+                </div>
+
+                <h2 class="order-section-title">Customer Details</h2>
+                <div class="order-summary">
+                    <div class="order-summary-row">
+                        <span>Full name</span>
+                        <strong id="review-name"></strong>
+                    </div>
+                    <div class="order-summary-row">
+                        <span>Phone</span>
+                        <strong id="review-phone"></strong>
+                    </div>
+                    <div class="order-summary-row">
+                        <span>Delivery location</span>
+                        <strong id="review-location"></strong>
+                    </div>
+                    <div class="order-summary-row">
+                        <span>Instructions</span>
+                        <strong id="review-notes"></strong>
+                    </div>
+                </div>
+
+                <p class="order-note">
+                    Delivery charges are not included. Availability, delivery
+                    arrangements and payment must still be confirmed by The Natives Art.
+                    Continuing to WhatsApp sends an inquiry, not a confirmed purchase.
+                </p>
+
+                <button class="order-submit" id="confirm-order" type="button">
+                    Confirm &amp; Continue to WhatsApp
+                </button>
+                <button class="order-back" id="edit-order" type="button">
+                    Edit Details
+                </button>
+                <a class="order-back" href="featured.html">Return to Gallery</a>
+            </section>
         </div>
     </main>
 
@@ -377,9 +457,26 @@
             const priceOutput = document.getElementById("summary-price");
             const quantityOutput = document.getElementById("summary-quantity");
             const totalOutput = document.getElementById("summary-total");
+            const reviewPanel = document.getElementById("order-review");
 
             const money = amount =>
                 "UGX " + amount.toLocaleString("en-UG");
+
+            function getOrder() {
+                const option = artwork.options[artwork.selectedIndex];
+                const price = Number(option.dataset.price);
+                const qty = Number(quantity.value);
+
+                return {
+                    option,
+                    price,
+                    qty,
+                    name: document.getElementById("order-name").value.trim(),
+                    phone: document.getElementById("order-phone").value.trim(),
+                    location: document.getElementById("order-location").value.trim(),
+                    notes: document.getElementById("order-notes").value.trim()
+                };
+            }
 
             function updateSummary() {
                 const option = artwork.options[artwork.selectedIndex];
@@ -412,36 +509,61 @@
 
                 if (!form.reportValidity()) return;
 
-                const option = artwork.options[artwork.selectedIndex];
-                const price = Number(option.dataset.price);
-                const qty = Number(quantity.value);
+                const order = getOrder();
 
-                if (!Number.isInteger(qty) || qty < 1 || qty > 20) {
+                if (!Number.isInteger(order.qty) ||
+                    order.qty < 1 || order.qty > 20) {
                     quantity.setCustomValidity("Choose a quantity from 1 to 20.");
                     quantity.reportValidity();
                     quantity.setCustomValidity("");
                     return;
                 }
 
-                const name = document.getElementById("order-name").value.trim();
-                const phone = document.getElementById("order-phone").value.trim();
-                const location = document.getElementById("order-location").value.trim();
-                const notes = document.getElementById("order-notes").value.trim();
+                document.getElementById("review-artwork").textContent =
+                    order.option.value;
+                document.getElementById("review-price").textContent =
+                    money(order.price);
+                document.getElementById("review-quantity").textContent =
+                    order.qty;
+                document.getElementById("review-total").textContent =
+                    money(order.price * order.qty);
+                document.getElementById("review-name").textContent =
+                    order.name;
+                document.getElementById("review-phone").textContent =
+                    order.phone;
+                document.getElementById("review-location").textContent =
+                    order.location;
+                document.getElementById("review-notes").textContent =
+                    order.notes || "None";
+
+                form.hidden = true;
+                reviewPanel.hidden = false;
+                reviewPanel.scrollIntoView({ behavior: "smooth", block: "start" });
+            });
+
+            document.getElementById("edit-order").addEventListener("click", function () {
+                reviewPanel.hidden = true;
+                form.hidden = false;
+                form.scrollIntoView({ behavior: "smooth", block: "start" });
+            });
+
+            document.getElementById("confirm-order").addEventListener("click", function () {
+                const order = getOrder();
 
                 const message = [
                     "Hello The Natives Art! I'd like to place an order inquiry.",
                     "",
-                    "Artwork: " + option.value,
-                    "Unit price: " + money(price),
-                    "Quantity: " + qty,
-                    "Subtotal: " + money(price * qty),
+                    "Artwork: " + order.option.value,
+                    "Unit price: " + money(order.price),
+                    "Quantity: " + order.qty,
+                    "Subtotal: " + money(order.price * order.qty),
                     "",
-                    "Customer name: " + name,
-                    "Customer phone: " + phone,
-                    "Delivery location: " + location,
-                    "Additional instructions: " + (notes || "None"),
+                    "Customer name: " + order.name,
+                    "Customer phone: " + order.phone,
+                    "Delivery location: " + order.location,
+                    "Additional instructions: " + (order.notes || "None"),
                     "",
-                    "Please confirm availability and delivery charges."
+                    "Please confirm artwork availability and delivery charges."
                 ].join("\n");
 
                 const whatsappURL =
