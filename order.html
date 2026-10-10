@@ -228,6 +228,29 @@
             scroll-margin-top: 24px;
         }
 
+        .review-artwork-preview {
+            margin: 16px 0 22px;
+            text-align: center;
+        }
+
+        .review-artwork-preview img {
+            display: block;
+            width: 100%;
+            max-width: 340px;
+            max-height: 340px;
+            object-fit: contain;
+            margin: 0 auto;
+            border-radius: 7px;
+            background: #f3ebdd;
+        }
+
+        .review-artwork-preview h3 {
+            margin: 12px 0 0;
+            color: #17120e;
+            font-family: Georgia, serif;
+            font-size: 20px;
+        }
+
         .order-review .order-summary-row strong {
             max-width: 62%;
             overflow-wrap: anywhere;
@@ -393,6 +416,14 @@
                     Check your artwork selection and contact details before continuing.
                 </p>
 
+                <div class="review-artwork-preview">
+                    <img
+                        id="review-image"
+                        src="images/art1.jpg"
+                        alt="Preview of the selected artwork">
+                    <h3 id="review-image-title">Carriers of Heritage</h3>
+                </div>
+
                 <div class="order-summary">
                     <div class="order-summary-row">
                         <span>Artwork</span>
@@ -518,6 +549,18 @@
                     quantity.setCustomValidity("");
                     return;
                 }
+
+                const artworkImages = {
+                    "Carriers of Heritage": "images/art1.jpg",
+                    "Mother Continent": "images/art2.jpeg",
+                    "Roots & Rhythm": "images/art3.jpeg"
+                };
+
+                const reviewImage = document.getElementById("review-image");
+                reviewImage.src = artworkImages[order.option.value];
+                reviewImage.alt = "Preview of " + order.option.value;
+                document.getElementById("review-image-title").textContent =
+                    order.option.value;
 
                 document.getElementById("review-artwork").textContent =
                     order.option.value;
