@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#17120e">
+    <meta name="description" content="Order original African art from The Natives Art collection.">
+    <title>Order Artwork | The Natives Art</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        body:has(.order-page) {
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        .order-page,
+        .order-page * {
+            box-sizing: border-box;
+        }
+
+        .order-page {
+            position: relative;
+            width: 100%;
+            min-width: 0;
+            overflow-x: clip;
+        }
+
+        .order-page .order-heading {
+            display: block;
+            position: relative;
+            width: 100%;
+            max-width: 100%;
+            margin: 0 auto 28px;
+            padding: 0;
+            text-align: center;
+        }
+
+        .order-page .order-heading h1 {
+            display: block;
+            position: static;
+            width: 100%;
+            max-width: 100%;
+            margin: 12px 0 16px;
+            padding: 0;
+            font-size: clamp(2rem, 7vw, 3.2rem);
+            line-height: 1.15;
+            overflow-wrap: anywhere;
+        }
+
+        .order-page {
+            min-height: 75vh;
+            padding: 55px 20px 80px;
+            background: #f5f1e8;
+            color: #17120e;
+        }
+
+        .order-container {
+            max-width: 760px;
+            margin: 0 auto;
+        }
+
+        .order-heading {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .order-heading .order-eyebrow {
+            color: #8a6a43;
+            letter-spacing: 3px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .order-heading h1 {
+            margin: 12px 0;
+            font-family: Georgia, serif;
+            font-size: clamp(30px, 6vw, 46px);
+        }
+
+        .order-heading p {
+            max-width: 520px;
+            margin: 0 auto;
+            line-height: 1.8;
+            color: #62594e;
+        }
+
+        .order-card {
+            padding: clamp(20px, 5vw, 38px);
+            background: #fffdf8;
+            border: 1px solid #e5dac8;
+            border-radius: 12px;
+            box-shadow: 0 12px 36px rgba(23, 18, 14, .07);
+        }
+
+        .order-section-title {
+            margin: 0 0 20px;
+            font-family: Georgia, serif;
+            font-size: 23px;
+        }
+
+        .order-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .order-field {
+            min-width: 0;
+            margin-bottom: 19px;
+        }
+
+        .order-field.full {
+            grid-column: 1 / -1;
+        }
+
+        .order-field label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .order-field input,
+        .order-field select,
+        .order-field textarea {
+            display: block;
+            width: 100%;
+            min-height: 48px;
+            padding: 12px;
+            border: 1px solid #d9cebd;
+            border-radius: 5px;
+            background: #fff;
+            color: #17120e;
+            font: inherit;
+            box-sizing: border-box;
+        }
+
+        .order-field textarea {
+            min-height: 95px;
+            resize: vertical;
+        }
+
+        .order-field input:focus,
+        .order-field select:focus,
+        .order-field textarea:focus {
+            outline: 2px solid #c47b32;
+            outline-offset: 2px;
+        }
+
+        .order-divider {
+            border: 0;
+            border-top: 1px solid #e5dac8;
+            margin: 10px 0 27px;
+        }
+
+        .order-summary {
+            margin: 8px 0 25px;
+            padding: 20px;
+            background: #f3ebdd;
+            border-radius: 7px;
+        }
+
+        .order-summary-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 16px;
+            margin: 10px 0;
+            line-height: 1.5;
+        }
+
+        .order-summary-row.total {
+            padding-top: 14px;
+            border-top: 1px solid #d9c8ad;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .order-note {
+            color: #62594e;
+            font-size: 13px;
+            line-height: 1.7;
+            margin: 14px 0 22px;
+        }
+
+        .order-submit,
+        .order-back {
+            display: block;
+            width: 100%;
+            padding: 15px 18px;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            font: inherit;
+            font-weight: bold;
+            cursor: pointer;
+            box-sizing: border-box;
+        }
+
+        .order-submit {
+            border: 1px solid #17120e;
+            background: #17120e;
+            color: #fff;
+        }
+
+        .order-submit:hover {
+            background: #8a5427;
+            border-color: #8a5427;
+        }
+
+        .order-back {
+            margin-top: 12px;
+            border: 1px solid #cfc1ad;
+            background: transparent;
+            color: #17120e;
+        }
+
+        .order-back:hover {
+            background: #f3ebdd;
+        }
+
+        @media (max-width: 540px) {
+            .order-page {
+                padding: 38px 14px 55px;
+            }
+
+            .order-grid {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+            .order-field.full {
+                grid-column: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="order-page">
+        <div class="order-container">
+
+            <header class="order-heading">
+                <span class="order-eyebrow">THE NATIVES ART COLLECTION</span>
+                <h1>Order Your Artwork</h1>
+                <p>
+                    Bring African heritage into your space.
+                    Complete the form below to send your order inquiry directly to us.
+                </p>
+            </header>
+
+            <form class="order-card" id="art-order-form">
+
+                <h2 class="order-section-title">Your artwork</h2>
+
+                <div class="order-field">
+                    <label for="order-artwork">Select artwork *</label>
+                    <select id="order-artwork" name="artwork" required>
+                        <option value="Carriers of Heritage" data-price="150000">
+                            Carriers of Heritage — UGX 150,000
+                        </option>
+                        <option value="Mother Continent" data-price="200000">
+                            Mother Continent — UGX 200,000
+                        </option>
+                        <option value="Roots & Rhythm" data-price="180000">
+                            Roots &amp; Rhythm — UGX 180,000
+                        </option>
+                    </select>
+                </div>
+
+                <div class="order-field">
+                    <label for="order-quantity">Quantity *</label>
+                    <input
+                        id="order-quantity"
+                        name="quantity"
+                        type="number"
+                        min="1"
+                        max="20"
+                        step="1"
+                        value="1"
+                        required>
+                </div>
+
+                <hr class="order-divider">
+
+                <h2 class="order-section-title">Your details</h2>
+
+                <div class="order-grid">
+                    <div class="order-field">
+                        <label for="order-name">Full name *</label>
+                        <input
+                            id="order-name"
+                            name="customerName"
+                            type="text"
+                            autocomplete="name"
+                            maxlength="100"
+                            required
+                            placeholder="Your full name">
+                    </div>
+
+                    <div class="order-field">
+                        <label for="order-phone">Phone number *</label>
+                        <input
+                            id="order-phone"
+                            name="customerPhone"
+                            type="tel"
+                            autocomplete="tel"
+                            maxlength="25"
+                            required
+                            placeholder="e.g. 07XXXXXXXX">
+                    </div>
+
+                    <div class="order-field full">
+                        <label for="order-location">Delivery location *</label>
+                        <input
+                            id="order-location"
+                            name="deliveryLocation"
+                            type="text"
+                            autocomplete="street-address"
+                            maxlength="200"
+                            required
+                            placeholder="Town or district">
+                    </div>
+
+                    <div class="order-field full">
+                        <label for="order-notes">Additional instructions (optional)</label>
+                        <textarea
+                            id="order-notes"
+                            name="notes"
+                            maxlength="500"
+                            placeholder="Ask about artwork dimensions, delivery, or other details."></textarea>
+                    </div>
+                </div>
+
+                <h2 class="order-section-title">Order summary</h2>
+
+                <div class="order-summary" aria-live="polite">
+                    <div class="order-summary-row">
+                        <span>Artwork price</span>
+                        <strong id="summary-price">UGX 150,000</strong>
+                    </div>
+
+                    <div class="order-summary-row">
+                        <span>Quantity</span>
+                        <strong id="summary-quantity">1</strong>
+                    </div>
+
+                    <div class="order-summary-row total">
+                        <span>Subtotal</span>
+                        <strong id="summary-total">UGX 150,000</strong>
+                    </div>
+                </div>
+
+                <p class="order-note">
+                    Delivery charges, availability and final payment arrangements
+                    will be confirmed with you. Subtotal excludes delivery.
+                    Submitting this form sends an inquiry; it does not confirm a purchase.
+                </p>
+
+                <button class="order-submit" type="submit">
+                    Continue to WhatsApp
+                </button>
+
+                <a class="order-back" href="featured.html">
+                    Return to Gallery
+                </a>
+
+            </form>
+        </div>
+    </main>
+
+    <script>
+        (function () {
+            const form = document.getElementById("art-order-form");
+            const artwork = document.getElementById("order-artwork");
+            const quantity = document.getElementById("order-quantity");
+            const priceOutput = document.getElementById("summary-price");
+            const quantityOutput = document.getElementById("summary-quantity");
+            const totalOutput = document.getElementById("summary-total");
+
+            const money = amount =>
+                "UGX " + amount.toLocaleString("en-UG");
+
+            function updateSummary() {
+                const option = artwork.options[artwork.selectedIndex];
+                const price = Number(option.dataset.price);
+                const qty = Math.max(1, Math.min(20, Number(quantity.value) || 1));
+
+                priceOutput.textContent = money(price);
+                quantityOutput.textContent = qty;
+                totalOutput.textContent = money(price * qty);
+            }
+
+            const requestedArtwork =
+                new URLSearchParams(window.location.search).get("artwork");
+
+            if (requestedArtwork) {
+                for (const option of artwork.options) {
+                    if (option.value === requestedArtwork) {
+                        artwork.value = requestedArtwork;
+                        break;
+                    }
+                }
+            }
+
+            artwork.addEventListener("change", updateSummary);
+            quantity.addEventListener("input", updateSummary);
+            updateSummary();
+
+            form.addEventListener("submit", function (event) {
+                event.preventDefault();
+
+                if (!form.reportValidity()) return;
+
+                const option = artwork.options[artwork.selectedIndex];
+                const price = Number(option.dataset.price);
+                const qty = Number(quantity.value);
+
+                if (!Number.isInteger(qty) || qty < 1 || qty > 20) {
+                    quantity.setCustomValidity("Choose a quantity from 1 to 20.");
+                    quantity.reportValidity();
+                    quantity.setCustomValidity("");
+                    return;
+                }
+
+                const name = document.getElementById("order-name").value.trim();
+                const phone = document.getElementById("order-phone").value.trim();
+                const location = document.getElementById("order-location").value.trim();
+                const notes = document.getElementById("order-notes").value.trim();
+
+                const message = [
+                    "Hello The Natives Art! I'd like to place an order inquiry.",
+                    "",
+                    "Artwork: " + option.value,
+                    "Unit price: " + money(price),
+                    "Quantity: " + qty,
+                    "Subtotal: " + money(price * qty),
+                    "",
+                    "Customer name: " + name,
+                    "Customer phone: " + phone,
+                    "Delivery location: " + location,
+                    "Additional instructions: " + (notes || "None"),
+                    "",
+                    "Please confirm availability and delivery charges."
+                ].join("\n");
+
+                const whatsappURL =
+                    "https://wa.me/256787551195?text=" +
+                    encodeURIComponent(message);
+
+                window.location.href = whatsappURL;
+            });
+        })();
+    </script>
+</body>
+</html>
