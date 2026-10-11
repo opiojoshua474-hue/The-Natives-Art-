@@ -228,6 +228,55 @@
             scroll-margin-top: 24px;
         }
 
+        .order-next-steps {
+            margin: 22px 0;
+            padding: 20px;
+            border: 1px solid #e4d5c0;
+            border-left: 4px solid #c47b32;
+            border-radius: 8px;
+            background: #f8f3ea;
+            color: #17120e;
+        }
+
+        .order-next-steps h3 {
+            margin: 0 0 16px;
+            font-family: Georgia, serif;
+            font-size: 20px;
+        }
+
+        .order-next-steps ol {
+            margin: 0;
+            padding-left: 22px;
+        }
+
+        .order-next-steps li {
+            padding-left: 4px;
+        }
+
+        .order-next-steps li + li {
+            margin-top: 14px;
+        }
+
+        .order-next-steps li::marker {
+            color: #a76528;
+            font-weight: 700;
+        }
+
+        .order-next-steps li strong,
+        .order-next-steps li span {
+            display: block;
+        }
+
+        .order-next-steps li strong {
+            margin-bottom: 4px;
+        }
+
+        .order-next-steps li span {
+            color: #65584a;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
         .review-artwork-preview {
             margin: 16px 0 22px;
             text-align: center;
@@ -472,6 +521,24 @@
                     arrangements and payment must still be confirmed by The Natives Art.
                     Continuing to WhatsApp sends an inquiry, not a confirmed purchase.
                 </p>
+
+                <div class="order-next-steps">
+                    <h3>What happens next?</h3>
+                    <ol>
+                        <li>
+                            <strong>Send your inquiry</strong>
+                            <span>Your selected artwork and order details will be sent to us on WhatsApp.</span>
+                        </li>
+                        <li>
+                            <strong>Confirm the details</strong>
+                            <span>We'll discuss artwork availability, delivery charges and payment arrangements.</span>
+                        </li>
+                        <li>
+                            <strong>Finalize your order</strong>
+                            <span>Proceed once the details have been agreed with The Natives Art.</span>
+                        </li>
+                    </ol>
+                </div>
 
                 <button class="order-submit" id="confirm-order" type="button">
                     Confirm &amp; Continue to WhatsApp
