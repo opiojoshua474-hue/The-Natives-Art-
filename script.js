@@ -107,8 +107,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const filterButtons = document.querySelectorAll(".filter-btn");
     const artworkCards = document.querySelectorAll(".gallery .art-card");
+    const featuredSpotlight = document.querySelector(".featured-spotlight");
 
-    if (!filterButtons.length || !artworkCards.length) return;
+    if (!filterButtons.length || (!artworkCards.length && !featuredSpotlight)) return;
 
     filterButtons.forEach(button => {
 
@@ -121,6 +122,11 @@ document.addEventListener("DOMContentLoaded", () => {
             });
 
             button.classList.add("active");
+
+            if (featuredSpotlight) {
+                featuredSpotlight.style.display =
+                    (filter === "all" || filter === "heritage") ? "" : "none";
+            }
 
             artworkCards.forEach(card => {
 
