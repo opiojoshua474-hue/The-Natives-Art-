@@ -24,7 +24,7 @@
 .gallery-premium-clean .gallery-intro h2 {
     margin: 0 0 18px;
     color: #17120e;
-    font-family: Georgia, "Times New Roman", serif;
+    font-family: "Playfair Display", Georgia, serif;
     font-size: clamp(38px, 5vw, 58px);
     font-weight: 500;
     line-height: 1.05;
@@ -84,7 +84,7 @@
 .gallery-premium-clean .spotlight-content h2 {
     margin: 0 0 18px;
     color: #f5f1e8;
-    font-family: Georgia, "Times New Roman", serif;
+    font-family: "Playfair Display", Georgia, serif;
     font-size: clamp(32px, 4vw, 48px);
     font-weight: 500;
     line-height: 1.1;
@@ -208,7 +208,7 @@
 .gallery-premium-clean .gallery .art-info h3 {
     margin: 0 0 9px;
     color: #17120e;
-    font-family: Georgia, "Times New Roman", serif;
+    font-family: "Playfair Display", Georgia, serif;
     font-size: 27px;
     font-weight: 500;
 }

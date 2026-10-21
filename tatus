@@ -1,0 +1,91 @@
+[33m1e692d3[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m Fix featured artwork gallery filtering
+[33ma127a32[m Improve artwork storytelling descriptions
+[33m3dac6ad[m Clarify delivery and payment confirmation
+[33m6204fd9[m Improve customer order guidance
+[33m97f53fe[m Add physical size to order review
+[33me19fe66[m Show artwork previews in order review
+[33m0703864[m Add customer order review step
+[33me13e71a[m Add physical size fields to artwork details
+[33m3fbf9e1[m Add artwork ordering page and order buttons
+[33m7aec7ca[m Fix Karamoja CSS comment
+[33m2d785c9[m Add Karamoja visual to heritage page
+[33m0ddd41b[m Add premium heritage page
+[33mc98c76f[m Add premium heritage section to homepage
+[33mc6728e0[m Add site-wide final polish
+[33m9a92720[m Refine homepage header
+[33m9db2318[m Refine homepage footer
+[33m94d0f7b[m Refine homepage contact section
+[33mf77a62a[m Refine homepage about section
+[33mbc4cae5[m Refine homepage hero
+[33m6d23bc6[m Add gallery mobile polish backup
+[33m26f0640[m Refine artwork detail pages
+[33me5620c7[m Polish mobile gallery layout
+[33ma99e1f7[m Polish premium gallery artwork cards
+[33m59ed081[m Polish artwork page styling
+[33me21790f[m Refine Mother Continent artwork page
+[33ma5e8507[m Fix featured artwork heading styling
+[33m169c939[m Refine gallery artwork cards
+[33m294d655[m Refine individual artwork presentations
+[33mc66bc5f[m Refine premium homepage footer
+[33m38ca9cf[m Refine premium homepage Contact section
+[33m4e272a6[m Refine premium homepage hero
+[33m3b8b9dd[m Keep local design backups out of repository
+[33m4dfca63[m Stabilize premium gallery and artwork pages
+[33m817b116[m Upgrade contact and inquiry section
+[33m67bd0f2[m Add social metadata to gallery and artworks
+[33m1232824[m Add homepage SEO and social metadata
+[33md7d1cf6[m Add subtle animations and interactions
+[33m75cf0fc[m Polish navigation and branding
+[33m4474cb4[m Polish mobile experience and artwork layout
+[33m018c2ad[m Upgrade Roots and Rhythm artwork page
+[33m4070598[m Upgrade Mother Continent artwork page
+[33mc50491b[m Upgrade heritage artwork page
+[33mb43ffa6[m Upgrade TNA gallery experience
+[33mf7d3fe0[m Polish TNA website design
+[33m55b86da[m Polish artwork pages and mobile layout
+[33m110bbf7[m Add individual artwork pages
+[33m959b211[m Refine homepage and featured gallery
+[33me419748[m Improve homepage and add featured works
+[33m856b709[m Update TNA professional logo
+[33mec5a176[m Upgrade premium website header
+[33mace741f[m Upgrade artwork details modal
+[33m714bbc0[m Upgrade art gallery storefront
+[33m1c48dd9[m Upgrade homepage hero section
+[33m1b37886[m Update The Natives Art logo
+[33mb8001fe[m Fix logo file path
+[33m01f9077[m Fix gallery section structure
+[33mb6a2ba7[m Update site logo
+[33me530131[m refine logo size
+[33m1242db5[m add brand logo to header
+[33m75d67ea[m clean up mobile menu pattern
+[33mb822a57[m add African pattern to mobile menu
+[33ma0a164f[m add patterned mobile menu background
+[33m42f5b72[m improve African menu pattern
+[33m2664604[m add African pattern to mobile menu
+[33m0302218[m fix mobile menu overlay close
+[33m19d8571[m add mobile menu close button
+[33m8cd4435[m add mobile side navigation
+[33mef199da[m add mobile navigation menu
+[33m5c0dcbd[m upgrade footer design
+[33m9d728aa[m upgrade contact section
+[33m1a32401[m upgrade hero section
+[33m0a03370[m set about section background
+[33mea232b2[m fix about section background
+[33m2757590[m upgrade about section
+[33md09356b[m upgrade artwork cards and buttons
+[33md2d5b59[m upgrade header and navigation styling
+[33mf4730aa[m use buttons for artwork details
+[33m18ba5f3[m create professional artwork details modal
+[33md53f5ba[m simplify artwork details
+[33mf9f99b7[m fix artwork details lightbox
+[33m4a107a1[m fix artwork details buttons
+[33m73be0cf[m add artwork details buttons
+[33m83fb259[m add artwork lightbox
+[33ma74669b[m make artwork images clickable
+[33m66866c9[m add artwork hover effects
+[33m40da1e3[m connect contact button to WhatsApp
+[33m96b437c[m connect artwork inquiries to WhatsApp
+[33me94a21c[m add artwork cards
+[33m8aa3162[m add images and styling
+[33m0dcb95e[m add artwork images
+[33m98a8122[m initial website
