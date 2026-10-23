@@ -125,7 +125,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (featuredSpotlight) {
                 featuredSpotlight.style.display =
-                    (filter === "all" || filter === "heritage") ? "" : "none";
+                    (filter === "all" || filter === "paintings") ? "" : "none";
             }
 
             artworkCards.forEach(card => {
