@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#11110f">
+  <meta name="description" content="Discover the paintings collection at Josh's Art, celebrating African heritage, identity and creativity.">
+  <title>Paintings Collection | Josh's Art</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="gallery-premium.css">
+  <style>
+    .paintings-page {
+      min-height: 75vh;
+      padding: 72px 20px 90px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+    }
+    .paintings-page-inner {
+      width: min(100%, 760px);
+      margin: auto;
+      padding: clamp(28px, 6vw, 64px);
+      border: 1px solid rgba(197,139,80,.4);
+      border-radius: 18px;
+      background: linear-gradient(145deg, #1c1a15, #11110f);
+      box-shadow: 0 22px 65px rgba(0,0,0,.22);
+    }
+    .paintings-monogram {
+      width: 84px;
+      height: 84px;
+      margin: 0 auto 26px;
+      display: grid;
+      place-items: center;
+      border: 1px solid #c58b50;
+      border-radius: 50%;
+      color: #e2b77d;
+      font-family: Georgia, serif;
+      font-size: 28px;
+      letter-spacing: 2px;
+    }
+    .paintings-eyebrow {
+      color: #c58b50;
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+    .paintings-page h1 {
+      margin: 18px 0;
+      color: #f3eee4;
+      font-family: Georgia, serif;
+      font-size: clamp(32px, 6vw, 52px);
+      font-weight: 400;
+      line-height: 1.15;
+    }
+    .paintings-page p {
+      color: #d0c8b9;
+      line-height: 1.8;
+    }
+    .paintings-status {
+      display: inline-block;
+      margin: 22px 0 10px;
+      padding: 10px 16px;
+      border: 1px solid rgba(197,139,80,.45);
+      border-radius: 30px;
+      color: #e2b77d;
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+    .paintings-back {
+      display: inline-block;
+      margin-top: 26px;
+      padding: 13px 22px;
+      border: 1px solid #c58b50;
+      border-radius: 4px;
+      color: #f3eee4;
+      text-decoration: none;
+      transition: background .25s ease, color .25s ease;
+    }
+    .paintings-back:hover {
+      background: #c58b50;
+      color: #11110f;
+    }
+
+/* JOSH'S ART — LUXURY PAINTINGS EXPERIENCE */
+:root {
+  color-scheme: dark;
+  --ja-night: #0d0d0b;
+  --ja-panel: #15140f;
+  --ja-gold: #c49a62;
+  --ja-gold-light: #e5c89b;
+  --ja-ivory: #f2ecdf;
+  --ja-muted: #b9b09f;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--ja-night);
+}
+
+body.gallery-page {
+  margin: 0;
+  color: var(--ja-ivory);
+  background:
+    radial-gradient(ellipse at 50% 30%, rgba(119, 83, 42, .12), transparent 52%),
+    var(--ja-night);
+  font-family: "Palatino Linotype", "Book Antiqua", Georgia, serif;
+}
+
+body.gallery-page .site-header {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 18px clamp(20px, 6vw, 88px);
+  background: rgba(13, 13, 11, .94);
+  border-bottom: 1px solid rgba(196, 154, 98, .25);
+  box-shadow: 0 8px 35px rgba(0, 0, 0, .16);
+}
+
+body.gallery-page .site-header .logo img {
+  display: block;
+  width: auto;
+  max-width: 170px;
+  max-height: 66px;
+  object-fit: contain;
+}
+
+body.gallery-page .site-header nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: clamp(15px, 2.7vw, 34px);
+}
+
+body.gallery-page .site-header nav a {
+  position: relative;
+  padding: 10px 0;
+  color: #ded5c6;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+  transition: color .3s ease;
+}
+
+body.gallery-page .site-header nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 3px;
+  width: 100%;
+  height: 1px;
+  background: var(--ja-gold-light);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform .35s ease;
+}
+
+body.gallery-page .site-header nav a:hover {
+  color: var(--ja-gold-light);
+}
+
+body.gallery-page .site-header nav a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.paintings-page {
+  position: relative;
+  isolation: isolate;
+  min-height: 78vh;
+  box-sizing: border-box;
+  padding: clamp(58px, 9vw, 116px) 20px;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 50% 42%, rgba(166, 119, 61, .09), transparent 45%);
+}
+
+.paintings-page::before,
+.paintings-page::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+  border: 1px solid rgba(196, 154, 98, .09);
+  border-radius: 50%;
+}
+
+.paintings-page::before {
+  width: min(76vw, 760px);
+  aspect-ratio: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.paintings-page::after {
+  width: min(64vw, 620px);
+  aspect-ratio: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.paintings-page-inner {
+  position: relative;
+  width: min(100%, 790px);
+  box-sizing: border-box;
+  padding: clamp(32px, 7vw, 78px) clamp(22px, 6vw, 70px);
+  border: 1px solid rgba(196, 154, 98, .38);
+  border-radius: 2px;
+  background:
+    linear-gradient(145deg, rgba(32, 29, 22, .97), rgba(17, 17, 14, .99));
+  box-shadow:
+    0 35px 100px rgba(0, 0, 0, .42),
+    inset 0 0 0 7px rgba(196, 154, 98, .025),
+    inset 0 0 50px rgba(196, 154, 98, .025);
+  animation: jaPremiumReveal .9s ease both;
+}
+
+.paintings-page-inner::before {
+  content: "";
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  bottom: 12px;
+  left: 12px;
+  border: 1px solid rgba(196, 154, 98, .12);
+  pointer-events: none;
+}
+
+.paintings-monogram {
+  position: relative;
+  width: 86px;
+  height: 86px;
+  margin: 0 auto 34px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--ja-gold);
+  border-radius: 50%;
+  color: var(--ja-gold-light);
+  background: radial-gradient(circle, rgba(196, 154, 98, .12), transparent 72%);
+  box-shadow: 0 0 35px rgba(196, 154, 98, .08);
+  font-size: 25px;
+  letter-spacing: 3px;
+}
+
+.paintings-monogram::before {
+  content: "";
+  position: absolute;
+  inset: 6px;
+  border: 1px solid rgba(196, 154, 98, .32);
+  border-radius: 50%;
+}
+
+.paintings-eyebrow {
+  display: block;
+  color: var(--ja-gold);
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+  line-height: 1.8;
+  letter-spacing: clamp(2px, .6vw, 4px);
+  text-transform: uppercase;
+}
+
+.paintings-page h1 {
+  max-width: 620px;
+  margin: 23px auto 20px;
+  color: var(--ja-ivory);
+  font-size: clamp(36px, 7vw, 65px);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -1.5px;
+  text-wrap: balance;
+}
+
+.paintings-page h1::after {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 1px;
+  margin: 27px auto 0;
+  background: linear-gradient(90deg, transparent, var(--ja-gold), transparent);
+}
+
+.paintings-page p {
+  max-width: 510px;
+  margin: 16px auto;
+  color: var(--ja-muted);
+  font-size: clamp(14px, 2vw, 16px);
+  line-height: 2;
+}
+
+.paintings-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin: 26px 0 8px;
+  padding: 13px 19px;
+  border: 1px solid rgba(196, 154, 98, .38);
+  color: var(--ja-gold-light);
+  background: rgba(196, 154, 98, .045);
+  font-family: Arial, sans-serif;
+  font-size: 9px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+}
+
+.paintings-status::before,
+.paintings-status::after {
+  content: "";
+  width: 15px;
+  height: 1px;
+  background: var(--ja-gold);
+  opacity: .8;
+}
+
+.paintings-back {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 46px;
+  margin-top: 28px;
+  padding: 0 25px;
+  border: 1px solid var(--ja-gold);
+  border-radius: 0;
+  color: var(--ja-ivory);
+  background: transparent;
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+  letter-spacing: 1.8px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition:
+    background .3s ease,
+    color .3s ease,
+    border-color .3s ease;
+}
+
+.paintings-back::before {
+  content: "←";
+  color: var(--ja-gold-light);
+  font-size: 15px;
+  transition: transform .3s ease;
+}
+
+.paintings-back:hover {
+  color: var(--ja-night);
+  background: var(--ja-gold-light);
+  border-color: var(--ja-gold-light);
+}
+
+.paintings-back:hover::before {
+  color: var(--ja-night);
+  transform: translateX(-3px);
+}
+
+body.gallery-page footer {
+  padding: 24px 18px;
+  border-top: 1px solid rgba(196, 154, 98, .18);
+  background: #0a0a09;
+  text-align: center;
+}
+
+body.gallery-page footer p {
+  margin: 0;
+  color: #968b79;
+  font-family: Arial, sans-serif;
+  font-size: 9px;
+  line-height: 1.9;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+@keyframes jaPremiumReveal {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 600px) {
+  body.gallery-page .site-header {
+    flex-direction: column;
+    gap: 10px;
+    padding: 16px 14px;
+  }
+
+  body.gallery-page .site-header .logo img {
+    max-width: 145px;
+    max-height: 54px;
+  }
+
+  body.gallery-page .site-header nav {
+    justify-content: center;
+    gap: 17px;
+  }
+
+  body.gallery-page .site-header nav a {
+    font-size: 9px;
+    letter-spacing: 1px;
+  }
+
+  .paintings-page {
+    min-height: 72vh;
+    padding: 54px 15px 66px;
+  }
+
+  .paintings-page-inner {
+    padding: 42px 23px;
+  }
+
+  .paintings-page h1 {
+    letter-spacing: -.7px;
+  }
+
+  .paintings-page p {
+    line-height: 1.85;
+  }
+
+  .paintings-status {
+    gap: 8px;
+    padding: 12px;
+    letter-spacing: 1.5px;
+  }
+
+  .paintings-status::before,
+  .paintings-status::after {
+    width: 9px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .paintings-page-inner { animation: none; }
+  body.gallery-page .site-header nav a,
+  body.gallery-page .site-header nav a::after,
+  .paintings-back,
+  .paintings-back::before { transition: none; }
+}
+
+</style>
+</head>
+<body class="gallery-page gallery-premium-clean">
+  <header class="site-header">
+    <a class="logo" href="index.html" aria-label="Josh's Art home">
+      <img src="images/joshs-art-logo.png" alt="Josh's Art logo">
+    </a>
+    <nav aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="featured.html">Gallery</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main class="paintings-page">
+    <section class="paintings-page-inner" aria-labelledby="paintings-title">
+      <div class="paintings-monogram" aria-hidden="true">JA</div>
+      <span class="paintings-eyebrow">Josh's Art · Original Collections</span>
+      <h1 id="paintings-title">Stories Told Through Art</h1>
+      <p>
+        Our painting collection is being prepared. Original paintings
+        celebrating African heritage, identity, tradition and creativity
+        will appear here when they are ready to be shared.
+      </p>
+      <span class="paintings-status">Collection Coming Soon</span>
+      <p>Thank you for your interest in Josh's Art.</p>
+      <a class="paintings-back" href="featured.html">Return to Gallery</a>
+    </section>
+  </main>
+
+  <footer>
+    <p>Josh's Art · Art Inspires Life · Create • Express • Preserve</p>
+  </footer>
+</body>
+</html>

@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Explore featured African-inspired artworks from The Natives Art, celebrating heritage, identity and creativity.">
+    <meta name="description" content="Explore featured African-inspired artworks from Josh's Art, celebrating heritage, identity and creativity.">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="The Natives Art Gallery">
+    <meta property="og:title" content="Josh's Art Gallery">
     <meta property="og:description" content="Explore African-inspired artworks celebrating heritage, identity and creativity.">
-    <meta property="og:image" content="images/hero.jpg">
-    <meta property="og:site_name" content="The Natives Art">
+    <!-- Gallery preview image omitted until artwork is published. -->
+    <meta property="og:site_name" content="Josh's Art">
 
-    <title>Gallery | The Natives Art</title>
+    <title>Gallery | Josh's Art</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="gallery-premium.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,11 +18,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body class="gallery-premium-clean">
 
     <header>
-        <img src="images/tna-logo.jpg" alt="The Natives Art Logo" class="site-logo">
-        <h1>The Natives Art</h1>
+        <img src="images/joshs-art-logo.png" alt="Josh's Art Logo" class="site-logo">
+        <h1>Josh's Art</h1>
 
         <nav class="main-nav">
             <button class="menu-toggle" type="button" aria-label="Open menu">☰</button>
@@ -46,97 +46,87 @@
         <span class="gallery-label">THE COLLECTION</span>
         <h2>Art With a Story to Tell</h2>
         <p>
-            Discover original works shaped by heritage, identity and
-            the rhythm of African expression.
+            Our gallery is being prepared. Original works will appear here when they are ready to be shared.
         </p>
     </div>
 
-    <div class="featured-spotlight">
 
-        <div class="spotlight-image">
-            <img src="images/art1.jpg" alt="Carriers of Heritage">
+<section class="featured-spotlight category-spotlight paintings-spotlight"
+         aria-labelledby="paintings-heading">
+    <div class="spotlight-image category-placeholder">
+        <div class="placeholder-mark" aria-hidden="true">P</div>
+        <span>PAINTINGS COLLECTION</span>
+    </div>
+    <div class="spotlight-content">
+        <span class="spotlight-label">AFRICAN ART & HERITAGE</span>
+        <h2 id="paintings-heading">Paintings</h2>
+        <p class="spotlight-category">AFRICAN ART &amp; HERITAGE</p>
+        <p>
+            Explore the world of African paintings, where heritage, identity, culture and creativity come together.
+        </p>
+    </div>
+</section>
+
+<section id="paintings-collection" class="paintings-collection" hidden
+         aria-labelledby="paintings-collection-title">
+    <div class="paintings-heading">
+        <span class="spotlight-label">JOSH'S ART COLLECTION</span>
+        <h2 id="paintings-collection-title">Stories Told Through Art</h2>
+        <p>Discover paintings inspired by African heritage, identity, culture and creativity.</p>
+    </div>
+    <div class="paintings-coming-soon">
+        <span class="paintings-coming-soon-mark" aria-hidden="true">JA</span>
+        <h3>Our Painting Collection Is Coming Soon</h3>
+        <p>We are preparing the collection. Original paintings and their details will appear here when they are ready.</p>
+        <span class="spotlight-button coming-soon-label">Collection Coming Soon</span>
+    </div>
+    <button class="paintings-close" type="button">Close Collection</button>
+</section>
+
+    <section class="featured-spotlight category-spotlight sculpture-spotlight"
+             aria-labelledby="sculptures-heading">
+        <div class="spotlight-image category-placeholder">
+            <div class="placeholder-mark" aria-hidden="true">S</div>
+            <span>SCULPTURE COLLECTION</span>
         </div>
-
         <div class="spotlight-content">
-            <span class="spotlight-label">FEATURED WORK</span>
-
-            <h2>Carriers of Heritage</h2>
-
-            <p class="spotlight-category">
-                PAINTINGS
-            </p>
-
+            <span class="spotlight-label">COMING SOON</span>
+            <h2 id="sculptures-heading">Sculptures</h2>
+            <p class="spotlight-category">FORM &amp; CRAFTSMANSHIP</p>
             <p>
-                A celebration of the people, stories and traditions
-                carried from one generation to another. This work
-                reflects the quiet strength of heritage and the
-                responsibility of preserving what defines us.
+                Discover a future collection celebrating form,
+                craftsmanship and African creative expression.
+                Original sculpture listings will appear here when available.
             </p>
-
-            <a href="artwork-heritage.html" class="spotlight-button">
-                Explore Artwork
-            </a>
+            <span class="spotlight-button coming-soon-label">
+                Collection Coming Soon
+            </span>
         </div>
+    </section>
 
-    </div>
-
-    <div class="gallery-filters" aria-label="Artwork categories">
-    <button class="filter-btn active" data-filter="all">All Works</button>
-    <button class="filter-btn" data-filter="paintings">Paintings</button>
-    <button class="filter-btn" data-filter="sculptures">Sculptures</button>
-    <button class="filter-btn" data-filter="rugs">Rugs</button>
-</div>
-
-<div class="gallery-divider">
-        <span>THE COLLECTION</span>
-    </div>
-
-    <div class="gallery">
-
-        <article class="art-card" data-category="paintings">
-            <a href="artwork-mother-continent.html" class="art-image-link">
-                <img src="images/art2.jpeg"
-                     alt="Mother Continent"
-                     class="art-image">
-            </a>
-
-            <div class="art-info">
-                <span class="art-category">PAINTINGS</span>
-                <h3>Mother Continent</h3>
-                <p>
-                    A visual tribute to Africa, its identity,
-                    strength and enduring spirit.
-                </p>
-                <a href="artwork-mother-continent.html" class="view-btn">
-                    View Artwork
-                </a>
-            </div>
-        </article>
-
-        <article class="art-card" data-category="paintings">
-            <a href="artwork-roots-rhythm.html" class="art-image-link">
-                <img src="images/art3.jpeg"
-                     alt="Roots &amp; Rhythm"
-                     class="art-image">
-            </a>
-
-            <div class="art-info">
-                <span class="art-category">PAINTINGS</span>
-                <h3>Roots &amp; Rhythm</h3>
-                <p>
-                    Where ancestral roots meet movement,
-                    expression and contemporary African creativity.
-                </p>
-                <a href="artwork-roots-rhythm.html" class="view-btn">
-                    View Artwork
-                </a>
-            </div>
-        </article>
-
-    </div>
+    <section class="featured-spotlight category-spotlight rugs-spotlight"
+             aria-labelledby="rugs-heading">
+        <div class="spotlight-image category-placeholder">
+            <div class="placeholder-mark" aria-hidden="true">R</div>
+            <span>RUG COLLECTION</span>
+        </div>
+        <div class="spotlight-content">
+            <span class="spotlight-label">COMING SOON</span>
+            <h2 id="rugs-heading">Rugs</h2>
+            <p class="spotlight-category">PATTERN &amp; HERITAGE</p>
+            <p>
+                A future collection dedicated to woven textures,
+                meaningful patterns and the artistry of African interiors.
+                Rug listings will be added when the collection is ready.
+            </p>
+            <span class="spotlight-button coming-soon-label">
+                Collection Coming Soon
+            </span>
+        </div>
+    </section>
 
     <div class="collection-note">
-        <p>Each artwork carries a story. Explore the collection.</p>
+        <p>A new collection is on the way. Thank you for your interest in Josh’s Art.</p>
     </div>
 
     <a href="index.html" class="back-home">

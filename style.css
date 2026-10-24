@@ -2196,7 +2196,7 @@ html {
 }
 
 /* =========================================
-   THE NATIVES ART — CLEAN EDITORIAL GALLERY
+   JOSH'S ART — CLEAN EDITORIAL GALLERY
    ========================================= */
 
 body.artwork-page-redesign {
@@ -2737,7 +2737,7 @@ footer {
 }
 
 footer::before {
-    content: "TNA";
+    content: "JA";
     position: absolute;
     right: 4%;
     bottom: -55px;
@@ -2816,7 +2816,7 @@ body.artwork-page-redesign .artwork-detail-image {
 }
 
 body.artwork-page-redesign .artwork-detail-image::after {
-    content: "THE NATIVES ART";
+    content: "JOSH'S ART";
     position: absolute;
     left: 28px;
     bottom: 12px;
@@ -3388,48 +3388,56 @@ body.artwork-page-redesign .artwork-page {
     padding-bottom: 90px;
 }
 
+
+/* =========================================
+   TNA — UNIFIED HERITAGE GALLERY DESIGN
+   ========================================= */
+
 /* Back navigation */
 body.artwork-page-redesign .back-link {
     display: inline-flex;
     align-items: center;
-    gap: 9px;
-    margin-bottom: 38px;
-    color: #8a6a43;
-    font-size: 0.82rem;
+    gap: 10px;
+    margin-bottom: clamp(28px, 4vw, 48px);
+    color: #80603b;
+    font-size: 0.76rem;
     font-weight: 700;
-    letter-spacing: 1.4px;
+    letter-spacing: 1.8px;
     text-transform: uppercase;
     text-decoration: none;
+    transition: color 0.25s ease;
 }
 
 body.artwork-page-redesign .back-link:hover {
     color: #17120e;
 }
 
-/* Main composition */
+/* Editorial gallery composition */
 body.artwork-page-redesign .artwork-detail {
-    grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
-    gap: clamp(48px, 7vw, 100px);
+    grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.82fr);
     align-items: center;
+    gap: clamp(32px, 6vw, 88px);
 }
 
-/* Artwork frame */
+/* Artwork presentation */
 body.artwork-page-redesign .artwork-detail-image {
     position: relative;
-    background: #e7ded0;
-    padding: 22px;
-    border: 1px solid rgba(138, 106, 67, 0.25);
+    isolation: isolate;
+    box-sizing: border-box;
+    padding: clamp(14px, 2.3vw, 28px);
+    background: #eae0d1;
+    border: 1px solid rgba(138, 106, 67, 0.3);
     border-radius: 2px;
-    box-shadow: 0 24px 60px rgba(23, 18, 14, 0.13);
+    box-shadow: 0 26px 65px rgba(36, 27, 18, 0.12);
 }
 
 body.artwork-page-redesign .artwork-detail-image::before {
     content: "";
     position: absolute;
-    inset: 10px;
-    border: 1px solid rgba(138, 106, 67, 0.18);
-    pointer-events: none;
     z-index: 2;
+    inset: 9px;
+    border: 1px solid rgba(138, 106, 67, 0.23);
+    pointer-events: none;
 }
 
 body.artwork-page-redesign .artwork-detail-image img {
@@ -3438,29 +3446,42 @@ body.artwork-page-redesign .artwork-detail-image img {
     display: block;
     width: 100%;
     height: auto;
-    max-height: 720px;
+    max-height: 760px;
     object-fit: contain;
-    transition: transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+    transition: transform 0.55s ease;
 }
 
 body.artwork-page-redesign .artwork-detail-image:hover img {
     transform: scale(1.012);
 }
 
-/* Information column */
+/* Curated artwork story */
 body.artwork-page-redesign .artwork-detail-info {
-    padding: 15px 0;
-    max-width: 530px;
+    width: 100%;
+    min-width: 0;
+    max-width: 560px;
+    padding: 12px 0;
 }
 
 body.artwork-page-redesign .artwork-detail-info .art-category {
-    display: inline-block;
-    margin-bottom: 20px;
-    color: #9a6b3f;
-    font-size: 0.68rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0 0 24px;
+    color: #90653b;
+    font-size: 0.7rem;
     font-weight: 700;
-    letter-spacing: 3.5px;
+    letter-spacing: 2.8px;
+    line-height: 1.6;
     text-transform: uppercase;
+}
+
+body.artwork-page-redesign .artwork-detail-info .art-category::before {
+    content: "";
+    display: inline-block;
+    width: 30px;
+    height: 1px;
+    background: #b17a40;
 }
 
 body.artwork-page-redesign .artwork-detail-info h2 {
@@ -3472,142 +3493,238 @@ body.artwork-page-redesign .artwork-detail-info h2 {
     font-weight: 500;
     line-height: 0.97;
     letter-spacing: -2px;
+    text-wrap: balance;
 }
 
 body.artwork-page-redesign .artwork-description {
-    max-width: 500px;
-    margin-bottom: 30px;
-    color: #6f665e;
-    font-size: 1.02rem;
-    line-height: 1.9;
-}
-
-/* Price */
-body.artwork-page-redesign .artwork-price {
+    max-width: 56ch;
     margin: 0 0 27px;
     color: #8a6a43;
-    font-family: "Playfair Display", Georgia, serif;
-    font-size: 1.9rem;
-    font-weight: 500;
+    font-size: 1rem;
+    line-height: 1.95;
 }
 
-/* Artwork information */
+/* Price presentation */
+body.artwork-page-redesign .artwork-price {
+    display: inline-flex;
+    align-items: center;
+    margin: 0 0 27px;
+    padding: 13px 18px;
+    background: #eee5d8;
+    border-left: 3px solid #b67b3e;
+    color: #694720;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(1.45rem, 2.4vw, 1.9rem);
+    font-weight: 400;
+    line-height: 1.4;
+}
+
+/* Artwork details */
 body.artwork-page-redesign .artwork-meta {
-    max-width: 500px;
-    margin-bottom: 30px;
-    padding: 17px 0;
-    border-top: 1px solid #d8cfc3;
-    border-bottom: 1px solid #d8cfc3;
+    max-width: 540px;
+    margin: 0 0 28px;
+    padding: 8px 0;
+    border-top: 1px solid #d8cbb9;
+    border-bottom: 1px solid #d8cbb9;
 }
 
 body.artwork-page-redesign .artwork-meta p {
-    padding: 8px 0;
-    font-size: 0.88rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 18px;
+    margin: 0;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(138, 106, 67, 0.15);
+    font-size: 0.87rem;
+    line-height: 1.65;
+}
+
+body.artwork-page-redesign .artwork-meta p:last-child {
+    border-bottom: 0;
 }
 
 body.artwork-page-redesign .artwork-meta strong {
-    color: #17120e;
-    font-weight: 700;
+    flex-shrink: 0;
+    color: #33271b;
+    font-weight: 600;
 }
 
 body.artwork-page-redesign .artwork-meta span {
-    color: #756b63;
+    color: #71665a;
+    text-align: right;
+    overflow-wrap: anywhere;
 }
 
-/* Actions */
+/* Clear, refined actions */
 body.artwork-page-redesign .artwork-actions {
     display: flex;
     flex-wrap: wrap;
     gap: 12px;
+    margin-top: 28px;
 }
 
 body.artwork-page-redesign .artwork-actions .button {
-    min-width: 175px;
-    padding: 14px 22px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    min-height: 50px;
+    min-width: 0;
+    padding: 14px 20px;
+    border: 1px solid #17120e;
     border-radius: 2px;
-    font-size: 0.78rem;
+    font-size: 0.74rem;
     font-weight: 700;
-    letter-spacing: 1.1px;
+    letter-spacing: 1px;
+    line-height: 1.5;
+    text-align: center;
+    text-decoration: none;
     text-transform: uppercase;
+    transition: background-color 0.25s ease, color 0.25s ease,
+                border-color 0.25s ease, transform 0.25s ease;
 }
 
-/* Related collection */
+body.artwork-page-redesign .artwork-actions a:first-child {
+    background: #17120e;
+    color: #f5f1e8;
+}
+
+body.artwork-page-redesign .artwork-actions a:first-child:hover {
+    background: #80603b;
+    border-color: #80603b;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+body.artwork-page-redesign .artwork-actions a:nth-child(2) {
+    background: transparent;
+    border-color: #aa8a66;
+    color: #30251b;
+}
+
+body.artwork-page-redesign .artwork-actions a:nth-child(2):hover {
+    background: #eee5d8;
+    border-color: #80603b;
+    transform: translateY(-2px);
+}
+
+body.artwork-page-redesign .artwork-actions a:focus-visible,
+body.artwork-page-redesign .back-link:focus-visible,
+body.artwork-page-redesign .related-card a:focus-visible {
+    outline: 2px solid #b67b3e;
+    outline-offset: 4px;
+}
+
+/* Curated related collection */
 body.artwork-page-redesign .related-artworks {
     max-width: 1320px;
-    margin-top: 10px;
-    padding-top: 68px;
-    border-top: 1px solid #d8cfc3;
+    margin-top: 26px;
+    padding-top: clamp(42px, 6vw, 76px);
+    border-top: 1px solid #d8cbb9;
 }
 
 body.artwork-page-redesign .related-heading {
-    margin-bottom: 35px;
+    margin-bottom: 32px;
+    padding-left: 18px;
+    border-left: 3px solid #b67b3e;
 }
 
 body.artwork-page-redesign .related-heading p {
-    color: #9a6b3f;
-    letter-spacing: 3px;
+    color: #90653b;
+    letter-spacing: 2.5px;
 }
 
 body.artwork-page-redesign .related-heading h2 {
     color: #17120e;
     font-family: "Playfair Display", Georgia, serif;
     font-weight: 500;
+    line-height: 1.2;
 }
 
-/* Mobile */
+body.artwork-page-redesign .related-grid {
+    gap: 24px;
+}
+
+body.artwork-page-redesign .related-card {
+    overflow: hidden;
+    background: #f0e8dc;
+    border: 1px solid rgba(138, 106, 67, 0.22);
+    border-radius: 2px;
+    box-shadow: 0 5px 18px rgba(36, 27, 18, 0.045);
+    transition: transform 0.3s ease, box-shadow 0.3s ease,
+                border-color 0.3s ease;
+}
+
+body.artwork-page-redesign .related-card img {
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: transform 0.4s ease;
+}
+
+body.artwork-page-redesign .related-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(182, 123, 62, 0.7);
+    box-shadow: 0 14px 30px rgba(36, 27, 18, 0.1);
+}
+
+body.artwork-page-redesign .related-card:hover img {
+    transform: scale(1.025);
+}
+
+body.artwork-page-redesign .related-card h3 {
+    color: #211911;
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: 400;
+    line-height: 1.4;
+}
+
+/* Tablet and mobile */
 @media (max-width: 800px) {
-
     body.artwork-page-redesign .artwork-page {
-        padding-top: 30px;
-        padding-bottom: 65px;
-    }
-
-    body.artwork-page-redesign .back-link {
-        margin-bottom: 28px;
+        padding-top: 28px;
+        padding-bottom: 58px;
     }
 
     body.artwork-page-redesign .artwork-detail {
-        grid-template-columns: 1fr;
-        gap: 32px;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 30px;
     }
 
     body.artwork-page-redesign .artwork-detail-image {
-        padding: 15px;
-    }
-
-    body.artwork-page-redesign .artwork-detail-image::before {
-        inset: 8px;
+        padding: 16px;
     }
 
     body.artwork-page-redesign .artwork-detail-info {
-        max-width: none;
-        padding: 5px 0;
+        max-width: 680px;
+        padding-top: 4px;
     }
 
     body.artwork-page-redesign .artwork-detail-info h2 {
-        font-size: clamp(2.7rem, 10vw, 4rem);
-        letter-spacing: -1.3px;
-    }
-
-    body.artwork-page-redesign .artwork-description {
-        font-size: 1rem;
-        line-height: 1.8;
+        max-width: 620px;
+        font-size: clamp(2.7rem, 8vw, 4.3rem);
     }
 
     body.artwork-page-redesign .related-artworks {
-        padding-top: 50px;
+        margin-top: 16px;
     }
 }
 
 @media (max-width: 480px) {
-
     body.artwork-page-redesign .artwork-page {
-        padding-left: 16px;
         padding-right: 16px;
+        padding-left: 16px;
+    }
+
+    body.artwork-page-redesign .back-link {
+        margin-bottom: 24px;
+        font-size: 0.7rem;
+        letter-spacing: 1.3px;
     }
 
     body.artwork-page-redesign .artwork-detail {
-        gap: 27px;
+        gap: 25px;
     }
 
     body.artwork-page-redesign .artwork-detail-image {
@@ -3619,23 +3736,57 @@ body.artwork-page-redesign .related-heading h2 {
     }
 
     body.artwork-page-redesign .artwork-detail-info h2 {
-        font-size: 2.55rem;
+        font-size: clamp(2.45rem, 11vw, 3.2rem);
+        letter-spacing: -0.04em;
+    }
+
+    body.artwork-page-redesign .artwork-description {
+        font-size: 0.96rem;
+        line-height: 1.85;
+    }
+
+    body.artwork-page-redesign .artwork-meta p {
+        gap: 12px;
+        font-size: 0.82rem;
     }
 
     body.artwork-page-redesign .artwork-actions {
         flex-direction: column;
+        gap: 10px;
     }
 
     body.artwork-page-redesign .artwork-actions .button {
         width: 100%;
-        box-sizing: border-box;
+        min-height: 49px;
+    }
+
+    body.artwork-page-redesign .related-grid {
+        gap: 16px;
     }
 
     body.artwork-page-redesign .related-artworks {
-        padding-left: 16px;
-        padding-right: 16px;
+        padding-right: 0;
+        padding-left: 0;
     }
 }
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    body.artwork-page-redesign .artwork-detail-image img,
+    body.artwork-page-redesign .artwork-actions .button,
+    body.artwork-page-redesign .related-card,
+    body.artwork-page-redesign .related-card img {
+        transition: none;
+    }
+
+    body.artwork-page-redesign .artwork-detail-image:hover img,
+    body.artwork-page-redesign .artwork-actions .button:hover,
+    body.artwork-page-redesign .related-card:hover,
+    body.artwork-page-redesign .related-card:hover img {
+        transform: none;
+    }
+}
+
 
 /* =========================================
    TNA — PREMIUM HOMEPAGE HERO
@@ -4145,7 +4296,7 @@ body > footer {
 }
 
 body > footer::before {
-    content: "TNA";
+    content: "JA";
     position: absolute;
     right: -10px;
     bottom: -55px;

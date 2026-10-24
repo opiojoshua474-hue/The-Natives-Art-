@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 if (!card) return;
 
                 const title = card.querySelector("h3")?.textContent.trim() || "Artwork";
-                const description = card.querySelector(".art-info > p:not(.art-category):not(.price)")?.textContent.trim() || "An artwork from The Natives Art collection.";
+                const description = card.querySelector(".art-info > p:not(.art-category):not(.price)")?.textContent.trim() || "An artwork from Josh's Art collection.";
                 const price = card.querySelector(".price")?.textContent.trim() || "Price available on inquiry";
                 const image = card.querySelector("img")?.src || "";
 
@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 detailsDescription.textContent = description;
                 detailsPrice.textContent = price;
 
-                const message = "Hello The Natives Art, I'm interested in the " + title + " artwork.";
+                const message = "Hello Josh's Art, I'm interested in the " + title + " artwork.";
                 detailsWhatsApp.href = "https://wa.me/256787551195?text=" + encodeURIComponent(message);
                 detailsModal.style.display = "flex";
             });
@@ -153,4 +153,35 @@ document.addEventListener("DOMContentLoaded", () => {
 
     });
 
+});
+
+
+/* Paintings collection expand/collapse */
+document.addEventListener("DOMContentLoaded", function () {
+    const toggle = document.querySelector(".paintings-toggle");
+    const collection = document.getElementById("paintings-collection");
+    const closeButton = document.querySelector(".paintings-close");
+
+    if (!toggle || !collection) return;
+
+    function setCollectionOpen(open) {
+        collection.hidden = !open;
+        toggle.setAttribute("aria-expanded", String(open));
+        toggle.textContent = open ? "Hide Paintings" : "Explore Paintings";
+
+        if (open) {
+            collection.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+    }
+
+    toggle.addEventListener("click", function () {
+        setCollectionOpen(collection.hidden);
+    });
+
+    if (closeButton) {
+        closeButton.addEventListener("click", function () {
+            setCollectionOpen(false);
+            toggle.scrollIntoView({ behavior: "smooth", block: "center" });
+        });
+    }
 });
