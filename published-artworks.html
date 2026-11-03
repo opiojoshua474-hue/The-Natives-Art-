@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore published original artworks from Josh's Art.">
+  <title>Published Artworks | Josh's Art</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="gallery-premium.css?v=published-width-fix">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="gallery-premium-clean published-artworks-page">
+  <header>
+    <img src="images/joshs-art-logo.png" alt="Josh's Art Logo" class="site-logo">
+    <h1>Josh's Art</h1>
+    <nav class="main-nav">
+      <button class="menu-toggle" type="button" aria-label="Open menu">☰</button>
+      <div class="menu-overlay"></div>
+      <div class="nav-links">
+        <button class="menu-close" type="button" aria-label="Close menu">×</button>
+        <a href="index.html">Home</a>
+        <a href="featured.html">Gallery</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="gallery-page gallery-premium-clean">
+      <div class="published-collection-heading">
+        <h2>Our Collection</h2>
+      </div>
+
+    <!-- Live artworks loaded from Supabase -->
+    <section id="live-artwork-gallery" class="live-artwork-gallery">
+
+
+        <div id="live-gallery-status" class="collection-note" aria-live="polite">
+            Loading the collection...
+        </div>
+
+        <div id="live-category-groups"></div>
+    </section>
+
+
+      <a href="index.html" class="back-home">← Back to Home</a>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+  <script>
+(() => {
+      const status = document.getElementById('live-gallery-status');
+      const groups = document.getElementById('live-category-groups');
+
+      if (!window.supabase || !window.JOSHS_ART_SUPABASE_URL ||
+          !window.JOSHS_ART_SUPABASE_KEY) {
+        status.textContent = 'The gallery connection is not configured.';
+        return;
+      }
+
+      const db = window.supabase.createClient(
+        window.JOSHS_ART_SUPABASE_URL,
+        window.JOSHS_ART_SUPABASE_KEY
+      );
+
+      const allCategories = ['Paintings', 'Sculptures', 'Rugs'];
+      const requestedCategory = new URLSearchParams(window.location.search).get('category');
+      const categories = allCategories.includes(requestedCategory)
+        ? [requestedCategory]
+        : allCategories;
+
+      function make(tag, className, text) {
+        const el = document.createElement(tag);
+        if (className) el.className = className;
+        if (text !== undefined) el.textContent = text;
+        return el;
+      }
+
+      let viewerItems = [];
+      let viewerIndex = 0;
+
+      const lightbox = document.createElement('div');
+      lightbox.className = 'josh-art-lightbox';
+      lightbox.id = 'josh-art-lightbox';
+      lightbox.setAttribute('role', 'dialog');
+      lightbox.setAttribute('aria-modal', 'true');
+      lightbox.setAttribute('aria-label', 'Artwork viewer');
+      lightbox.innerHTML = `
+        <button class="josh-viewer-close" type="button" aria-label="Close viewer">&times;</button>
+        <button class="josh-viewer-prev" type="button" aria-label="Previous artwork">&#10094;</button>
+        <div class="josh-viewer-layout">
+          <figure class="josh-viewer-figure">
+            <img class="josh-viewer-image" alt="">
+            <figcaption class="josh-viewer-caption"></figcaption>
+          </figure>
+          <section class="josh-viewer-details" aria-label="Artwork details">
+            <p class="josh-viewer-category"></p>
+            <p class="josh-viewer-description"></p>
+            <p class="josh-viewer-dimensions"></p>
+            <p class="josh-viewer-price"></p>
+            <p class="josh-viewer-availability"></p>
+            <a class="josh-viewer-enquire" target="_blank" rel="noopener noreferrer">Enquire on WhatsApp</a>
+          </section>
+        </div>
+        <button class="josh-viewer-next" type="button" aria-label="Next artwork">&#10095;</button>
+        <div class="josh-viewer-counter"></div>
+      `;
+      document.body.append(lightbox);
+
+      const viewerImage = lightbox.querySelector('.josh-viewer-image');
+      const viewerCaption = lightbox.querySelector('.josh-viewer-caption');
+      const viewerCounter = lightbox.querySelector('.josh-viewer-counter');
+      const viewerCategory = lightbox.querySelector('.josh-viewer-category');
+      const viewerDescription = lightbox.querySelector('.josh-viewer-description');
+      const viewerDimensions = lightbox.querySelector('.josh-viewer-dimensions');
+      const viewerPrice = lightbox.querySelector('.josh-viewer-price');
+      const viewerAvailability = lightbox.querySelector('.josh-viewer-availability');
+      const viewerEnquire = lightbox.querySelector('.josh-viewer-enquire');
+
+      function showArtwork(index) {
+        if (!viewerItems.length) return;
+        viewerIndex = (index + viewerItems.length) % viewerItems.length;
+        const art = viewerItems[viewerIndex];
+        viewerImage.src = art.image_urls[0];
+        viewerImage.alt = art.title;
+        viewerCaption.textContent = art.title;
+        viewerCategory.textContent = art.category || '';
+        viewerDescription.textContent = art.description || '';
+        viewerDescription.style.display = art.description ? '' : 'none';
+        viewerDimensions.textContent = art.dimensions || '';
+        viewerDimensions.style.display = art.dimensions ? '' : 'none';
+        viewerPrice.textContent = art.price_ugx !== null
+          ? 'UGX ' + Number(art.price_ugx).toLocaleString('en-UG')
+          : 'Price on request';
+        const availability = art.availability_status ||
+          (art.available ? 'Available' : 'Reserved');
+        viewerAvailability.textContent = availability;
+
+        const message = 'Hello Josh’s Art, I am interested in ' + art.title +
+          '. Please share more details.';
+        viewerEnquire.href = 'https://wa.me/256787551195?text=' +
+          encodeURIComponent(message);
+        viewerEnquire.style.display = availability === 'Available'
+          ? 'inline-flex' : 'none';
+
+        viewerCounter.textContent = (viewerIndex + 1) + ' / ' + viewerItems.length;
+      }
+
+      function openArtwork(art) {
+        const index = viewerItems.findIndex(item => item.id === art.id);
+        if (index < 0) return;
+        showArtwork(index);
+        lightbox.classList.add('is-open');
+        document.body.classList.add('artwork-viewer-open');
+        lightbox.querySelector('.josh-viewer-close').focus();
+      }
+
+      function closeArtwork() {
+        lightbox.classList.remove('is-open');
+        document.body.classList.remove('artwork-viewer-open');
+      }
+
+      lightbox.querySelector('.josh-viewer-close').addEventListener('click', closeArtwork);
+      lightbox.querySelector('.josh-viewer-prev').addEventListener('click', () => showArtwork(viewerIndex - 1));
+      lightbox.querySelector('.josh-viewer-next').addEventListener('click', () => showArtwork(viewerIndex + 1));
+
+      lightbox.addEventListener('click', event => {
+        if (event.target === lightbox) closeArtwork();
+      });
+
+      document.addEventListener('keydown', event => {
+        if (!lightbox.classList.contains('is-open')) return;
+        if (event.key === 'Escape') closeArtwork();
+        if (event.key === 'ArrowLeft') showArtwork(viewerIndex - 1);
+        if (event.key === 'ArrowRight') showArtwork(viewerIndex + 1);
+      });
+
+      function makeArtworkCard(art) {
+        const card = make('article', 'live-artwork-card');
+        const image = document.createElement('img');
+        image.src = art.image_urls[0];
+        image.alt = art.title;
+        image.loading = 'lazy';
+        image.decoding = 'async';
+        image.tabIndex = 0;
+        image.setAttribute('role', 'button');
+        image.setAttribute('aria-label', 'View ' + art.title + ' full screen');
+        image.addEventListener('click', () => openArtwork(art));
+        image.addEventListener('keydown', event => {
+          if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            openArtwork(art);
+          }
+        });
+        card.append(image);
+
+        const content = make('div', 'live-artwork-content');
+        content.append(make('h3', '', art.title));
+        content.append(make('p', 'live-artwork-category', art.category));
+
+        if (art.dimensions) {
+          content.append(make('p', 'live-artwork-description',
+            'Dimensions: ' + art.dimensions));
+        }
+
+        if (art.price_ugx !== null) {
+          content.append(make(
+            'p',
+            'live-artwork-price',
+            'UGX ' + Number(art.price_ugx).toLocaleString('en-UG')
+          ));
+        } else {
+          content.append(make('p', 'live-artwork-price', 'Price on request'));
+        }
+
+        const availability = art.availability_status ||
+          (art.available ? 'Available' : 'Reserved');
+        content.append(make(
+          'p',
+          'live-artwork-availability',
+          availability
+        ));
+
+        const actions = make('div', 'live-artwork-actions');
+
+        const detailsLink = make(
+          'a',
+          'live-artwork-inquiry live-artwork-button--details',
+          'View Artwork'
+        );
+        detailsLink.href = 'artwork.html?id=' + encodeURIComponent(art.id);
+        actions.append(detailsLink);
+
+        const message = 'Hello Josh’s Art, I am interested in ' + art.title +
+          '. Please share more details.';
+        const link = make(
+          'a',
+          'live-artwork-inquiry live-artwork-button--whatsapp',
+          'Enquire on WhatsApp'
+        );
+        link.href = 'https://wa.me/256787551195?text=' +
+          encodeURIComponent(message);
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        link.style.display = availability === 'Available'
+          ? 'inline-flex' : 'none';
+        actions.append(link);
+        content.append(actions);
+
+        card.append(content);
+        return card;
+      }
+
+      async function loadGallery() {
+        status.textContent = 'Loading the collection...';
+
+        const { data, error } = await db
+          .from('artworks')
+          .select('id,title,description,category,dimensions,availability_status,price_ugx,image_urls,available')
+          .eq('published', true)
+          .order('created_at', { ascending: false });
+
+        if (error) {
+          status.textContent = 'The collection could not be loaded. Please try again later.';
+          console.error('Gallery loading error:', error.message);
+          return;
+        }
+
+        viewerItems = data.filter(art =>
+          categories.includes(art.category) &&
+          Array.isArray(art.image_urls) &&
+          art.image_urls.length > 0
+        );
+
+        groups.replaceChildren();
+        let total = 0;
+
+        categories.forEach(category => {
+          const items = data.filter(art =>
+            art.category === category &&
+            Array.isArray(art.image_urls) &&
+            art.image_urls.length > 0
+          );
+
+          if (!items.length) return;
+
+          total += items.length;
+          const section = make('section', 'live-category-section');
+          section.append(make('h2', 'live-category-title', category));
+
+          const grid = make('div', 'live-artwork-grid');
+          items.forEach(art => grid.append(makeArtworkCard(art)));
+          section.append(grid);
+          groups.append(section);
+        });
+
+        if (!total) {
+          status.textContent = 'Our collection is being prepared. Please check back soon.';
+        } else {
+          status.textContent = total + ' published artwork' +
+            (total === 1 ? '' : 's') + ' in our collection.';
+        }
+      }
+
+      loadGallery();
+    })();
+      </script>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

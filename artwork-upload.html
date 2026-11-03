@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#11110f">
+<title>Artwork Manager | Josh's Art</title>
+<style>
+:root {
+  --bg:#11110f; --panel:#191814; --bronze:#c58b50;
+  --cream:#f3eee4; --muted:#b9ad9d;
+}
+* {box-sizing:border-box}
+body {
+  margin:0; min-height:100vh; color:var(--cream);
+  background:radial-gradient(ellipse at 50% 0%,#49301d55,transparent 48%),var(--bg);
+  font-family:Arial,sans-serif;
+}
+header {padding:22px 18px;text-align:center;border-bottom:1px solid #c58b5044}
+header a {color:var(--bronze);text-decoration:none;font-weight:bold;letter-spacing:2px}
+.wrap {max-width:900px;margin:auto;padding:28px 18px 50px}
+.eyebrow {color:var(--bronze);letter-spacing:3px;font-size:11px}
+h1 {font-size:clamp(28px,6vw,43px);margin:12px 0}
+p {color:var(--muted);line-height:1.7}
+.panel {
+  background:linear-gradient(145deg,#201d18,#151411);
+  border:1px solid #c58b5055;border-radius:16px;
+  padding:22px;margin-top:24px;
+}
+label {display:block;margin:17px 0 8px}
+input,select,textarea {
+  width:100%;padding:13px;border-radius:8px;
+  border:1px solid #6c5138;background:#11110f;
+  color:var(--cream);font:inherit;
+}
+textarea {min-height:110px;resize:vertical}
+button {
+  border:1px solid var(--bronze);border-radius:8px;
+  padding:13px 18px;background:var(--bronze);
+  color:#17120e;font-weight:bold;cursor:pointer;margin-top:18px;
+}
+button.secondary {background:transparent;color:var(--bronze)}
+button.danger {background:#542d25;border-color:#a65e4c;color:white}
+button:disabled {opacity:.55;cursor:wait}
+.primary {width:100%}
+.hidden {display:none!important}
+.notice {
+  padding:13px;border-left:3px solid var(--bronze);
+  background:#c58b5010;font-size:13px;overflow-wrap:anywhere;
+}
+.grid {
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+  gap:14px;margin-top:18px;
+}
+.item {background:#11110f;border:1px solid #c58b5044;border-radius:10px;overflow:hidden}
+.item img {width:100%;height:180px;object-fit:cover;display:block}
+.item div {padding:12px}
+.item p {font-size:13px}
+.item button {width:100%;margin-top:8px}
+.row {display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.row button {flex:1}
+footer {text-align:center;color:var(--muted);padding:24px;font-size:12px}
+</style>
+</head>
+<body>
+<header>
+  <a href="index.html">JOSH'S ART</a>
+  <p>Private artwork workspace</p>
+</header>
+
+<main class="wrap">
+  <span class="eyebrow">JOSH'S ART COLLECTION</span>
+  <h1>Artwork Manager</h1>
+  <p>Manage your paintings, sculptures and rugs from one private workspace.</p>
+
+  <section class="panel" id="loginPanel">
+    <h2>Administrator Login</h2>
+    <p>Sign in using the administrator account you created in Supabase.</p>
+    <form id="loginForm">
+      <label for="email">Email address</label>
+      <input id="email" type="email" autocomplete="username" required>
+      <label for="password">Password</label>
+      <input id="password" type="password" autocomplete="current-password" required>
+      <button class="primary" id="loginButton" type="submit">Sign In</button>
+    </form>
+  </section>
+
+  <section id="dashboard" class="hidden">
+    <div class="panel">
+      <div class="row">
+        <div>
+          <h2>Welcome, Administrator</h2>
+          <p id="accountEmail"></p>
+        </div>
+        <button class="secondary" id="logoutButton" type="button">Sign Out</button>
+      </div>
+    </div>
+
+    <section class="panel">
+      <h2 id="formHeading">Add New Artwork</h2>
+      <form id="artForm">
+        <label for="title">Artwork title</label>
+        <input id="title" maxlength="150" placeholder="e.g. Carriers of Heritage" required>
+
+        <label for="dimensions">Dimensions (cm)</label>
+        <input id="dimensions" maxlength="100" placeholder="e.g. 120 × 80 cm" required>
+
+        <label for="description">Description</label>
+        <textarea id="description" maxlength="3000" placeholder="Tell the story behind this artwork..."></textarea>
+
+        <label for="category">Category</label>
+        <select id="category" required>
+          <option value="Paintings">Paintings</option>
+          <option value="Sculptures">Sculptures</option>
+          <option value="Rugs">Rugs</option>
+        </select>
+
+        <label for="price">Price in UGX (optional)</label>
+        <input id="price" type="number" min="0" step="1" placeholder="e.g. 150000">
+
+        <label for="pictures">Artwork photographs</label>
+        <input id="pictures" type="file" accept="image/jpeg,image/png,image/webp" multiple>
+        <p>Choose JPEG, PNG or WebP images. Maximum 5 MB per image; up to 8 images per artwork.</p>
+
+        <label for="availabilityStatus">Availability</label>
+        <select id="availabilityStatus" required>
+          <option value="Available">Available</option>
+          <option value="Reserved">Reserved</option>
+          <option value="Sold">Sold</option>
+        </select>
+
+        <label>
+          <input id="published" type="checkbox" style="width:auto">
+          Publish immediately in the public gallery
+        </label>
+
+        <button class="primary" id="saveButton" type="submit">Upload and Save Artwork</button>
+        <button class="secondary hidden" id="cancelEditButton" type="button">Cancel Editing</button>
+      </form>
+      <p class="notice" id="status" aria-live="polite">Sign in to start managing your collection.</p>
+      <div class="grid" id="preview"></div>
+    </section>
+
+    <section class="panel">
+      <h2>Your Artwork Listings</h2>
+      <p>Publish or unpublish saved artwork from the public gallery.</p>
+      <button class="secondary" id="refreshButton" type="button">Refresh Listings</button>
+      <div class="grid" id="listings"></div>
+    </section>
+  </section>
+</main>
+
+<footer>JOSH'S ART · Art That Carries Our Heritage.</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-config.js"></script>
+<script>
+(() => {
+  const $ = id => document.getElementById(id);
+  const status = $('status');
+  const loginPanel = $('loginPanel');
+  const dashboard = $('dashboard');
+  const form = $('artForm');
+  const picker = $('pictures');
+  const preview = $('preview');
+  const listings = $('listings');
+
+  if (!window.supabase || !window.JOSHS_ART_SUPABASE_URL ||
+      !window.JOSHS_ART_SUPABASE_KEY ||
+      !window.JOSHS_ART_SUPABASE_KEY.startsWith('sb_publishable_')) {
+    status.textContent = 'Supabase configuration is missing or invalid. Check supabase-config.js.';
+    return;
+  }
+
+  const client = window.supabase.createClient(
+    window.JOSHS_ART_SUPABASE_URL,
+    window.JOSHS_ART_SUPABASE_KEY
+  );
+
+  let currentUser = null;
+  let previewUrls = [];
+  let editingArtworkId = null;
+  let editingImageUrls = [];
+
+  function message(text) {
+    status.textContent = text;
+  }
+
+  function clearPreview() {
+    previewUrls.forEach(url => URL.revokeObjectURL(url));
+    previewUrls = [];
+    preview.replaceChildren();
+  }
+
+  function showPreview() {
+    clearPreview();
+    [...picker.files].forEach(file => {
+      if (!file.type.startsWith('image/')) return;
+      const url = URL.createObjectURL(file);
+      previewUrls.push(url);
+      const card = document.createElement('article');
+      card.className = 'item';
+      const img = document.createElement('img');
+      img.src = url;
+      img.alt = 'Selected artwork preview';
+      const info = document.createElement('div');
+      info.textContent = file.name;
+      card.append(img, info);
+      preview.append(card);
+    });
+  }
+
+  picker.addEventListener('change', showPreview);
+
+  async function checkAdmin(user) {
+    const {data, error} = await client
+      .from('artwork_admins')
+      .select('user_id')
+      .eq('user_id', user.id)
+      .maybeSingle();
+
+    if (error || !data) {
+      currentUser = null;
+      loginPanel.classList.remove('hidden');
+      dashboard.classList.add('hidden');
+      message('This account is not authorised as an artwork administrator.');
+      return false;
+    }
+
+    currentUser = user;
+    $('accountEmail').textContent = user.email || 'Administrator account';
+    loginPanel.classList.add('hidden');
+    dashboard.classList.remove('hidden');
+    message('Administrator verified. You can now manage artwork.');
+    await loadListings();
+    return true;
+  }
+
+  async function refreshSession() {
+    const {data, error} = await client.auth.getSession();
+    if (error) {
+      message('Could not check your session: ' + error.message);
+      return;
+    }
+    if (data.session) await checkAdmin(data.session.user);
+  }
+
+  $('loginForm').addEventListener('submit', async event => {
+    event.preventDefault();
+    const button = $('loginButton');
+    button.disabled = true;
+    button.textContent = 'Signing in...';
+
+    const {data, error} = await client.auth.signInWithPassword({
+      email: $('email').value.trim(),
+      password: $('password').value
+    });
+
+    button.disabled = false;
+    button.textContent = 'Sign In';
+
+    if (error) {
+      message('Sign-in failed: ' + error.message);
+      return;
+    }
+    await checkAdmin(data.user);
+  });
+
+  $('logoutButton').addEventListener('click', async () => {
+    await client.auth.signOut();
+    currentUser = null;
+    dashboard.classList.add('hidden');
+    loginPanel.classList.remove('hidden');
+    message('You have signed out.');
+  });
+
+  async function loadListings() {
+    listings.replaceChildren();
+    const {data, error} = await client
+      .from('artworks')
+      .select('id,title,description,category,dimensions,availability_status,price_ugx,image_urls,available,published,created_at')
+      .order('created_at', {ascending:false});
+
+    if (error) {
+      message('Could not load listings: ' + error.message);
+      return;
+    }
+
+    if (!data.length) {
+      const empty = document.createElement('p');
+      empty.textContent = 'No artwork has been added yet.';
+      listings.append(empty);
+      return;
+    }
+
+    data.forEach(art => {
+      const card = document.createElement('article');
+      card.className = 'item';
+
+      if (art.image_urls && art.image_urls[0]) {
+        const img = document.createElement('img');
+        img.src = art.image_urls[0];
+        img.alt = art.title;
+        img.loading = 'lazy';
+        card.append(img);
+      }
+
+      const body = document.createElement('div');
+      const heading = document.createElement('h3');
+      heading.textContent = art.title;
+      const details = document.createElement('p');
+      const availability = art.availability_status ||
+        (art.available ? 'Available' : 'Reserved');
+      details.textContent = art.category + ' · ' +
+        (art.published ? 'Published' : 'Draft') + ' · ' + availability;
+      body.append(heading, details);
+
+      const dimensions = document.createElement('p');
+      dimensions.textContent = 'Dimensions: ' + (art.dimensions || 'Not set');
+      body.append(dimensions);
+
+      const price = document.createElement('p');
+      price.textContent = art.price_ugx !== null
+        ? 'UGX ' + Number(art.price_ugx).toLocaleString('en-UG')
+        : 'Price on request';
+      body.append(price);
+
+      const edit = document.createElement('button');
+      edit.className = 'secondary';
+      edit.textContent = 'Edit';
+      edit.addEventListener('click', () => {
+        editingArtworkId = art.id;
+        editingImageUrls = [...(art.image_urls || [])];
+
+        $('title').value = art.title || '';
+        $('dimensions').value = art.dimensions || '';
+        $('availabilityStatus').value = art.availability_status ||
+          (art.available ? 'Available' : 'Reserved');
+        $('description').value = art.description || '';
+        $('category').value = art.category || 'Paintings';
+        $('price').value = art.price_ugx ?? '';
+        $('published').checked = !!art.published;
+        picker.value = '';
+
+        clearPreview();
+        editingImageUrls.forEach(url => {
+          const card = document.createElement('article');
+          card.className = 'item';
+          const img = document.createElement('img');
+          img.src = url;
+          img.alt = 'Current artwork photograph';
+          img.loading = 'lazy';
+          const info = document.createElement('div');
+          info.textContent = 'Current photograph';
+          card.append(img, info);
+          preview.append(card);
+        });
+
+        $('formHeading').textContent = 'Edit Artwork';
+        $('saveButton').textContent = 'Save Artwork Changes';
+        $('cancelEditButton').classList.remove('hidden');
+        message('Editing: ' + art.title + '. Leave photographs empty to keep the current images.');
+        form.scrollIntoView({behavior:'smooth', block:'start'});
+      });
+
+      const toggle = document.createElement('button');
+      toggle.className = 'secondary';
+      toggle.textContent = art.published ? 'Unpublish' : 'Publish';
+      toggle.addEventListener('click', async () => {
+        toggle.disabled = true;
+        const {error} = await client.from('artworks')
+          .update({published: !art.published})
+          .eq('id', art.id);
+        if (error) message('Could not update listing: ' + error.message);
+        else {
+          message('Artwork publication status updated.');
+          await loadListings();
+        }
+        toggle.disabled = false;
+      });
+
+      body.append(edit, toggle);
+      card.append(body);
+      listings.append(card);
+    });
+  }
+
+  function cancelEditing(showMessage = true) {
+    editingArtworkId = null;
+    editingImageUrls = [];
+    form.reset();
+    picker.value = '';
+    clearPreview();
+
+    $('availabilityStatus').value = 'Available';
+    $('formHeading').textContent = 'Add New Artwork';
+    $('saveButton').textContent = 'Upload and Save Artwork';
+    $('cancelEditButton').classList.add('hidden');
+
+    if (showMessage) message('Editing cancelled. You can add new artwork.');
+  }
+
+  $('cancelEditButton').addEventListener('click', () => cancelEditing());
+
+  form.addEventListener('submit', async event => {
+    event.preventDefault();
+
+    if (!currentUser) {
+      message('Please sign in first.');
+      return;
+    }
+
+    const files = [...picker.files];
+
+    if (files.length > 8 || (!editingArtworkId && files.length === 0)) {
+      message(editingArtworkId
+        ? 'You can select up to 8 replacement photographs.'
+        : 'Choose between 1 and 8 photographs.');
+      return;
+    }
+
+    for (const file of files) {
+      if (!['image/jpeg','image/png','image/webp'].includes(file.type) ||
+          file.size > 5 * 1024 * 1024) {
+        message('Each image must be JPEG, PNG or WebP and no larger than 5 MB.');
+        return;
+      }
+    }
+
+    const rawPrice = $('price').value.trim();
+    const price = rawPrice === '' ? null : Number(rawPrice);
+
+    if (price !== null && (!Number.isFinite(price) || price < 0)) {
+      message('Enter a valid non-negative price.');
+      return;
+    }
+
+    const button = $('saveButton');
+    button.disabled = true;
+
+    const wasEditing = Boolean(editingArtworkId);
+    const artworkId = editingArtworkId;
+    const uploadedImageUrls = [];
+
+    try {
+      if (files.length) {
+        button.textContent = 'Uploading photographs...';
+
+        for (const file of files) {
+          const safeName = file.name.replace(/[^a-zA-Z0-9._-]/g, '-');
+          const path = currentUser.id + '/' + crypto.randomUUID() + '-' + safeName;
+
+          const {error: uploadError} = await client.storage
+            .from('artworks')
+            .upload(path, file, {contentType:file.type, upsert:false});
+
+          if (uploadError) throw uploadError;
+
+          const {data} = client.storage.from('artworks').getPublicUrl(path);
+          uploadedImageUrls.push(data.publicUrl);
+        }
+      }
+
+      button.textContent = 'Saving artwork changes...';
+
+      const record = {
+        title: $('title').value.trim(),
+        dimensions: $('dimensions').value.trim(),
+        availability_status: $('availabilityStatus').value,
+        description: $('description').value.trim(),
+        category: $('category').value,
+        price_ugx: price,
+        image_urls: files.length
+          ? uploadedImageUrls
+          : [...editingImageUrls],
+        available: $('availabilityStatus').value === 'Available',
+        published: $('published').checked
+      };
+
+      const result = wasEditing
+        ? await client.from('artworks').update(record).eq('id', artworkId)
+        : await client.from('artworks').insert(record);
+
+      if (result.error) throw result.error;
+
+      cancelEditing(false);
+      message(wasEditing
+        ? 'Artwork changes saved successfully.'
+        : 'Artwork uploaded and saved successfully.');
+
+      await loadListings();
+    } catch (error) {
+      message('Save failed: ' + (error.message || 'Unknown error') +
+        '. Any photographs already uploaded may remain in Storage.');
+    } finally {
+      button.disabled = false;
+      button.textContent = editingArtworkId
+        ? 'Save Artwork Changes'
+        : 'Upload and Save Artwork';
+    }
+  });
+
+  $('refreshButton').addEventListener('click', loadListings);
+
+  client.auth.onAuthStateChange((event, session) => {
+    if (event === 'SIGNED_OUT') {
+      currentUser = null;
+      dashboard.classList.add('hidden');
+      loginPanel.classList.remove('hidden');
+    }
+  });
+
+  refreshSession();
+})();
+</script>
+</body>
+</html>

@@ -520,27 +520,6 @@ footer {
     }
 }
 
-/* African-inspired pattern for mobile menu */
-@media (max-width: 600px) {
-}
-
-@media (max-width: 600px) {
-    .nav-links {
-        background-color: #17120e !important;
-        background-image: url("images/african-pattern.svg") !important;
-        background-repeat: repeat !important;
-        background-size: 120px 120px !important;
-    }
-
-    .nav-links .menu-close {
-        position: absolute;
-        top: 20px;
-        right: 25px;
-        z-index: 2;
-        color: white;
-    }
-}
-
 /* Brand logo */
 .site-logo {
     width: 38px;
@@ -5056,5 +5035,165 @@ button {
 
     .heritage-visual-frame {
         height: 300px;
+    }
+}
+
+
+/* JOSH'S ART — UNIFIED PREMIUM MOBILE NAVIGATION */
+@media (max-width: 720px) {
+    body.home-premium .main-nav .menu-toggle,
+    body.gallery-premium-clean .main-nav .menu-toggle,
+    body.heritage-page .main-nav .menu-toggle {
+        display: flex;
+        position: relative;
+        z-index: 1101;
+        width: 46px;
+        height: 46px;
+        min-width: 46px;
+        min-height: 46px;
+        align-items: center;
+        justify-content: center;
+        margin-left: auto;
+        color: #e2b77d;
+        background: #191814;
+        border: 1px solid rgba(197, 139, 80, .55);
+        border-radius: 3px;
+        font-size: 1.35rem;
+        cursor: pointer;
+    }
+
+    body.home-premium .main-nav .nav-links,
+    body.gallery-premium-clean .main-nav .nav-links,
+    body.heritage-page .main-nav .nav-links {
+        position: fixed;
+        inset: 0 0 0 auto;
+        z-index: 1100;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+        gap: 8px;
+        width: min(340px, 88vw);
+        height: 100vh;
+        height: 100dvh;
+        box-sizing: border-box;
+        padding: 104px 30px 36px;
+        overflow-y: auto;
+        background:
+            radial-gradient(
+                ellipse at top right,
+                rgba(197, 139, 80, .14),
+                transparent 52%
+            ),
+            #11110f;
+        border-left: 1px solid rgba(197, 139, 80, .42);
+        box-shadow: -18px 0 55px rgba(0, 0, 0, .48);
+        transform: translate3d(105%, 0, 0);
+        visibility: hidden;
+        transition:
+            transform .28s cubic-bezier(.22, 1, .36, 1),
+            visibility .28s;
+        will-change: transform;
+    }
+
+    body.home-premium .main-nav .nav-links.active,
+    body.gallery-premium-clean .main-nav .nav-links.active,
+    body.heritage-page .main-nav .nav-links.active {
+        transform: translate3d(0, 0, 0);
+        visibility: visible;
+    }
+
+    body.home-premium .main-nav .nav-links a,
+    body.gallery-premium-clean .main-nav .nav-links a,
+    body.heritage-page .main-nav .nav-links a {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 16px 0;
+        color: #f3eee4;
+        border-bottom: 1px solid rgba(197, 139, 80, .16);
+        font-size: .82rem;
+        font-weight: 600;
+        letter-spacing: .14em;
+        line-height: 1.5;
+        text-align: left;
+        text-decoration: none;
+        text-transform: uppercase;
+    }
+
+    body.home-premium .main-nav .nav-links a::after,
+    body.gallery-premium-clean .main-nav .nav-links a::after,
+    body.heritage-page .main-nav .nav-links a::after {
+        left: 0;
+        right: auto;
+        bottom: 5px;
+        width: 100%;
+        height: 1px;
+        background: linear-gradient(90deg, #c58b50, #e2b77d);
+        transform: scaleX(0);
+        transform-origin: left;
+    }
+
+    body.home-premium .main-nav .nav-links a:hover::after,
+    body.home-premium .main-nav .nav-links a:focus-visible::after,
+    body.gallery-premium-clean .main-nav .nav-links a:hover::after,
+    body.gallery-premium-clean .main-nav .nav-links a:focus-visible::after,
+    body.heritage-page .main-nav .nav-links a:hover::after,
+    body.heritage-page .main-nav .nav-links a:focus-visible::after {
+        transform: scaleX(1);
+    }
+
+    body.home-premium .main-nav .menu-close,
+    body.gallery-premium-clean .main-nav .menu-close,
+    body.heritage-page .main-nav .menu-close {
+        position: absolute;
+        top: 22px;
+        right: 22px;
+        display: flex;
+        width: 44px;
+        height: 44px;
+        align-items: center;
+        justify-content: center;
+        color: #e2b77d;
+        background: rgba(197, 139, 80, .07);
+        border: 1px solid rgba(197, 139, 80, .48);
+        border-radius: 3px;
+        font-size: 1.8rem;
+        cursor: pointer;
+    }
+
+    body.home-premium .menu-overlay,
+    body.gallery-premium-clean .menu-overlay,
+    body.heritage-page .menu-overlay {
+        position: fixed;
+        inset: 0;
+        z-index: 1050;
+        display: block;
+        background: rgba(5, 5, 4, .76);
+        -webkit-backdrop-filter: blur(4px);
+        backdrop-filter: blur(4px);
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: opacity .22s ease, visibility .22s ease;
+    }
+
+    body.home-premium .menu-overlay.active,
+    body.gallery-premium-clean .menu-overlay.active,
+    body.heritage-page .menu-overlay.active {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body.home-premium .main-nav .nav-links,
+    body.gallery-premium-clean .main-nav .nav-links,
+    body.heritage-page .main-nav .nav-links,
+    body.home-premium .menu-overlay,
+    body.gallery-premium-clean .menu-overlay,
+    body.heritage-page .menu-overlay {
+        transition: none !important;
     }
 }

@@ -48,6 +48,8 @@
         <p>
             Our gallery is being prepared. Original works will appear here when they are ready to be shared.
         </p>
+
+
     </div>
 
 
@@ -60,28 +62,15 @@
     <div class="spotlight-content">
         <span class="spotlight-label">AFRICAN ART & HERITAGE</span>
         <h2 id="paintings-heading">Paintings</h2>
-        <p class="spotlight-category">AFRICAN ART &amp; HERITAGE</p>
         <p>
             Explore the world of African paintings, where heritage, identity, culture and creativity come together.
         </p>
-    </div>
+
+            <a href="published-artworks.html?category=Paintings" class="spotlight-button published-artworks-button">View Paintings</a>
+        </div>
 </section>
 
-<section id="paintings-collection" class="paintings-collection" hidden
-         aria-labelledby="paintings-collection-title">
-    <div class="paintings-heading">
-        <span class="spotlight-label">JOSH'S ART COLLECTION</span>
-        <h2 id="paintings-collection-title">Stories Told Through Art</h2>
-        <p>Discover paintings inspired by African heritage, identity, culture and creativity.</p>
-    </div>
-    <div class="paintings-coming-soon">
-        <span class="paintings-coming-soon-mark" aria-hidden="true">JA</span>
-        <h3>Our Painting Collection Is Coming Soon</h3>
-        <p>We are preparing the collection. Original paintings and their details will appear here when they are ready.</p>
-        <span class="spotlight-button coming-soon-label">Collection Coming Soon</span>
-    </div>
-    <button class="paintings-close" type="button">Close Collection</button>
-</section>
+
 
     <section class="featured-spotlight category-spotlight sculpture-spotlight"
              aria-labelledby="sculptures-heading">
@@ -90,7 +79,7 @@
             <span>SCULPTURE COLLECTION</span>
         </div>
         <div class="spotlight-content">
-            <span class="spotlight-label">COMING SOON</span>
+            <span class="spotlight-label">FORM &amp; CRAFTSMANSHIP</span>
             <h2 id="sculptures-heading">Sculptures</h2>
             <p class="spotlight-category">FORM &amp; CRAFTSMANSHIP</p>
             <p>
@@ -98,9 +87,9 @@
                 craftsmanship and African creative expression.
                 Original sculpture listings will appear here when available.
             </p>
-            <span class="spotlight-button coming-soon-label">
-                Collection Coming Soon
-            </span>
+
+
+            <a href="published-artworks.html?category=Sculptures" class="spotlight-button published-artworks-button">View Sculptures</a>
         </div>
     </section>
 
@@ -111,7 +100,7 @@
             <span>RUG COLLECTION</span>
         </div>
         <div class="spotlight-content">
-            <span class="spotlight-label">COMING SOON</span>
+            <span class="spotlight-label">PATTERN &amp; HERITAGE</span>
             <h2 id="rugs-heading">Rugs</h2>
             <p class="spotlight-category">PATTERN &amp; HERITAGE</p>
             <p>
@@ -119,10 +108,12 @@
                 meaningful patterns and the artistry of African interiors.
                 Rug listings will be added when the collection is ready.
             </p>
-            <span class="spotlight-button coming-soon-label">
-                Collection Coming Soon
-            </span>
+
+
+            <a href="published-artworks.html?category=Rugs" class="spotlight-button published-artworks-button">View Rugs</a>
         </div>
+
+        <div id="live-category-groups"></div>
     </section>
 
     <div class="collection-note">
@@ -136,6 +127,144 @@
 </section>
 
     </main>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-config.js"></script>
+    <script>
+    (() => {
+      const status = document.getElementById('live-gallery-status');
+      const groups = document.getElementById('live-category-groups');
+
+      if (!window.supabase || !window.JOSHS_ART_SUPABASE_URL ||
+          !window.JOSHS_ART_SUPABASE_KEY) {
+        status.textContent = 'The gallery connection is not configured.';
+        return;
+      }
+
+      const db = window.supabase.createClient(
+        window.JOSHS_ART_SUPABASE_URL,
+        window.JOSHS_ART_SUPABASE_KEY
+      );
+
+      const categories = ['Paintings', 'Sculptures', 'Rugs'];
+
+      function make(tag, className, text) {
+        const el = document.createElement(tag);
+        if (className) el.className = className;
+        if (text !== undefined) el.textContent = text;
+        return el;
+      }
+
+      function makeArtworkCard(art) {
+        const card = make('article', 'live-artwork-card');
+        const image = document.createElement('img');
+        image.src = art.image_urls[0];
+        image.alt = art.title;
+        image.loading = 'lazy';
+        image.decoding = 'async';
+        card.append(image);
+
+        const content = make('div', 'live-artwork-content');
+        content.append(make('h3', '', art.title));
+        content.append(make('p', 'live-artwork-category', art.category));
+
+        if (art.description) {
+          content.append(make('p', 'live-artwork-description', art.description));
+        }
+
+        if (art.price_ugx !== null) {
+          content.append(make(
+            'p',
+            'live-artwork-price',
+            'UGX ' + Number(art.price_ugx).toLocaleString('en-UG')
+          ));
+        } else {
+          content.append(make('p', 'live-artwork-price', 'Price on request'));
+        }
+
+        content.append(make(
+          'p',
+          'live-artwork-availability',
+          art.available ? 'Available' : 'Currently unavailable'
+        ));
+
+        const actions = make('div', 'live-artwork-actions');
+
+        const detailsLink = make(
+          'a',
+          'live-artwork-inquiry live-artwork-button--details',
+          'View Artwork'
+        );
+        detailsLink.href = 'artwork.html?id=' + encodeURIComponent(art.id);
+        actions.append(detailsLink);
+
+        const message = 'Hello Josh’s Art, I am interested in ' + art.title +
+          '. Please share more details.';
+        const link = make(
+          'a',
+          'live-artwork-inquiry live-artwork-button--whatsapp',
+          'Enquire on WhatsApp'
+        );
+        link.href = 'https://wa.me/256787551195?text=' +
+          encodeURIComponent(message);
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        actions.append(link);
+        content.append(actions);
+
+        card.append(content);
+        return card;
+      }
+
+      async function loadGallery() {
+        status.textContent = 'Loading the collection...';
+
+        const { data, error } = await db
+          .from('artworks')
+          .select('id,title,description,category,price_ugx,image_urls,available')
+          .eq('published', true)
+          .order('created_at', { ascending: false });
+
+        if (error) {
+          status.textContent = 'The collection could not be loaded. Please try again later.';
+          console.error('Gallery loading error:', error.message);
+          return;
+        }
+
+        groups.replaceChildren();
+        let total = 0;
+
+        categories.forEach(category => {
+          const items = data.filter(art =>
+            art.category === category &&
+            Array.isArray(art.image_urls) &&
+            art.image_urls.length > 0
+          );
+
+          if (!items.length) return;
+
+          total += items.length;
+          const section = make('section', 'live-category-section');
+          section.append(make('h2', 'live-category-title', category));
+
+          const grid = make('div', 'live-artwork-grid');
+          items.forEach(art => grid.append(makeArtworkCard(art)));
+          section.append(grid);
+          groups.append(section);
+        });
+
+        if (!total) {
+          status.textContent = 'Our collection is being prepared. Please check back soon.';
+        } else {
+          status.textContent = total + ' published artwork' +
+            (total === 1 ? '' : 's') + ' in our collection.';
+        }
+      }
+
+      loadGallery();
+    })();
+    </script>
 
     <script src="script.js" defer></script>
 

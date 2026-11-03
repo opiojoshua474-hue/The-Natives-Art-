@@ -73,30 +73,63 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Mobile navigation
+    // Accessible mobile navigation
     const menuToggle = document.querySelector(".menu-toggle");
     const menuOverlay = document.querySelector(".menu-overlay");
     const navLinks = document.querySelector(".nav-links");
     const menuClose = document.querySelector(".menu-close");
 
-    function closeMenu() {
-        if (navLinks) navLinks.classList.remove("active");
-        if (menuOverlay) menuOverlay.classList.remove("active");
+    function setMenuOpen(open, returnFocus = false) {
+        if (!menuToggle || !navLinks) return;
+
+        navLinks.classList.toggle("active", open);
+
+        if (menuOverlay) {
+            menuOverlay.classList.toggle("active", open);
+        }
+
+        menuToggle.setAttribute("aria-expanded", String(open));
+        menuToggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+
+        if (open && menuClose) {
+            menuClose.focus();
+        } else if (returnFocus) {
+            menuToggle.focus();
+        }
     }
 
     if (menuToggle && navLinks) {
+        menuToggle.setAttribute("aria-expanded", "false");
+
         menuToggle.addEventListener("click", function () {
-            navLinks.classList.toggle("active");
-            if (menuOverlay) menuOverlay.classList.toggle("active");
+            const isOpen = navLinks.classList.contains("active");
+            setMenuOpen(!isOpen);
         });
 
         navLinks.querySelectorAll("a").forEach(function (link) {
-            link.addEventListener("click", closeMenu);
+            link.addEventListener("click", function () {
+                setMenuOpen(false);
+            });
+        });
+
+        document.addEventListener("keydown", function (event) {
+            if (event.key === "Escape" && navLinks.classList.contains("active")) {
+                setMenuOpen(false, true);
+            }
         });
     }
 
-    if (menuClose) menuClose.addEventListener("click", closeMenu);
-    if (menuOverlay) menuOverlay.addEventListener("click", closeMenu);
+    if (menuClose) {
+        menuClose.addEventListener("click", function () {
+            setMenuOpen(false, true);
+        });
+    }
+
+    if (menuOverlay) {
+        menuOverlay.addEventListener("click", function () {
+            setMenuOpen(false, true);
+        });
+    }
 });
 
 /* =========================================
@@ -153,35 +186,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
     });
 
-});
-
-
-/* Paintings collection expand/collapse */
-document.addEventListener("DOMContentLoaded", function () {
-    const toggle = document.querySelector(".paintings-toggle");
-    const collection = document.getElementById("paintings-collection");
-    const closeButton = document.querySelector(".paintings-close");
-
-    if (!toggle || !collection) return;
-
-    function setCollectionOpen(open) {
-        collection.hidden = !open;
-        toggle.setAttribute("aria-expanded", String(open));
-        toggle.textContent = open ? "Hide Paintings" : "Explore Paintings";
-
-        if (open) {
-            collection.scrollIntoView({ behavior: "smooth", block: "start" });
-        }
-    }
-
-    toggle.addEventListener("click", function () {
-        setCollectionOpen(collection.hidden);
-    });
-
-    if (closeButton) {
-        closeButton.addEventListener("click", function () {
-            setCollectionOpen(false);
-            toggle.scrollIntoView({ behavior: "smooth", block: "center" });
-        });
-    }
 });

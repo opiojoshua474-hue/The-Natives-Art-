@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#11110f">
+  <title>Artwork Details | Josh's Art</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="gallery-premium.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    .art-detail {
+      width: min(1240px, calc(100% - 48px));
+      margin: 76px auto;
+      display: grid;
+      grid-template-columns: minmax(0, 1.12fr) minmax(0, .88fr);
+      gap: clamp(36px, 6vw, 84px);
+      align-items: center;
+    }
+
+    .art-detail-image {
+      display: block;
+      width: 100%;
+      max-height: 760px;
+      aspect-ratio: 4 / 5;
+      object-fit: contain;
+      object-position: center;
+      padding: 18px;
+      box-sizing: border-box;
+      background: #0d0d0b;
+      border: 1px solid rgba(197, 139, 80, .42);
+      border-radius: 3px;
+      box-shadow: 0 24px 65px rgba(0, 0, 0, .32);
+    }
+
+    .art-detail-info {
+      padding: 12px 0;
+      min-width: 0;
+    }
+
+    .art-detail-category {
+      display: inline-block;
+      color: #c58b50;
+      font: 600 .72rem Inter, sans-serif;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      padding-bottom: 13px;
+      border-bottom: 1px solid rgba(197, 139, 80, .45);
+    }
+
+    .art-detail-info h2 {
+      color: #e2b77d;
+      font: 500 clamp(2.3rem, 5vw, 4.2rem)/1.12 "Playfair Display", Georgia, serif;
+      letter-spacing: -.025em;
+      margin: 22px 0;
+    }
+
+    .art-detail-description {
+      color: #c9c1b5;
+      font: 400 .96rem/1.9 Inter, sans-serif;
+      white-space: pre-wrap;
+      margin: 0;
+    }
+
+    .art-detail-price {
+      color: #f0d1a5;
+      font: 600 1.45rem Inter, sans-serif;
+      letter-spacing: .02em;
+      margin: 30px 0 12px;
+    }
+
+    #art-availability {
+      color: #b7b0a3;
+      font: 500 .82rem Inter, sans-serif;
+      letter-spacing: .04em;
+      margin: 0;
+    }
+
+    .art-detail-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 32px;
+    }
+
+    .art-detail-actions a {
+      display: inline-flex;
+      min-height: 48px;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+      padding: 13px 21px;
+      border: 1px solid rgba(197, 139, 80, .75);
+      border-radius: 2px;
+      text-decoration: none;
+      color: #e2b77d;
+      background: transparent;
+      font: 600 .78rem Inter, sans-serif;
+      letter-spacing: .04em;
+      text-align: center;
+      transition: background .2s ease, color .2s ease, border-color .2s ease;
+    }
+
+    .art-detail-actions a.primary {
+      background: #c58b50;
+      border-color: #c58b50;
+      color: #11110f;
+    }
+
+    .art-detail-actions a:hover {
+      background: #e2b77d;
+      border-color: #e2b77d;
+      color: #11110f;
+    }
+
+    .art-detail-status {
+      width: min(900px, 92%);
+      margin: 100px auto;
+      text-align: center;
+      color: #e2b77d;
+      font: 500 1rem Inter, sans-serif;
+    }
+
+    @media (max-width: 700px) {
+      .art-detail {
+        width: calc(100% - 32px);
+        grid-template-columns: 1fr;
+        gap: 28px;
+        margin: 34px auto 55px;
+      }
+
+      .art-detail-image {
+        max-height: 520px;
+        aspect-ratio: 4 / 5;
+        padding: 10px;
+      }
+
+      .art-detail-info {
+        padding: 0 4px;
+      }
+
+      .art-detail-info h2 {
+        font-size: clamp(2.2rem, 10vw, 3.2rem);
+        margin: 17px 0;
+      }
+
+      .art-detail-price {
+        margin-top: 24px;
+      }
+
+      .art-detail-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+        margin-top: 25px;
+      }
+
+      .art-detail-actions a {
+        width: 100%;
+      }
+    }
+
+    /* Josh's Art — enlarged artwork viewer */
+    .art-detail-image {
+      cursor: zoom-in;
+      transition: transform .25s ease, border-color .25s ease;
+    }
+    .art-detail-image:hover {
+      border-color: rgba(226, 183, 125, .85);
+    }
+    .art-image-viewer {
+      position: fixed;
+      inset: 0;
+      z-index: 99999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 54px 18px 24px;
+      background: rgba(5, 5, 4, .96);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity .22s ease, visibility .22s ease;
+      box-sizing: border-box;
+    }
+    .art-image-viewer.is-open {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+    .art-image-viewer img {
+      display: block;
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      border: 1px solid rgba(197, 139, 80, .55);
+      box-shadow: 0 20px 70px rgba(0, 0, 0, .5);
+      cursor: zoom-out;
+    }
+    .art-image-viewer-close {
+      position: absolute;
+      top: 14px;
+      right: 18px;
+      width: 44px;
+      height: 44px;
+      border: 1px solid rgba(226, 183, 125, .65);
+      border-radius: 50%;
+      background: #171510;
+      color: #f3eee4;
+      font-size: 28px;
+      line-height: 1;
+      cursor: pointer;
+    }
+    .art-image-viewer-close:hover,
+    .art-image-viewer-close:focus-visible {
+      background: #c58b50;
+      color: #11110f;
+    }
+    body.art-image-viewer-open {
+      overflow: hidden;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .art-image-viewer,
+      .art-detail-image { transition: none; }
+    }
+
+  </style>
+</head>
+<body class="gallery-premium-clean">
+  <header>
+    <img src="images/joshs-art-logo.png" alt="Josh's Art Logo" class="site-logo">
+    <h1>Josh's Art</h1>
+    <nav class="main-nav">
+      <button class="menu-toggle" type="button" aria-label="Open menu">☰</button>
+      <div class="menu-overlay"></div>
+      <div class="nav-links">
+        <button class="menu-close" type="button" aria-label="Close menu">×</button>
+        <a href="index.html">Home</a>
+        <a href="featured.html">Gallery</a>
+        <a href="paintings.html">Paintings</a>
+        <a href="sculptures.html">Sculptures</a>
+        <a href="rugs.html">Rugs</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <p id="art-status" class="art-detail-status">Loading artwork details...</p>
+    <section id="art-detail" class="art-detail" hidden>
+      <img id="art-image" class="art-detail-image" alt="">
+      <div class="art-detail-info">
+        <span id="art-category" class="art-detail-category"></span>
+        <h2 id="art-title"></h2>
+        <p id="art-dimensions"></p>
+        <p id="art-price" class="art-detail-price"></p>
+        <p id="art-availability"></p>
+        <div class="art-detail-actions">
+          <a id="art-whatsapp" class="primary" target="_blank" rel="noopener noreferrer">Inquire on WhatsApp</a>
+          <a id="art-back" href="featured.html">Back to Collection</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="art-image-viewer" class="art-image-viewer"
+       role="dialog" aria-modal="true" aria-label="Enlarged artwork image"
+       aria-hidden="true">
+    <button type="button" class="art-image-viewer-close"
+            aria-label="Close enlarged image">&times;</button>
+    <img id="art-image-viewer-full" alt="">
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+  <script>
+  (async () => {
+    const status = document.getElementById('art-status');
+    const detail = document.getElementById('art-detail');
+    const id = new URLSearchParams(window.location.search).get('id');
+
+    if (!id) {
+      status.textContent = 'No artwork was selected.';
+      return;
+    }
+
+    if (!window.supabase || !window.JOSHS_ART_SUPABASE_URL ||
+        !window.JOSHS_ART_SUPABASE_KEY) {
+      status.textContent = 'The artwork connection is not configured.';
+      return;
+    }
+
+    const db = window.supabase.createClient(
+      window.JOSHS_ART_SUPABASE_URL,
+      window.JOSHS_ART_SUPABASE_KEY
+    );
+
+    const { data: art, error } = await db
+      .from('artworks')
+      .select('id,title,description,category,dimensions,availability_status,price_ugx,image_urls,available')
+      .eq('id', id)
+      .eq('published', true)
+      .maybeSingle();
+
+    if (error || !art) {
+      console.error('Artwork details error:', error);
+      status.textContent = 'This artwork is unavailable or is no longer published.';
+      return;
+    }
+
+    document.title = (art.title || 'Artwork') + " | Josh's Art";
+    document.getElementById('art-image').src =
+      Array.isArray(art.image_urls) ? art.image_urls[0] : '';
+    document.getElementById('art-image').alt = art.title || 'Josh’s Art';
+
+    // Enlarge artwork when the main image is clicked.
+    const artworkImage = document.getElementById('art-image');
+    const imageViewer = document.getElementById('art-image-viewer');
+    const enlargedImage = document.getElementById('art-image-viewer-full');
+    const closeViewerButton = imageViewer.querySelector('.art-image-viewer-close');
+
+    function openArtworkViewer() {
+      if (!artworkImage.src || artworkImage.src === window.location.href) return;
+      enlargedImage.src = artworkImage.src;
+      enlargedImage.alt = artworkImage.alt || 'Enlarged artwork';
+      imageViewer.classList.add('is-open');
+      imageViewer.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('art-image-viewer-open');
+      closeViewerButton.focus();
+    }
+
+    function closeArtworkViewer() {
+      imageViewer.classList.remove('is-open');
+      imageViewer.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('art-image-viewer-open');
+      artworkImage.focus();
+    }
+
+    artworkImage.tabIndex = 0;
+    artworkImage.setAttribute('role', 'button');
+    artworkImage.setAttribute('aria-label', 'Enlarge artwork image');
+    artworkImage.addEventListener('click', openArtworkViewer);
+    artworkImage.addEventListener('keydown', event => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        openArtworkViewer();
+      }
+    });
+
+    closeViewerButton.addEventListener('click', closeArtworkViewer);
+    enlargedImage.addEventListener('click', closeArtworkViewer);
+    imageViewer.addEventListener('click', event => {
+      if (event.target === imageViewer) closeArtworkViewer();
+    });
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && imageViewer.classList.contains('is-open')) {
+        closeArtworkViewer();
+      }
+    });
+    document.getElementById('art-category').textContent = art.category || '';
+    document.getElementById('art-title').textContent = art.title || 'Untitled artwork';
+    document.getElementById('art-dimensions').textContent =
+      art.dimensions ? 'Dimensions: ' + art.dimensions : '';
+    document.getElementById('art-price').textContent =
+      art.price_ugx !== null && art.price_ugx !== undefined
+        ? 'UGX ' + Number(art.price_ugx).toLocaleString('en-UG')
+        : 'Price on request';
+    const availability = art.availability_status ||
+      (art.available ? 'Available' : 'Reserved');
+    document.getElementById('art-availability').textContent = availability;
+
+    const message = "Hello Josh's Art, I am interested in " + (art.title || 'your artwork') + ".";
+    document.getElementById('art-whatsapp').href =
+      'https://wa.me/256787551195?text=' + encodeURIComponent(message);
+    document.getElementById('art-whatsapp').style.display =
+      availability === 'Available' ? 'inline-flex' : 'none';
+
+    const back = document.getElementById('art-back');
+    const pages = {
+      Paintings: 'paintings.html',
+      Sculptures: 'sculptures.html',
+      Rugs: 'rugs.html'
+    };
+    back.href = pages[art.category] || 'featured.html';
+
+    status.hidden = true;
+    detail.hidden = false;
+  })();
+  </script>
+  <script src="script.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#11110f">
+  <meta name="description" content="Discover rugs celebrating African patterns, artistry and timeless craftsmanship.">
+  <title>Rugs Collection | Josh's Art</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="gallery-premium.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="gallery-premium-clean collection-page">
+  <header>
+    <img src="images/joshs-art-logo.png" alt="Josh's Art Logo" class="site-logo">
+    <h1>Josh's Art</h1>
+    <nav class="main-nav">
+      <button class="menu-toggle" type="button" aria-label="Open menu">☰</button>
+      <div class="menu-overlay"></div>
+      <div class="nav-links">
+        <button class="menu-close" type="button" aria-label="Close menu">×</button>
+        <a href="index.html">Home</a>
+        <a href="featured.html">Gallery</a>
+        <a href="paintings.html">Paintings</a>
+        <a href="sculptures.html">Sculptures</a>
+        <a href="rugs.html">Rugs</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="collection-main">
+    <section class="collection-hero">
+      <span class="spotlight-label">THE JOSH'S ART COLLECTION</span>
+      <h2>Crafted With Heritage</h2>
+      <p>Discover rugs celebrating African patterns, artistry and timeless craftsmanship.</p>
+      <div class="collection-page-links">
+        <a href="paintings.html">Paintings</a>
+        <a href="sculptures.html">Sculptures</a>
+        <a href="rugs.html">Rugs</a>
+      </div>
+    </section>
+
+    <section class="collection-results" aria-live="polite">
+      <div id="collection-status" class="collection-note">Loading the collection...</div>
+      <div id="collection-grid" class="live-artwork-grid"></div>
+    </section>
+  </main>
+
+  <footer class="collection-footer">
+    <p>Josh's Art — Art That Carries Our Heritage.</p>
+    <a href="featured.html">Return to the main gallery</a>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+  <script>
+  (() => {
+    const category = "Rugs";
+    const status = document.getElementById('collection-status');
+    const grid = document.getElementById('collection-grid');
+
+    if (!window.supabase || !window.JOSHS_ART_SUPABASE_URL ||
+        !window.JOSHS_ART_SUPABASE_KEY) {
+      status.textContent = 'The collection connection is not configured.';
+      return;
+    }
+
+    const db = window.supabase.createClient(
+      window.JOSHS_ART_SUPABASE_URL,
+      window.JOSHS_ART_SUPABASE_KEY
+    );
+
+    function element(tag, className, text) {
+      const node = document.createElement(tag);
+      if (className) node.className = className;
+      if (text !== undefined) node.textContent = text;
+      return node;
+    }
+
+    function createCard(art) {
+      const card = element('article', 'live-artwork-card');
+      const image = element('img');
+      image.src = Array.isArray(art.image_urls) ? art.image_urls[0] : '';
+      image.alt = art.title || category + ' artwork';
+      image.loading = 'lazy';
+      image.onerror = () => { image.alt = 'Artwork image unavailable'; };
+      card.appendChild(image);
+
+      const content = element('div', 'live-artwork-content');
+      content.appendChild(element('span', 'live-artwork-category', category));
+      content.appendChild(element('h3', '', art.title || 'Untitled artwork'));
+
+      if (art.description) {
+        content.appendChild(element('p', '', art.description));
+      }
+
+      const price = art.price_ugx !== null && art.price_ugx !== undefined
+        ? 'UGX ' + Number(art.price_ugx).toLocaleString('en-UG')
+        : 'Price on request';
+      content.appendChild(element('div', 'live-artwork-price', price));
+
+      content.appendChild(element(
+        'p',
+        'live-artwork-availability',
+        art.available ? 'Available' : 'Currently unavailable'
+      ));
+
+      const actionRow = element('div', 'live-artwork-actions');
+
+      const detailsLink = element('a', 'live-artwork-inquiry live-artwork-button--details', 'View Artwork');
+      detailsLink.href = 'artwork.html?id=' + encodeURIComponent(art.id);
+      actionRow.appendChild(detailsLink);
+
+      const message = 'Hello Josh\'s Art, I am interested in ' + (art.title || 'your artwork') + '.';
+      const link = element('a', 'live-artwork-inquiry live-artwork-button--whatsapp', 'Inquire on WhatsApp');
+      link.href = 'https://wa.me/256787551195?text=' + encodeURIComponent(message);
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+      actionRow.appendChild(link);
+
+      content.appendChild(actionRow);
+
+      card.appendChild(content);
+      return card;
+    }
+
+    async function loadCollection() {
+      const { data, error } = await db
+        .from('artworks')
+        .select('id,title,description,category,price_ugx,image_urls,available')
+        .eq('published', true)
+        .eq('category', category)
+        .order('created_at', { ascending: false });
+
+      if (error) {
+        console.error('Collection loading error:', error);
+        status.textContent = 'We could not load this collection right now. Please try again later.';
+        return;
+      }
+
+      const artworks = (data || []).filter(
+        art => Array.isArray(art.image_urls) && art.image_urls.length > 0
+      );
+
+      grid.replaceChildren();
+
+      if (!artworks.length) {
+        status.textContent = 'New works are being prepared for this collection. Please visit again soon.';
+        return;
+      }
+
+      artworks.forEach(art => grid.appendChild(createCard(art)));
+      status.textContent = artworks.length + (artworks.length === 1
+        ? ' artwork in this collection'
+        : ' artworks in this collection');
+    }
+
+    loadCollection();
+  })();
+  </script>
+  <script src="script.js" defer></script>
+</body>
+</html>

@@ -2262,3 +2262,2756 @@ body.gallery-premium-clean footer {
 }
 
 /* END FINAL SIGNATURE DESIGN POLISH */
+
+/* WIDER PREMIUM CATEGORY SPOTLIGHTS */
+body.gallery-premium-clean .gallery-page {
+  width: min(1320px, calc(100% - 40px));
+  max-width: 1320px;
+  margin-inline: auto;
+}
+
+body.gallery-premium-clean .featured-spotlight.category-spotlight {
+  width: 100%;
+  max-width: 1320px;
+  min-width: 0;
+  margin-inline: auto;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: clamp(24px, 4vw, 56px);
+}
+
+body.gallery-premium-clean .category-spotlight .spotlight-image {
+  width: 100%;
+  min-width: 0;
+}
+
+body.gallery-premium-clean .category-spotlight .spotlight-content {
+  min-width: 0;
+  width: 100%;
+}
+
+@media (max-width: 720px) {
+  body.gallery-premium-clean .gallery-page {
+    width: calc(100% - 24px);
+  }
+
+  body.gallery-premium-clean .featured-spotlight.category-spotlight {
+    width: 100%;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+  }
+
+  body.gallery-premium-clean .category-spotlight .spotlight-image,
+  body.gallery-premium-clean .category-spotlight .spotlight-content {
+    width: 100%;
+  }
+}
+
+/* JOSH'S ART — FULL-WIDTH CATEGORY SPOTLIGHTS */
+body.gallery-premium-clean .gallery-page {
+  width: calc(100% - 32px) !important;
+  max-width: 1500px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+body.gallery-premium-clean .gallery-page .featured-spotlight.category-spotlight {
+  display: grid !important;
+  width: 100% !important;
+  max-width: none !important;
+  min-width: 0 !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+  gap: 0 !important;
+}
+
+body.gallery-premium-clean .gallery-page .category-spotlight .spotlight-image,
+body.gallery-premium-clean .gallery-page .category-spotlight .spotlight-content {
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: none !important;
+}
+
+@media (max-width: 720px) {
+  body.gallery-premium-clean .gallery-page {
+    width: calc(100% - 20px) !important;
+  }
+
+  body.gallery-premium-clean .gallery-page .featured-spotlight.category-spotlight {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  body.gallery-premium-clean .gallery-page .category-spotlight .spotlight-content {
+    padding: 28px 22px !important;
+  }
+}
+
+/* =========================================
+   JOSH'S ART — OBSIDIAN GALLERY REFINEMENT
+   ========================================= */
+
+body.gallery-premium-clean {
+    background: #11110f;
+    color: #f3eee4;
+}
+
+body.gallery-premium-clean .gallery-premium-clean {
+    background: #11110f;
+}
+
+body.gallery-premium-clean .gallery-intro {
+    padding: 15px 20px 10px;
+}
+
+body.gallery-premium-clean .gallery-label {
+    color: #d6a66f;
+    letter-spacing: 3px;
+}
+
+body.gallery-premium-clean .gallery-intro h2 {
+    color: #f3eee4;
+    letter-spacing: -1px;
+}
+
+body.gallery-premium-clean .gallery-intro > p:last-child {
+    color: #aaa196;
+}
+
+body.gallery-premium-clean .featured-spotlight {
+    border: 1px solid rgba(197, 139, 80, .24);
+    box-shadow: 0 22px 60px rgba(0, 0, 0, .28);
+}
+
+body.gallery-premium-clean .spotlight-image.category-placeholder {
+    min-height: 430px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 22px;
+    background:
+        radial-gradient(ellipse at center, rgba(197,139,80,.15), transparent 65%),
+        linear-gradient(145deg, #27231d, #151411 65%, #211a13);
+    border-right: 1px solid rgba(197,139,80,.2);
+}
+
+body.gallery-premium-clean .placeholder-mark {
+    width: 112px;
+    height: 112px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(226,183,125,.65);
+    border-radius: 50%;
+    color: #e2b77d;
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 54px;
+    box-shadow: 0 0 35px rgba(197,139,80,.12);
+}
+
+body.gallery-premium-clean .spotlight-image.category-placeholder > span {
+    color: #d6a66f;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+}
+
+body.gallery-premium-clean .spotlight-content {
+    background: linear-gradient(135deg, #1b1915, #11110f);
+}
+
+body.gallery-premium-clean .spotlight-label,
+body.gallery-premium-clean .spotlight-category {
+    color: #d6a66f;
+}
+
+body.gallery-premium-clean .spotlight-content h2 {
+    color: #f3eee4;
+}
+
+body.gallery-premium-clean .spotlight-content p {
+    color: #aaa196;
+}
+
+body.gallery-premium-clean .coming-soon-label {
+    border-color: rgba(197,139,80,.45);
+    color: #d6a66f;
+    background: rgba(197,139,80,.05);
+}
+
+body.gallery-premium-clean .collection-note {
+    border-top-color: rgba(197,139,80,.3);
+    color: #aaa196;
+}
+
+body.gallery-premium-clean .back-home {
+    color: #d6a66f;
+}
+
+@media (max-width: 850px) {
+    body.gallery-premium-clean .spotlight-image.category-placeholder {
+        min-height: 300px;
+        border-right: 0;
+        border-bottom: 1px solid rgba(197,139,80,.2);
+    }
+}
+
+@media (max-width: 600px) {
+    body.gallery-premium-clean .gallery-intro {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    body.gallery-premium-clean .placeholder-mark {
+        width: 90px;
+        height: 90px;
+        font-size: 44px;
+    }
+
+    body.gallery-premium-clean .spotlight-content {
+        padding: 35px 24px;
+    }
+}
+
+
+/* =========================================
+   JOSH'S ART — DISTINCT COLLECTION IDENTITIES
+   ========================================= */
+
+/* PAINTINGS — warm heritage and storytelling */
+body.gallery-premium-clean .paintings-spotlight .category-placeholder {
+    background:
+        radial-gradient(ellipse at 25% 25%, rgba(205,151,91,.22), transparent 42%),
+        radial-gradient(ellipse at 80% 80%, rgba(130,76,39,.20), transparent 48%),
+        repeating-linear-gradient(135deg, rgba(226,183,125,.025) 0 1px, transparent 1px 13px),
+        linear-gradient(145deg, #302014, #17110c 70%);
+}
+
+body.gallery-premium-clean .paintings-spotlight .placeholder-mark {
+    border-radius: 50%;
+    box-shadow: 0 0 45px rgba(197,139,80,.18);
+}
+
+body.gallery-premium-clean .paintings-spotlight .spotlight-content {
+    background:
+        radial-gradient(ellipse at 100% 0%, rgba(190,125,65,.10), transparent 55%),
+        linear-gradient(135deg, #21180f, #0e0d0a);
+}
+
+/* SCULPTURES — solid form and craftsmanship */
+body.gallery-premium-clean .sculpture-spotlight .category-placeholder {
+    background:
+        radial-gradient(circle at center, transparent 0 55px, rgba(210,177,132,.12) 56px 57px, transparent 58px 82px, rgba(210,177,132,.09) 83px 84px, transparent 85px),
+        linear-gradient(145deg, #292925, #11110f 72%);
+}
+
+body.gallery-premium-clean .sculpture-spotlight .placeholder-mark {
+    border-radius: 8px;
+    transform: rotate(45deg);
+    box-shadow: 0 0 38px rgba(210,177,132,.10);
+}
+
+body.gallery-premium-clean .sculpture-spotlight .placeholder-mark::after {
+    transform: rotate(-45deg);
+}
+
+body.gallery-premium-clean .sculpture-spotlight .spotlight-content {
+    background:
+        radial-gradient(ellipse at 100% 50%, rgba(164,155,135,.09), transparent 52%),
+        linear-gradient(135deg, #1b1b18, #0c0d0c);
+}
+
+/* RUGS — woven patterns and earthy heritage */
+body.gallery-premium-clean .rugs-spotlight .category-placeholder {
+    background:
+        repeating-linear-gradient(45deg, rgba(213,169,112,.075) 0 2px, transparent 2px 15px),
+        repeating-linear-gradient(-45deg, rgba(213,169,112,.045) 0 2px, transparent 2px 15px),
+        radial-gradient(ellipse at center, rgba(154,99,52,.20), transparent 65%),
+        linear-gradient(145deg, #291b12, #100d09 72%);
+}
+
+body.gallery-premium-clean .rugs-spotlight .placeholder-mark {
+    border-radius: 5px;
+    box-shadow: 0 0 38px rgba(197,139,80,.13);
+}
+
+body.gallery-premium-clean .rugs-spotlight .spotlight-content {
+    background:
+        radial-gradient(ellipse at 100% 100%, rgba(165,105,55,.12), transparent 55%),
+        linear-gradient(135deg, #20170f, #0d0c09);
+}
+
+/* Keep decorative details subtle on smaller screens */
+@media (max-width: 720px) {
+    body.gallery-premium-clean .sculpture-spotlight .placeholder-mark {
+        transform: none;
+        border-radius: 8px;
+    }
+
+    body.gallery-premium-clean .sculpture-spotlight .placeholder-mark::after {
+        transform: none;
+    }
+}
+
+
+/* JOSH'S ART — REFINED MOBILE COLLECTION CARDS */
+@media (max-width: 600px) {
+    body.gallery-premium-clean .gallery-page .featured-spotlight.category-spotlight {
+        min-height: 0 !important;
+        height: auto !important;
+        gap: 0 !important;
+        margin-bottom: 24px !important;
+    }
+
+    body.gallery-premium-clean .gallery-page .category-spotlight .spotlight-image.category-placeholder {
+        min-height: 190px !important;
+        height: 190px !important;
+        padding: 20px !important;
+        gap: 14px !important;
+    }
+
+    body.gallery-premium-clean .gallery-page .category-spotlight .placeholder-mark {
+        width: 70px !important;
+        height: 70px !important;
+        font-size: 36px !important;
+    }
+
+    body.gallery-premium-clean .gallery-page .category-spotlight .spotlight-image > span {
+        font-size: 9px !important;
+        letter-spacing: 2px !important;
+    }
+
+    body.gallery-premium-clean .gallery-page .category-spotlight .spotlight-content {
+        min-height: 0 !important;
+        height: auto !important;
+        padding: 28px 22px 32px !important;
+    }
+
+    body.gallery-premium-clean .gallery-page .category-spotlight .spotlight-content h2 {
+        margin-top: 12px !important;
+        margin-bottom: 16px !important;
+    }
+
+    body.gallery-premium-clean .gallery-page .category-spotlight .spotlight-content p {
+        margin-bottom: 0 !important;
+        line-height: 1.8 !important;
+    }
+}
+
+/* JOSH'S ART — SINGLE LIGHTWEIGHT GALLERY MENU */
+@media (max-width: 720px) {
+    body.gallery-premium-clean .main-nav .nav-links {
+        right: 0 !important;
+        transform: translate3d(105%, 0, 0) !important;
+        visibility: hidden;
+        transition:
+            transform .2s ease-out,
+            visibility 0s linear .2s !important;
+        will-change: transform;
+        box-shadow: none !important;
+    }
+
+    body.gallery-premium-clean .main-nav .nav-links.active {
+        transform: translate3d(0, 0, 0) !important;
+        visibility: visible;
+        transition-delay: 0s !important;
+    }
+
+    body.gallery-premium-clean .menu-overlay {
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        transition: opacity .15s ease !important;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body.gallery-premium-clean .main-nav .nav-links,
+    body.gallery-premium-clean .menu-overlay {
+        transition: none !important;
+    }
+}
+
+/* MOBILE PERFORMANCE TEST — GALLERY HEADER */
+@media (max-width: 720px) {
+    body.gallery-premium-clean > header {
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        box-shadow: none !important;
+        background: #080807 !important;
+    }
+}
+
+/* JOSH'S ART — LIVE SUPABASE GALLERY */
+.live-artwork-gallery {
+  width: min(1200px, 92%);
+  margin: 70px auto;
+}
+
+.live-artwork-gallery .paintings-heading {
+  text-align: center;
+  margin-bottom: 42px;
+}
+
+.live-category-section {
+  margin: 48px 0;
+}
+
+.live-category-title {
+  color: #e2b77d;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(1.7rem, 4vw, 2.4rem);
+  margin-bottom: 24px;
+}
+
+.live-artwork-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 25px;
+}
+
+.live-artwork-card {
+  overflow: hidden;
+  background: #191814;
+  border: 1px solid rgba(197, 139, 80, .28);
+  border-radius: 12px;
+  transition: transform .3s ease, border-color .3s ease;
+}
+
+.live-artwork-card:hover {
+  transform: translateY(-5px);
+  border-color: #c58b50;
+}
+
+.live-artwork-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background: #11110f;
+}
+
+.live-artwork-content {
+  padding: 20px;
+}
+
+.live-artwork-content h3 {
+  color: #f3eee4;
+  font-family: "Playfair Display", serif;
+  font-size: 1.25rem;
+  margin: 0 0 10px;
+}
+
+.live-artwork-category {
+  color: #c58b50;
+  font-size: .78rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.live-artwork-content p {
+  color: #c9c1b5;
+  line-height: 1.7;
+}
+
+.live-artwork-price {
+  color: #e2b77d;
+  font-weight: 700;
+  margin: 16px 0;
+}
+
+.live-artwork-inquiry {
+  display: inline-block;
+  padding: 11px 18px;
+  color: #17120e;
+  background: #c58b50;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: background .2s ease;
+}
+
+.live-artwork-inquiry:hover {
+  background: #e2b77d;
+}
+
+@media (max-width: 600px) {
+  .live-artwork-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .live-artwork-content {
+    padding: 13px;
+  }
+
+  .live-artwork-content h3 {
+    font-size: 1rem;
+  }
+}
+
+/* JOSH'S ART — DEDICATED COLLECTION PAGES */
+.collection-main {
+  width: min(1200px, 92%);
+  margin: 0 auto;
+  padding: 65px 0 85px;
+}
+.collection-hero {
+  text-align: center;
+  padding: clamp(35px, 7vw, 75px) 20px;
+  margin-bottom: 45px;
+  border-bottom: 1px solid rgba(197,139,80,.28);
+}
+.collection-hero h2 {
+  color: #f3eee4;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(2.2rem, 6vw, 4rem);
+  font-weight: 500;
+  margin: 18px 0;
+}
+.collection-hero > p {
+  max-width: 680px;
+  margin: 0 auto;
+  color: #c9c1b5;
+  line-height: 1.8;
+}
+.collection-page-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+.collection-page-links a {
+  color: #e2b77d;
+  border: 1px solid rgba(197,139,80,.5);
+  padding: 10px 18px;
+  border-radius: 3px;
+  text-decoration: none;
+}
+.collection-page-links a:hover {
+  color: #17120e;
+  background: #c58b50;
+}
+.collection-results {
+  min-height: 240px;
+}
+.collection-results .collection-note {
+  text-align: center;
+  margin: 20px 0 30px;
+  color: #c9c1b5;
+}
+.live-artwork-availability {
+  font-size: .85rem;
+  color: #c9c1b5;
+}
+.collection-footer {
+  text-align: center;
+  padding: 28px 15px;
+  border-top: 1px solid rgba(197,139,80,.25);
+  color: #c9c1b5;
+}
+.collection-footer a {
+  color: #e2b77d;
+  text-decoration: none;
+}
+
+
+/* JOSH'S ART — COLLECTION CARD ACTION BUTTONS */
+.live-artwork-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.live-artwork-actions .live-artwork-inquiry {
+  flex: 1 1 130px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 12px 14px;
+  font-size: 0.82rem;
+  line-height: 1.3;
+}
+
+.live-artwork-button--details {
+  color: #e2b77d !important;
+  background: transparent !important;
+  border: 1px solid #c58b50;
+}
+
+.live-artwork-button--details:hover {
+  color: #17120e !important;
+  background: #e2b77d !important;
+}
+
+.live-artwork-button--whatsapp {
+  color: #17120e !important;
+  background: #c58b50;
+}
+
+@media (max-width: 600px) {
+  .live-artwork-actions {
+    flex-direction: column;
+  }
+
+  .live-artwork-actions .live-artwork-inquiry {
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+/* JOSH'S ART — UNIFIED PREMIUM COLLECTION FINISH */
+body.gallery-premium-clean .gallery-page .featured-spotlight.category-spotlight {
+    overflow: hidden;
+    border: 1px solid rgba(197, 139, 80, .32);
+    border-radius: 5px;
+    box-shadow: 0 24px 55px rgba(0, 0, 0, .30);
+    transition: border-color .3s ease, box-shadow .3s ease,
+                transform .3s ease;
+}
+
+body.gallery-premium-clean .gallery-page .featured-spotlight.category-spotlight:hover {
+    border-color: rgba(226, 183, 125, .65);
+    box-shadow: 0 28px 65px rgba(0, 0, 0, .42);
+    transform: translateY(-3px);
+}
+
+body.gallery-premium-clean .gallery-page .category-spotlight .spotlight-image {
+    min-height: 390px;
+}
+
+body.gallery-premium-clean .gallery-page .category-spotlight .spotlight-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 48px clamp(28px, 5vw, 72px);
+}
+
+body.gallery-premium-clean .gallery-page .category-spotlight .spotlight-label {
+    color: #d6a66f;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2.8px;
+    line-height: 1.7;
+}
+
+body.gallery-premium-clean .gallery-page .category-spotlight .spotlight-content h2 {
+    margin: 14px 0 18px;
+    font-size: clamp(32px, 4vw, 48px);
+    line-height: 1.12;
+    letter-spacing: -.7px;
+}
+
+body.gallery-premium-clean .gallery-page .category-spotlight .spotlight-content p {
+    max-width: 490px;
+    margin: 0 0 25px;
+    color: #b7ad9f;
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+body.gallery-premium-clean .gallery-page .category-spotlight .spotlight-button {
+    min-height: 46px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 25px;
+    border: 1px solid #c58b50;
+    border-radius: 2px;
+    background: linear-gradient(135deg, #d6a66f, #b77a40);
+    color: #17120e;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.1px;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: background .25s ease, color .25s ease,
+                border-color .25s ease, transform .25s ease;
+}
+
+body.gallery-premium-clean .gallery-page .category-spotlight .spotlight-button:hover {
+    background: transparent;
+    color: #e2b77d;
+    border-color: #e2b77d;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 850px) {
+    body.gallery-premium-clean .gallery-page .category-spotlight .spotlight-image {
+        min-height: 280px;
+    }
+
+    body.gallery-premium-clean .gallery-page .category-spotlight .spotlight-content {
+        padding: 36px 30px;
+    }
+}
+
+@media (max-width: 600px) {
+    body.gallery-premium-clean .gallery-page .category-spotlight .spotlight-image {
+        min-height: 190px;
+    }
+
+    body.gallery-premium-clean .gallery-page .category-spotlight .spotlight-content {
+        padding: 27px 22px 30px;
+    }
+
+    body.gallery-premium-clean .gallery-page .category-spotlight .spotlight-content h2 {
+        font-size: 34px;
+    }
+
+    body.gallery-premium-clean .gallery-page .category-spotlight .spotlight-content p {
+        font-size: 13px;
+        line-height: 1.8;
+    }
+
+    body.gallery-premium-clean .gallery-page .category-spotlight .spotlight-button {
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
+
+/* JOSH'S ART — PREMIUM LIVE ARTWORK CARDS */
+.live-artwork-grid {
+  grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
+  gap: 28px;
+  align-items: stretch;
+}
+
+.live-artwork-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+  background: linear-gradient(160deg, #1d1b17, #12110f);
+  border: 1px solid rgba(197, 139, 80, .24);
+  border-radius: 5px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, .22);
+  transition: transform .35s ease, border-color .35s ease,
+              box-shadow .35s ease;
+}
+
+.live-artwork-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(226, 183, 125, .75);
+  box-shadow: 0 20px 42px rgba(0, 0, 0, .38);
+}
+
+.live-artwork-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: contain;
+  object-position: center;
+  padding: 10px;
+  background: radial-gradient(ellipse at center, #29251e 0%, #11110f 78%);
+  border-bottom: 1px solid rgba(197, 139, 80, .2);
+  transition: transform .45s ease;
+}
+
+.live-artwork-card:hover img {
+  transform: scale(1.025);
+}
+
+.live-artwork-content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 23px 21px 21px;
+}
+
+.live-artwork-content h3 {
+  color: #f3eee4;
+  font-family: "Playfair Display", serif;
+  font-size: 1.3rem;
+  line-height: 1.35;
+  margin: 9px 0 11px;
+}
+
+.live-artwork-category {
+  color: #d6a66f;
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .17em;
+  text-transform: uppercase;
+}
+
+.live-artwork-content p {
+  color: #bdb4a7;
+  font-size: .88rem;
+  line-height: 1.75;
+}
+
+.live-artwork-description {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+.live-artwork-price {
+  color: #e2b77d;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: .025em;
+  margin: 15px 0 8px;
+}
+
+.live-artwork-availability {
+  color: #b7ad9f;
+  font-size: .76rem !important;
+  letter-spacing: .04em;
+  margin: 5px 0 17px;
+}
+
+.live-artwork-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  margin-top: auto;
+  padding-top: 12px;
+}
+
+.live-artwork-inquiry {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 44px;
+  box-sizing: border-box;
+  padding: 11px 14px;
+  border: 1px solid #c58b50;
+  border-radius: 2px;
+  color: #17120e;
+  background: linear-gradient(135deg, #d6a66f, #b77a3e);
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background .25s ease, color .25s ease,
+              border-color .25s ease;
+}
+
+.live-artwork-inquiry:hover {
+  color: #e2b77d;
+  background: transparent;
+  border-color: #e2b77d;
+}
+
+.live-artwork-button--whatsapp {
+  color: #d6a66f;
+  background: transparent;
+}
+
+.live-artwork-button--whatsapp:hover {
+  color: #17120e;
+  background: #d6a66f;
+}
+
+@media (max-width: 600px) {
+  .live-artwork-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 13px;
+  }
+
+  .live-artwork-card img {
+    aspect-ratio: 4 / 5;
+    padding: 6px;
+  }
+
+  .live-artwork-content {
+    padding: 14px 12px;
+  }
+
+  .live-artwork-content h3 {
+    font-size: 1rem;
+  }
+
+  .live-artwork-content p {
+    font-size: .78rem;
+  }
+
+  .live-artwork-price {
+    font-size: .85rem;
+  }
+
+  .live-artwork-inquiry {
+    min-height: 42px;
+    padding: 9px 7px;
+    font-size: .62rem;
+    letter-spacing: .04em;
+  }
+}
+
+
+/* MOBILE COLLECTION CARD WIDTH FIX */
+.collection-page .collection-main {
+  width: min(1200px, 92%);
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.collection-page .collection-results,
+.collection-page #collection-grid {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.collection-page .live-artwork-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  width: 100%;
+  gap: 22px;
+}
+
+.collection-page .live-artwork-card {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.collection-page .live-artwork-content {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.collection-page .live-artwork-actions {
+  width: 100%;
+}
+
+.collection-page .live-artwork-inquiry {
+  min-height: 46px;
+  height: auto;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 600px) {
+  .collection-page .live-artwork-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 22px;
+  }
+
+  .collection-page .live-artwork-card img {
+    aspect-ratio: 4 / 3;
+    object-fit: contain;
+  }
+
+  .collection-page .live-artwork-content {
+    padding: 20px;
+  }
+
+  .collection-page .live-artwork-content h3 {
+    font-size: 1.3rem;
+  }
+
+  .collection-page .live-artwork-content p {
+    font-size: .9rem;
+  }
+
+  .collection-page .live-artwork-inquiry {
+    min-height: 46px;
+    font-size: .72rem;
+  }
+}
+
+/* JOSH'S ART — LARGE MINIMAL ARTWORK PRESENTATION */
+
+/* Spacious gallery layout */
+.live-artwork-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  align-items: stretch;
+}
+
+/* Clean artwork cards */
+.live-artwork-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: #191814;
+  border: 1px solid rgba(197, 139, 80, .3);
+  border-radius: 5px;
+}
+
+/* Larger artwork display */
+.live-artwork-card img {
+  display: block;
+  width: 100%;
+  height: 430px;
+  aspect-ratio: auto;
+  object-fit: contain;
+  object-position: center;
+  padding: 14px;
+  box-sizing: border-box;
+  background: #11110f;
+}
+
+/* Show only title and View Artwork */
+.live-artwork-content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 22px;
+}
+
+.live-artwork-content h3 {
+  color: #f3eee4;
+  font-family: "Playfair Display", serif;
+  font-size: 1.35rem;
+  text-align: center;
+  margin: 0 0 20px;
+}
+
+.live-artwork-content p,
+.live-artwork-category,
+.live-artwork-price,
+.live-artwork-availability {
+  display: none !important;
+}
+
+/* Hide WhatsApp inquiry on gallery cards */
+.live-artwork-button--whatsapp {
+  display: none !important;
+}
+
+/* Single clear action */
+.live-artwork-actions {
+  display: flex;
+  width: 100%;
+  margin-top: auto;
+}
+
+.live-artwork-button--details {
+  display: flex;
+  width: 100%;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  color: #17120e;
+  background: linear-gradient(135deg, #d6a66f, #b77a3e);
+  border: 1px solid #c58b50;
+  border-radius: 2px;
+  text-decoration: none;
+  font-size: .75rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+/* Mobile image sizing */
+@media (max-width: 600px) {
+  .live-artwork-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+  }
+
+  .live-artwork-card img {
+    height: 390px;
+    padding: 10px;
+  }
+
+  .live-artwork-content {
+    padding: 18px;
+  }
+
+  .live-artwork-content h3 {
+    font-size: 1.25rem;
+  }
+}
+
+
+/* JOSH'S ART — STAGGERED COLLAGE GALLERY */
+.live-artwork-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-auto-flow: dense;
+  gap: 22px;
+  align-items: start;
+}
+
+.live-artwork-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: transparent;
+  border: 0;
+  border-radius: 3px;
+  box-shadow: none;
+}
+
+.live-artwork-card img {
+  display: block;
+  width: 100%;
+  height: 340px;
+  padding: 0;
+  object-fit: contain;
+  object-position: center;
+  background: #11110f;
+}
+
+.live-artwork-card:nth-child(4n + 1) img {
+  height: 410px;
+}
+
+.live-artwork-card:nth-child(4n + 2) img {
+  height: 300px;
+}
+
+.live-artwork-card:nth-child(4n + 3) img {
+  height: 370px;
+}
+
+.live-artwork-content {
+  display: flex;
+  flex-direction: column;
+  padding: 13px 4px 18px;
+}
+
+.live-artwork-content h3 {
+  margin: 0;
+  color: #f3eee4;
+  font-family: "Playfair Display", serif;
+  font-size: 1.12rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+.live-artwork-content p,
+.live-artwork-category,
+.live-artwork-price,
+.live-artwork-availability,
+.live-artwork-actions {
+  display: none !important;
+}
+
+.live-artwork-button--details,
+.live-artwork-button--whatsapp {
+  display: none !important;
+}
+
+@media (max-width: 760px) {
+  .live-artwork-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px 12px;
+  }
+
+  .live-artwork-card img {
+    height: 280px;
+  }
+
+  .live-artwork-card:nth-child(4n + 1) img {
+    height: 330px;
+  }
+
+  .live-artwork-card:nth-child(4n + 2) img {
+    height: 245px;
+  }
+
+  .live-artwork-card:nth-child(4n + 3) img {
+    height: 300px;
+  }
+
+  .live-artwork-content {
+    padding: 10px 2px 14px;
+  }
+
+  .live-artwork-content h3 {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .live-artwork-grid {
+    gap: 12px 8px;
+  }
+
+  .live-artwork-card img {
+    height: 230px;
+  }
+}
+
+
+/* JOSH'S ART — LARGE EXHIBITION COLLAGE */
+.live-artwork-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 34px 26px;
+}
+
+.live-artwork-card img {
+  width: 100%;
+  height: 560px;
+  object-fit: contain;
+  padding: 0;
+  background: #11110f;
+}
+
+.live-artwork-card:nth-child(4n + 1) img {
+  height: 620px;
+}
+
+.live-artwork-card:nth-child(4n + 2) img {
+  height: 500px;
+}
+
+.live-artwork-card:nth-child(4n + 3) img {
+  height: 580px;
+}
+
+.live-artwork-content h3 {
+  font-size: 1.35rem;
+  padding-top: 8px;
+}
+
+@media (max-width: 760px) {
+  .live-artwork-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+  }
+
+  .live-artwork-card img,
+  .live-artwork-card:nth-child(n) img {
+    height: 520px;
+  }
+
+  .live-artwork-content h3 {
+    font-size: 1.25rem;
+  }
+}
+
+
+/* JOSH'S ART — COMPACT TITLE-FIRST GALLERY */
+.live-artwork-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px 18px;
+  align-items: start;
+}
+
+.live-artwork-card {
+  display: grid;
+  grid-template-rows: auto auto;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.live-artwork-content {
+  display: contents;
+}
+
+.live-artwork-content h3 {
+  grid-row: 1;
+  margin: 0;
+  padding: 0 4px 9px;
+  color: #f3eee4;
+  font-family: "Playfair Display", serif;
+  font-size: 1.2rem;
+  line-height: 1.25;
+  text-align: center;
+}
+
+.live-artwork-card img {
+  grid-row: 2;
+  display: block;
+  width: 100%;
+  height: 480px;
+  margin: 0;
+  padding: 0;
+  object-fit: contain;
+  object-position: center;
+  background: #11110f;
+}
+
+.live-artwork-content p,
+.live-artwork-category,
+.live-artwork-price,
+.live-artwork-availability,
+.live-artwork-actions,
+.live-artwork-button--details,
+.live-artwork-button--whatsapp {
+  display: none !important;
+}
+
+@media (max-width: 760px) {
+  .live-artwork-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+  }
+
+  .live-artwork-content h3 {
+    font-size: 1.2rem;
+    padding-bottom: 6px;
+  }
+
+  .live-artwork-card img {
+    height: 430px;
+  }
+}
+
+
+/* JOSH'S ART — EXTRA-LARGE, TIGHT GALLERY */
+.live-artwork-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 12px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.live-artwork-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.live-artwork-content {
+  display: contents;
+}
+
+.live-artwork-content h3 {
+  grid-row: 1;
+  margin: 0;
+  padding: 0 2px 4px;
+  font-size: 1.35rem;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.live-artwork-card img {
+  grid-row: 2;
+  display: block;
+  width: 100%;
+  height: 680px;
+  margin: 0;
+  padding: 0;
+  object-fit: contain;
+  object-position: center;
+  background: #11110f;
+}
+
+.live-artwork-content p,
+.live-artwork-category,
+.live-artwork-price,
+.live-artwork-availability,
+.live-artwork-actions,
+.live-artwork-button--details,
+.live-artwork-button--whatsapp {
+  display: none !important;
+}
+
+@media (max-width: 760px) {
+  .live-artwork-grid {
+    gap: 8px;
+  }
+
+  .live-artwork-content h3 {
+    font-size: 1.2rem;
+    padding-bottom: 2px;
+  }
+
+  .live-artwork-card img {
+    height: 560px;
+  }
+}
+
+
+/* JOSH'S ART — MAXIMUM ARTWORK DISPLAY */
+.live-artwork-grid {
+  grid-template-columns: minmax(0, 1fr) !important;
+  gap: 5px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.live-artwork-card {
+  gap: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.live-artwork-content h3 {
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: 1.05 !important;
+  font-size: 1.25rem !important;
+}
+
+.live-artwork-card img {
+  width: 100% !important;
+  height: 780px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  object-fit: contain !important;
+  object-position: center !important;
+}
+
+@media (max-width: 760px) {
+  .live-artwork-grid {
+    gap: 3px !important;
+  }
+
+  .live-artwork-content h3 {
+    font-size: 1.15rem !important;
+    line-height: 1 !important;
+  }
+
+  .live-artwork-card img {
+    height: 680px !important;
+  }
+}
+
+@media (max-width: 400px) {
+  .live-artwork-card img {
+    height: 620px !important;
+  }
+}
+
+
+
+
+/* PUBLISHED ARTWORKS PAGE ONLY */
+body.published-artworks-page .live-artwork-grid {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) !important;
+  gap: 5px !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+}
+
+body.published-artworks-page .live-artwork-card {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+}
+
+body.published-artworks-page .live-artwork-content {
+  display: flex !important;
+  flex-direction: column !important;
+  padding: 0 !important;
+}
+
+body.published-artworks-page .live-artwork-content h3 {
+  order: 0 !important;
+  margin: 0 !important;
+  padding: 0 0 1px !important;
+  font-size: 1.2rem !important;
+  line-height: 1.05 !important;
+  text-align: center !important;
+}
+
+body.published-artworks-page .live-artwork-card img {
+  order: 1 !important;
+  display: block !important;
+  width: 100% !important;
+  height: 820px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  object-fit: contain !important;
+  object-position: center !important;
+}
+
+body.published-artworks-page .live-artwork-content p,
+body.published-artworks-page .live-artwork-category,
+body.published-artworks-page .live-artwork-price,
+body.published-artworks-page .live-artwork-availability,
+body.published-artworks-page .live-artwork-actions {
+  display: none !important;
+}
+
+@media (max-width: 760px) {
+  body.published-artworks-page .live-artwork-card img {
+    height: 740px !important;
+  }
+}
+
+@media (max-width: 400px) {
+  body.published-artworks-page .live-artwork-card img {
+    height: 680px !important;
+  }
+}
+
+/* RESTORE CATEGORY PAGE PRESENTATION */
+body.collection-page .live-artwork-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)) !important;
+  gap: 25px !important;
+}
+
+body.collection-page .live-artwork-card {
+  display: flex !important;
+  flex-direction: column !important;
+  background: #191814 !important;
+  border: 1px solid rgba(197,139,80,.3) !important;
+  border-radius: 12px !important;
+}
+
+body.collection-page .live-artwork-card img {
+  width: 100% !important;
+  height: auto !important;
+  aspect-ratio: 4 / 3 !important;
+  object-fit: cover !important;
+  padding: 0 !important;
+}
+
+body.collection-page .live-artwork-content {
+  display: flex !important;
+  flex-direction: column !important;
+  padding: 20px !important;
+}
+
+body.collection-page .live-artwork-content h3 {
+  display: block !important;
+  margin: 0 0 10px !important;
+  padding: 0 !important;
+  text-align: left !important;
+}
+
+body.collection-page .live-artwork-content p,
+body.collection-page .live-artwork-category,
+body.collection-page .live-artwork-price,
+body.collection-page .live-artwork-availability,
+body.collection-page .live-artwork-actions {
+  display: block !important;
+}
+
+body.collection-page .live-artwork-actions {
+  display: flex !important;
+}
+
+body.collection-page .live-artwork-button--details,
+body.collection-page .live-artwork-button--whatsapp {
+  display: inline-flex !important;
+}
+
+@media (max-width: 600px) {
+  body.collection-page .live-artwork-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+}
+
+/* PUBLISHED ARTWORKS — larger images and tighter title spacing */
+body.published-artworks-page .live-artwork-card {
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+body.published-artworks-page .live-artwork-content {
+    order: 1 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+body.published-artworks-page .live-artwork-content h3 {
+    order: 0 !important;
+    margin: 0 0 2px !important;
+    padding: 0 !important;
+    line-height: 1.15 !important;
+}
+
+body.published-artworks-page .live-artwork-card > img {
+    order: 2 !important;
+    width: 100% !important;
+    height: 920px !important;
+    margin: 0 !important;
+    object-fit: contain !important;
+}
+
+@media (max-width: 760px) {
+    body.published-artworks-page .live-artwork-card > img {
+        height: 820px !important;
+    }
+}
+
+@media (max-width: 400px) {
+    body.published-artworks-page .live-artwork-card > img {
+        height: 740px !important;
+    }
+}
+
+
+/* FINAL PUBLISHED GALLERY SIZE AND SPACING */
+body.published-artworks-page .live-artwork-grid {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 8px !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+}
+
+body.published-artworks-page .live-artwork-card {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    gap: 0 !important;
+}
+
+body.published-artworks-page .live-artwork-content {
+    order: 1 !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 4px !important;
+}
+
+body.published-artworks-page .live-artwork-content h3 {
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 1 !important;
+}
+
+body.published-artworks-page .live-artwork-card > img {
+    order: 2 !important;
+    display: block !important;
+    width: 100% !important;
+    max-width: none !important;
+    height: 100vh !important;
+    min-height: 700px !important;
+    max-height: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    object-fit: contain !important;
+}
+
+@media (max-width: 600px) {
+    body.published-artworks-page .live-artwork-card > img {
+        height: 90vh !important;
+        min-height: 600px !important;
+    }
+}
+
+
+/* PUBLISHED GALLERY — full-width artwork, title directly above */
+body.published-artworks-page .live-artwork-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+body.published-artworks-page .live-artwork-card {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0 !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+body.published-artworks-page .live-artwork-content {
+    order: 1 !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 2px !important;
+}
+
+body.published-artworks-page .live-artwork-content h3 {
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 1.05 !important;
+}
+
+body.published-artworks-page .live-artwork-card > img {
+    order: 2 !important;
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    aspect-ratio: auto !important;
+    object-fit: contain !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+
+/* JOSH'S ART — TWO ARTWORKS PER ROW */
+body.published-artworks-page .live-artwork-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 12px !important;
+    width: 100% !important;
+    padding: 0 4px !important;
+    margin: 0 !important;
+}
+
+body.published-artworks-page .live-artwork-card {
+    width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    gap: 0 !important;
+}
+
+body.published-artworks-page .live-artwork-content {
+    order: 1 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+body.published-artworks-page .live-artwork-content h3 {
+    font-size: 1rem !important;
+    line-height: 1.1 !important;
+    margin: 0 0 3px !important;
+    padding: 0 !important;
+}
+
+body.published-artworks-page .live-artwork-card > img {
+    order: 2 !important;
+    display: block !important;
+    width: 100% !important;
+    height: clamp(320px, 55vw, 620px) !important;
+    object-fit: contain !important;
+    margin: 0 !important;
+}
+
+
+/* PUBLISHED GALLERY — ONE LARGE ARTWORK PER ROW */
+body.published-artworks-page .live-artwork-grid {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 14px !important;
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+body.published-artworks-page .live-artwork-card {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    gap: 0 !important;
+}
+
+body.published-artworks-page .live-artwork-content {
+    order: 1 !important;
+    margin: 0 !important;
+    padding: 0 3px !important;
+}
+
+body.published-artworks-page .live-artwork-content h3 {
+    margin: 0 0 2px !important;
+    padding: 0 !important;
+    line-height: 1.05 !important;
+}
+
+body.published-artworks-page .live-artwork-card > img {
+    order: 2 !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    object-fit: contain !important;
+    margin: 0 !important;
+}
+
+
+/* PUBLISHED GALLERY — EXTRA LARGE, ONE ARTWORK PER ROW */
+body.published-artworks-page .live-artwork-grid {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 18px !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+body.published-artworks-page .live-artwork-card {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    gap: 0 !important;
+}
+
+body.published-artworks-page .live-artwork-content {
+    order: 1 !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 3px !important;
+}
+
+body.published-artworks-page .live-artwork-content h3 {
+    margin: 0 0 2px !important;
+    padding: 0 !important;
+    line-height: 1.05 !important;
+}
+
+body.published-artworks-page .live-artwork-card > img {
+    order: 2 !important;
+    display: block !important;
+    width: 100% !important;
+    height: 95vh !important;
+    min-height: 750px !important;
+    max-height: 1100px !important;
+    object-fit: contain !important;
+    object-position: center !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+@media (max-width: 600px) {
+    body.published-artworks-page .live-artwork-card > img {
+        height: 90vh !important;
+        min-height: 700px !important;
+    }
+}
+
+
+/* FULL-WIDTH ARTWORK DISPLAY — PUBLISHED GALLERY ONLY */
+body.published-artworks-page .live-artwork-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+    width: 100% !important;
+    max-width: none !important;
+    padding: 0 !important;
+}
+
+body.published-artworks-page .live-artwork-card {
+    width: 100% !important;
+    max-width: none !important;
+    overflow: visible !important;
+}
+
+body.published-artworks-page .live-artwork-card > img {
+    display: block !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    aspect-ratio: auto !important;
+    object-fit: contain !important;
+    margin-left: calc(50% - 50vw) !important;
+    margin-right: calc(50% - 50vw) !important;
+}
+
+
+/* PUBLISHED GALLERY — REFINED NORMAL-HEIGHT HEADER */
+body.published-artworks-page > header {
+    min-height: 88px !important;
+    height: auto !important;
+    padding: 12px 5% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 22px !important;
+    box-sizing: border-box !important;
+}
+
+body.published-artworks-page > header .site-logo {
+    width: auto !important;
+    height: 62px !important;
+    max-width: 90px !important;
+    object-fit: contain !important;
+    margin: 0 !important;
+}
+
+body.published-artworks-page > header h1 {
+    margin: 0 auto 0 0 !important;
+    font-family: 'Playfair Display', serif !important;
+    font-size: 1.65rem !important;
+    line-height: 1.1 !important;
+    letter-spacing: 0.02em !important;
+}
+
+body.published-artworks-page > header .main-nav {
+    margin-left: auto !important;
+}
+
+body.published-artworks-page .published-collection-heading {
+    text-align: center !important;
+    margin: 22px 0 14px !important;
+    padding: 0 10px !important;
+}
+
+body.published-artworks-page .published-collection-heading h2 {
+    margin: 0 !important;
+    font-family: 'Playfair Display', serif !important;
+    font-size: clamp(1.5rem, 4vw, 2rem) !important;
+    line-height: 1.2 !important;
+    color: var(--tna-cream, #f3eee4) !important;
+}
+
+@media (max-width: 600px) {
+    body.published-artworks-page > header {
+        min-height: 78px !important;
+        padding: 10px 4% !important;
+        gap: 12px !important;
+    }
+
+    body.published-artworks-page > header .site-logo {
+        height: 54px !important;
+        max-width: 72px !important;
+    }
+
+    body.published-artworks-page > header h1 {
+        font-size: 1.35rem !important;
+    }
+
+    body.published-artworks-page .published-collection-heading {
+        margin: 16px 0 10px !important;
+    }
+}
+
+/* PUBLISHED GALLERY — REDUCE VERTICAL SPACING */
+body.published-artworks-page .published-collection-heading {
+    margin: 10px 0 5px !important;
+    padding: 0 !important;
+}
+
+body.published-artworks-page #live-artwork-gallery {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+body.published-artworks-page #live-gallery-status {
+    margin: 3px 0 8px !important;
+    padding: 0 !important;
+    line-height: 1.3 !important;
+}
+
+body.published-artworks-page .live-category-section {
+    margin-top: 5px !important;
+    padding-top: 0 !important;
+}
+
+body.published-artworks-page .live-category-title {
+    margin: 0 0 6px !important;
+    padding: 0 !important;
+    line-height: 1.15 !important;
+}
+
+body.published-artworks-page .live-artwork-grid {
+    margin-top: 0 !important;
+}
+
+
+/* JOSH'S ART — REFINED ARTWORK PRESENTATION */
+body.published-artworks-page .live-artwork-card {
+    background: #11110f !important;
+    border: 0 !important;
+    padding: 0 0 18px !important;
+    margin: 0 0 12px !important;
+}
+
+body.published-artworks-page .live-artwork-content h3 {
+    font-family: 'Playfair Display', serif !important;
+    font-size: clamp(1.35rem, 3vw, 1.8rem) !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.025em !important;
+    color: #d6a66f !important;
+    text-align: center !important;
+    line-height: 1.2 !important;
+    padding: 5px 8px 9px !important;
+    margin: 0 0 7px !important;
+    border-bottom: 1px solid rgba(197, 139, 80, 0.35) !important;
+}
+
+body.published-artworks-page .live-artwork-card > img {
+    display: block !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    object-fit: contain !important;
+    object-position: center !important;
+    background: #151410 !important;
+    border: 1px solid rgba(197, 139, 80, 0.3) !important;
+    box-sizing: border-box !important;
+    margin-left: calc(50% - 50vw) !important;
+    margin-right: calc(50% - 50vw) !important;
+}
+
+body.published-artworks-page .live-artwork-grid {
+    gap: 8px !important;
+}
+
+@media (max-width: 600px) {
+    body.published-artworks-page .live-artwork-content h3 {
+        font-size: 1.35rem !important;
+        padding-bottom: 7px !important;
+    }
+
+    body.published-artworks-page .live-artwork-card {
+        padding-bottom: 12px !important;
+    }
+}
+
+
+/* JOSH'S ART — FULL-SCREEN ARTWORK VIEWER */
+body.artwork-viewer-open {
+    overflow: hidden !important;
+}
+
+.josh-art-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    padding: 64px 70px 58px;
+    box-sizing: border-box;
+    background: rgba(8, 8, 7, 0.97);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity .28s ease, visibility .28s ease;
+}
+
+.josh-art-lightbox.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.josh-viewer-figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    min-width: 0;
+}
+
+.josh-viewer-image {
+    display: block;
+    max-width: 100%;
+    max-height: calc(100vh - 145px);
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border: 1px solid rgba(197, 139, 80, .45);
+    box-shadow: 0 12px 55px rgba(0, 0, 0, .45);
+}
+
+.josh-viewer-caption {
+    color: #d6a66f;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    text-align: center;
+}
+
+.josh-viewer-close,
+.josh-viewer-prev,
+.josh-viewer-next {
+    position: absolute;
+    display: grid;
+    place-items: center;
+    color: #e2b77d;
+    background: rgba(25, 24, 20, .88);
+    border: 1px solid rgba(197, 139, 80, .5);
+    cursor: pointer;
+    transition: background .2s ease, color .2s ease;
+}
+
+.josh-viewer-close:hover,
+.josh-viewer-prev:hover,
+.josh-viewer-next:hover {
+    background: #c58b50;
+    color: #11110f;
+}
+
+.josh-viewer-close {
+    top: 18px;
+    right: 22px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    font-size: 30px;
+}
+
+.josh-viewer-prev,
+.josh-viewer-next {
+    top: 50%;
+    transform: translateY(-50%);
+    width: 46px;
+    height: 58px;
+    border-radius: 5px;
+    font-size: 22px;
+}
+
+.josh-viewer-prev { left: 15px; }
+.josh-viewer-next { right: 15px; }
+
+.josh-viewer-counter {
+    position: absolute;
+    bottom: 17px;
+    color: #c9b9a4;
+    font: 12px Inter, sans-serif;
+    letter-spacing: .12em;
+}
+
+body.published-artworks-page .live-artwork-card > img {
+    cursor: zoom-in;
+}
+
+@media (max-width: 600px) {
+    .josh-art-lightbox {
+        gap: 0;
+        padding: 62px 12px 65px;
+    }
+
+    .josh-viewer-image {
+        max-width: 100%;
+        max-height: calc(100vh - 165px);
+    }
+
+    .josh-viewer-prev,
+    .josh-viewer-next {
+        top: auto;
+        bottom: 12px;
+        transform: none;
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+    }
+
+    .josh-viewer-prev { left: 18px; }
+    .josh-viewer-next { right: 18px; }
+
+    .josh-viewer-close {
+        top: 12px;
+        right: 14px;
+    }
+
+    .josh-viewer-caption {
+        font-size: 1rem;
+    }
+}
+
+/* JOSH'S ART — PREMIUM VIEWER DETAILS */
+.josh-viewer-layout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 34px;
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+}
+
+.josh-viewer-details {
+    flex: 0 0 260px;
+    max-width: 260px;
+    padding: 25px 0 25px 25px;
+    border-left: 1px solid rgba(197, 139, 80, .45);
+    color: #f3eee4;
+}
+
+.josh-viewer-category {
+    color: #c58b50;
+    font: 11px Inter, sans-serif;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    margin: 0 0 18px;
+}
+
+.josh-viewer-description {
+    color: #d2c8ba;
+    font: 14px/1.8 Inter, sans-serif;
+    margin: 0 0 22px;
+}
+
+.josh-viewer-price {
+    color: #e2b77d;
+    font: 600 19px 'Playfair Display', serif;
+    margin: 0 0 14px;
+}
+
+.josh-viewer-availability {
+    color: #c9b9a4;
+    font: 12px Inter, sans-serif;
+    margin: 0 0 24px;
+}
+
+.josh-viewer-enquire {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 13px 18px;
+    border: 1px solid #c58b50;
+    color: #e2b77d;
+    text-decoration: none;
+    font: 600 11px Inter, sans-serif;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    transition: background .2s ease, color .2s ease;
+}
+
+.josh-viewer-enquire:hover {
+    background: #c58b50;
+    color: #11110f;
+}
+
+@media (max-width: 700px) {
+    .josh-viewer-layout {
+        flex-direction: column;
+        gap: 12px;
+        overflow-y: auto;
+        justify-content: flex-start;
+        padding: 0 8px 12px;
+    }
+
+    .josh-viewer-figure {
+        flex: 0 0 auto;
+        height: auto;
+        min-height: 0;
+    }
+
+    .josh-viewer-image {
+        max-height: 48vh;
+    }
+
+    .josh-viewer-details {
+        flex: 0 0 auto;
+        width: 100%;
+        max-width: 440px;
+        box-sizing: border-box;
+        padding: 14px 8px 10px;
+        border-left: 0;
+        border-top: 1px solid rgba(197, 139, 80, .45);
+        text-align: center;
+    }
+
+    .josh-viewer-category { margin-bottom: 8px; }
+    .josh-viewer-description { margin-bottom: 10px; }
+    .josh-viewer-price { margin-bottom: 8px; }
+    .josh-viewer-availability { margin-bottom: 12px; }
+
+    .josh-viewer-counter {
+        bottom: 8px;
+    }
+}
+
+/* JOSH'S ART — PREMIUM PUBLISHED ARTWORK CARDS */
+body.published-artworks-page #live-category-groups {
+    width: min(100% - 36px, 1440px);
+    margin-inline: auto;
+}
+
+body.published-artworks-page .live-artwork-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 30px !important;
+    align-items: start;
+}
+
+body.published-artworks-page .live-artwork-card {
+    width: 100% !important;
+    min-width: 0;
+    overflow: hidden;
+    background: linear-gradient(155deg, #1b1915, #11110f 72%) !important;
+    border: 1px solid rgba(197, 139, 80, .28) !important;
+    border-radius: 5px;
+    padding: 0 0 22px !important;
+    margin: 0 !important;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, .22);
+    transition: border-color .25s ease, transform .25s ease,
+                box-shadow .25s ease;
+}
+
+body.published-artworks-page .live-artwork-card:hover {
+    border-color: rgba(226, 183, 125, .7) !important;
+    transform: translateY(-4px);
+    box-shadow: 0 18px 38px rgba(0, 0, 0, .32);
+}
+
+body.published-artworks-page .live-artwork-card > img {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: clamp(230px, 32vw, 430px) !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    margin: 0 !important;
+    padding: 12px;
+    box-sizing: border-box !important;
+    object-fit: contain !important;
+    object-position: center !important;
+    background: #0d0d0b !important;
+    border: 0 !important;
+    border-bottom: 1px solid rgba(197, 139, 80, .3) !important;
+}
+
+body.published-artworks-page .live-artwork-content {
+    padding: 19px 21px 0 !important;
+}
+
+body.published-artworks-page .live-artwork-content h3 {
+    margin: 0 0 9px !important;
+    padding: 0 0 12px !important;
+    border-bottom: 1px solid rgba(197, 139, 80, .3) !important;
+    color: #e2b77d !important;
+    font-family: 'Playfair Display', serif !important;
+    font-size: clamp(1.25rem, 2.2vw, 1.75rem) !important;
+    font-weight: 600 !important;
+    line-height: 1.3 !important;
+    letter-spacing: .01em !important;
+    text-align: left !important;
+}
+
+body.published-artworks-page .live-artwork-category {
+    margin: 0 0 12px !important;
+    color: #c58b50 !important;
+    font: 600 .7rem Inter, sans-serif !important;
+    letter-spacing: .16em !important;
+    text-transform: uppercase;
+}
+
+body.published-artworks-page .live-artwork-description {
+    color: #c9c1b5 !important;
+    font: 400 .9rem/1.75 Inter, sans-serif !important;
+    margin: 0 0 15px !important;
+}
+
+body.published-artworks-page .live-artwork-price {
+    color: #f0d1a5 !important;
+    font: 600 1.05rem Inter, sans-serif !important;
+    letter-spacing: .025em;
+    margin: 13px 0 9px !important;
+}
+
+body.published-artworks-page .live-artwork-availability {
+    color: #b7b0a3 !important;
+    font: 500 .78rem Inter, sans-serif !important;
+    margin: 0 0 16px !important;
+}
+
+body.published-artworks-page .live-artwork-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 16px;
+}
+
+body.published-artworks-page .live-artwork-inquiry {
+    min-height: 43px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 15px;
+    box-sizing: border-box;
+    border: 1px solid rgba(197, 139, 80, .65);
+    border-radius: 2px;
+    font: 600 .75rem Inter, sans-serif;
+    letter-spacing: .035em;
+    text-align: center;
+    text-decoration: none;
+    transition: background .2s ease, color .2s ease;
+}
+
+body.published-artworks-page .live-artwork-button--details {
+    color: #e2b77d !important;
+    background: transparent !important;
+}
+
+body.published-artworks-page .live-artwork-button--whatsapp {
+    color: #11110f !important;
+    background: #c58b50 !important;
+    border-color: #c58b50 !important;
+}
+
+body.published-artworks-page .live-artwork-inquiry:hover {
+    color: #11110f !important;
+    background: #e2b77d !important;
+    border-color: #e2b77d !important;
+}
+
+@media (max-width: 700px) {
+    body.published-artworks-page #live-category-groups {
+        width: calc(100% - 28px);
+    }
+
+    body.published-artworks-page .live-artwork-grid {
+        grid-template-columns: 1fr !important;
+        gap: 22px !important;
+    }
+
+    body.published-artworks-page .live-artwork-card > img {
+        height: min(88vw, 390px) !important;
+        padding: 10px;
+    }
+
+    body.published-artworks-page .live-artwork-content {
+        padding: 16px 16px 0 !important;
+    }
+
+    body.published-artworks-page .live-artwork-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    body.published-artworks-page .live-artwork-inquiry {
+        width: 100%;
+    }
+}
+
+/* JOSH'S ART — RESTORED LARGE PUBLISHED ARTWORK DISPLAY */
+body.published-artworks-page .live-artwork-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 28px !important;
+}
+
+body.published-artworks-page .live-artwork-card > img {
+    width: 100% !important;
+    height: clamp(480px, 65vw, 720px) !important;
+    max-width: 100% !important;
+    min-height: 0 !important;
+    object-fit: contain !important;
+    object-position: center !important;
+    padding: 0 !important;
+}
+
+@media (max-width: 600px) {
+    body.published-artworks-page .live-artwork-card > img {
+        height: clamp(500px, 125vw, 680px) !important;
+    }
+}
+
+/* JOSH'S ART — FULL-WIDTH PUBLISHED ARTWORK LAYOUT */
+body.published-artworks-page main,
+body.published-artworks-page main > .gallery-page,
+body.published-artworks-page #live-artwork-gallery {
+    width: 100% !important;
+    max-width: none !important;
+    box-sizing: border-box !important;
+}
+
+body.published-artworks-page #live-artwork-gallery {
+    padding-inline: 18px !important;
+    margin-inline: auto !important;
+}
+
+body.published-artworks-page #live-category-groups {
+    width: 100% !important;
+    max-width: 1440px !important;
+    margin-inline: auto !important;
+}
+
+body.published-artworks-page .live-artwork-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+}
+
+body.published-artworks-page .live-artwork-card {
+    width: 100% !important;
+    max-width: none !important;
+    box-sizing: border-box !important;
+}
+
+/* FIX — PUBLISHED ARTWORK GALLERY WIDTH */
+html body.published-artworks-page main {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-inline: 0 !important;
+    box-sizing: border-box !important;
+}
+
+html body.published-artworks-page main > .gallery-page {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-inline: 0 !important;
+    margin-inline: 0 !important;
+    box-sizing: border-box !important;
+}
+
+html body.published-artworks-page #live-artwork-gallery {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-inline: 18px !important;
+    margin-inline: auto !important;
+    box-sizing: border-box !important;
+}
+
+html body.published-artworks-page #live-category-groups,
+html body.published-artworks-page .live-category-section,
+html body.published-artworks-page .live-artwork-grid,
+html body.published-artworks-page .live-artwork-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+}
+
+html body.published-artworks-page .live-artwork-grid {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+}
+
+/* PUBLISHED ARTWORKS — MOBILE WIDTH CORRECTION */
+html body.published-artworks-page main {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+}
+
+html body.published-artworks-page .gallery-page {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 60px 18px !important;
+    box-sizing: border-box !important;
+}
+
+html body.published-artworks-page #live-artwork-gallery {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 40px 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+}
+
+html body.published-artworks-page #live-category-groups,
+html body.published-artworks-page .live-category-section,
+html body.published-artworks-page .live-artwork-grid,
+html body.published-artworks-page .live-artwork-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    box-sizing: border-box !important;
+}
+
+html body.published-artworks-page .live-artwork-grid {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+}
+
+/* JOSH'S ART — FINAL LARGE COLLECTION ARTWORK DISPLAY */
+html body.published-artworks-page .live-artwork-grid {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 36px !important;
+    width: 100% !important;
+}
+
+html body.published-artworks-page .live-artwork-card > img {
+    display: block !important;
+    width: 100% !important;
+    height: clamp(560px, 72vw, 900px) !important;
+    max-width: 100% !important;
+    min-height: 0 !important;
+    object-fit: contain !important;
+    object-position: center !important;
+    padding: 8px !important;
+    box-sizing: border-box !important;
+    background: #11110f !important;
+}
+
+@media (max-width: 600px) {
+    html body.published-artworks-page .live-artwork-card > img {
+        height: 82vh !important;
+        min-height: 560px !important;
+        max-height: 760px !important;
+    }
+
+    html body.published-artworks-page .live-artwork-grid {
+        gap: 28px !important;
+    }
+}
+
+/* JOSH'S ART — REFINED OVERSIZED COLLECTION */
+html body.published-artworks-page #live-category-groups {
+    width: min(96%, 1600px) !important;
+    margin-inline: auto !important;
+}
+
+html body.published-artworks-page .live-artwork-grid {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 54px !important;
+    width: 100% !important;
+}
+
+html body.published-artworks-page .live-artwork-card {
+    width: 100% !important;
+    max-width: none !important;
+    padding: 18px !important;
+    background: linear-gradient(145deg, #1b1a17, #11110f) !important;
+    border: 1px solid rgba(197, 139, 80, 0.24) !important;
+    border-radius: 8px !important;
+    box-sizing: border-box !important;
+}
+
+html body.published-artworks-page .live-artwork-card > img {
+    width: 100% !important;
+    height: clamp(650px, 78vw, 1000px) !important;
+    object-fit: contain !important;
+    object-position: center !important;
+    padding: 10px !important;
+    background: #0c0c0b !important;
+    box-sizing: border-box !important;
+}
+
+@media (max-width: 600px) {
+    html body.published-artworks-page #live-category-groups {
+        width: 96% !important;
+    }
+
+    html body.published-artworks-page .live-artwork-grid {
+        gap: 34px !important;
+    }
+
+    html body.published-artworks-page .live-artwork-card {
+        padding: 9px !important;
+    }
+
+    html body.published-artworks-page .live-artwork-card > img {
+        height: 88vh !important;
+        min-height: 600px !important;
+        max-height: 820px !important;
+        padding: 5px !important;
+    }
+}
+
+/* JOSH'S ART — EXTRA LARGE ARTWORK IMAGE */
+html body.published-artworks-page .live-artwork-card > img {
+    display: block !important;
+    width: 100% !important;
+    height: clamp(780px, 90vw, 1150px) !important;
+    max-width: none !important;
+    object-fit: contain !important;
+    object-position: center !important;
+    padding: 0 !important;
+    margin: 0 auto !important;
+}
+
+@media (max-width: 600px) {
+    html body.published-artworks-page .live-artwork-card > img {
+        height: 92vh !important;
+        min-height: 680px !important;
+        max-height: 900px !important;
+    }
+}
+
+/* JOSH'S ART — ARTWORK FIRST, NO FRAME */
+html body.published-artworks-page .live-artwork-card {
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+html body.published-artworks-page .live-artwork-card > img {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    object-fit: contain !important;
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+}
+
+/* JOSH'S ART — FULL-WIDTH ARTWORK DISPLAY */
+html body.published-artworks-page #live-category-groups {
+    width: 100% !important;
+    max-width: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+html body.published-artworks-page .live-artwork-grid {
+    width: 100% !important;
+    max-width: none !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 40px !important;
+}
+
+html body.published-artworks-page .live-artwork-card {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+html body.published-artworks-page .live-artwork-card > img {
+    display: block !important;
+    width: 100% !important;
+    max-width: none !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    object-fit: contain !important;
+    background: transparent !important;
+}
+
+
+/* JOSH'S ART — MAXIMUM ARTWORK WIDTH */
+html body.published-artworks-page .gallery-page,
+html body.published-artworks-page #live-artwork-gallery,
+html body.published-artworks-page #live-category-groups,
+html body.published-artworks-page .live-category-section {
+    width: 100% !important;
+    max-width: none !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+html body.published-artworks-page .live-artwork-card,
+html body.published-artworks-page .live-artwork-card > img {
+    width: 100% !important;
+    max-width: none !important;
+}
+
+html body.published-artworks-page .live-artwork-card > img {
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    object-fit: contain !important;
+}

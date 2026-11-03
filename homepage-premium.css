@@ -757,3 +757,562 @@ body.home-premium > header h1 {
         flex: 0 0 54px;
     }
 }
+
+/* JOSH'S ART — SIGNATURE LOGO REFINEMENT */
+body.home-premium > header {
+min-height: 96px;
+gap: 18px;
+}
+
+body.home-premium .site-logo {
+width: 66px;
+height: 66px;
+flex-shrink: 0;
+object-fit: contain;
+filter: drop-shadow(0 0 8px rgba(197, 139, 80, 0.18));
+}
+
+body.home-premium .site-logo:hover {
+transform: scale(1.06);
+filter: drop-shadow(0 0 12px rgba(226, 183, 125, 0.3));
+}
+
+@media (max-width: 700px) {
+body.home-premium > header {
+min-height: 76px;
+gap: 12px;
+}
+
+body.home-premium .site-logo {
+    width: 52px;
+    height: 52px;
+}
+
+}
+
+
+/* Balanced Josh's Art header and heritage signature */
+body.home-premium > header {
+min-height: 82px;
+gap: 14px;
+}
+
+body.home-premium .site-logo {
+width: 58px;
+height: 58px;
+filter: none;
+}
+
+body.home-premium .site-logo:hover {
+transform: scale(1.03);
+filter: drop-shadow(0 0 5px rgba(197, 139, 80, 0.2));
+}
+
+body.home-premium .heritage-mark {
+max-width: 100%;
+color: var(--tna-gold-light);
+font-family: Georgia, "Times New Roman", serif;
+font-size: clamp(1.1rem, 2.4vw, 1.8rem);
+font-weight: 700;
+letter-spacing: .04em;
+line-height: 1.2;
+overflow-wrap: anywhere;
+}
+
+@media (max-width: 700px) {
+body.home-premium > header {
+min-height: 72px;
+gap: 10px;
+}
+
+body.home-premium .site-logo {
+    width: 46px;
+    height: 46px;
+}
+
+}
+
+/* Premium JA monogram */
+body.home-premium .heritage-mark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 104px;
+    height: 104px;
+    border: 1px solid rgba(197, 139, 80, 0.65);
+    border-radius: 50%;
+    color: var(--tna-gold-light);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 2.6rem;
+    font-weight: 700;
+    letter-spacing: -0.08em;
+    line-height: 1;
+    box-shadow: inset 0 0 0 5px rgba(197, 139, 80, 0.06);
+}
+
+@media (max-width: 700px) {
+    body.home-premium .heritage-mark {
+        width: 82px;
+        height: 82px;
+        font-size: 2.1rem;
+    }
+}
+
+/* Use the real Josh's Art emblem in the heritage section */
+body.home-premium .heritage-mark {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 110px;
+    height: 110px;
+    overflow: hidden;
+    border: 1px solid rgba(197, 139, 80, 0.55);
+    border-radius: 50%;
+    background: #11110f;
+    box-shadow: inset 0 0 0 4px rgba(197, 139, 80, 0.07);
+}
+
+body.home-premium .heritage-mark img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: left center;
+}
+
+@media (max-width: 700px) {
+    body.home-premium .heritage-mark {
+        width: 88px;
+        height: 88px;
+    }
+}
+
+/* Josh's Art — monogram only */
+body.home-premium .heritage-mark {
+    width: 110px;
+    height: 110px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: 1px solid rgba(197, 139, 80, 0.65);
+    border-radius: 50%;
+    background: #11110f;
+    box-shadow: 0 0 24px rgba(197, 139, 80, 0.12);
+}
+
+body.home-premium .heritage-mark img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: left center;
+}
+
+@media (max-width: 700px) {
+    body.home-premium .heritage-mark {
+        width: 88px;
+        height: 88px;
+    }
+}
+
+/* FINAL JOSH'S ART HEADER REFINEMENT */
+body.home-premium > header {
+    min-height: 88px;
+    align-items: center;
+    gap: 16px;
+}
+
+body.home-premium .site-logo {
+    display: block;
+    width: 68px;
+    height: 68px;
+    flex: 0 0 68px;
+    object-fit: contain;
+    border-radius: 3px;
+    filter: drop-shadow(0 0 7px rgba(197, 139, 80, 0.20));
+    transition: transform 220ms ease, filter 220ms ease;
+}
+
+body.home-premium .site-logo:hover {
+    transform: scale(1.04);
+    filter: drop-shadow(0 0 11px rgba(226, 183, 125, 0.30));
+}
+
+@media (max-width: 700px) {
+    body.home-premium > header {
+        min-height: 72px;
+        gap: 10px;
+    }
+
+    body.home-premium .site-logo {
+        width: 54px;
+        height: 54px;
+        flex-basis: 54px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body.home-premium .site-logo {
+        transition: none;
+    }
+
+    body.home-premium .site-logo:hover {
+        transform: none;
+    }
+}
+
+
+/* JOSH'S ART — PREMIUM CONTACT NAV LINK */
+@media (min-width: 701px) {
+    body.home-premium .nav-links a[href="#contact"] {
+        padding: 10px 16px;
+        border: 1px solid rgba(197, 139, 80, 0.65);
+        color: var(--tna-gold-light);
+        transition:
+            color 220ms ease,
+            background 220ms ease,
+            border-color 220ms ease;
+    }
+
+    body.home-premium .nav-links a[href="#contact"]::after {
+        display: none;
+    }
+
+    body.home-premium .nav-links a[href="#contact"]:hover,
+    body.home-premium .nav-links a[href="#contact"]:focus-visible {
+        color: var(--tna-bg);
+        background: var(--tna-gold-light);
+        border-color: var(--tna-gold-light);
+    }
+}
+
+@media (max-width: 700px) {
+    body.home-premium .nav-links a[href="#contact"] {
+        color: var(--tna-gold-light);
+    }
+}
+
+
+/* JOSH'S ART — LUXURY MOBILE NAVIGATION */
+@media (max-width: 700px) {
+    body.home-premium .nav-links {
+        top: 0;
+        right: 0;
+        width: min(320px, 88vw);
+        height: 100vh;
+        height: 100dvh;
+        box-sizing: border-box;
+        padding: 104px 30px 36px;
+        gap: 10px;
+        overflow-y: auto;
+        background:
+            radial-gradient(
+                ellipse at top right,
+                rgba(197, 139, 80, 0.12),
+                transparent 55%
+            ),
+            #11110f;
+        border-left: 1px solid rgba(197, 139, 80, 0.42);
+        box-shadow: -18px 0 55px rgba(0, 0, 0, 0.42);
+        transform: translateX(102%);
+        visibility: hidden;
+        transition:
+            transform 320ms cubic-bezier(0.22, 1, 0.36, 1),
+            visibility 320ms;
+        z-index: 1100;
+    }
+
+    body.home-premium .nav-links.active {
+        right: 0;
+        transform: translateX(0);
+        visibility: visible;
+    }
+
+    body.home-premium .nav-links a {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 15px 0;
+        color: var(--tna-cream);
+        font-size: 0.88rem;
+        line-height: 1.5;
+        letter-spacing: 0.13em;
+        border-bottom: 1px solid rgba(197, 139, 80, 0.12);
+    }
+
+    body.home-premium .nav-links a::after {
+        left: 0;
+        right: auto;
+        bottom: 5px;
+        width: 100%;
+        height: 1px;
+        background: linear-gradient(
+            90deg,
+            var(--tna-bronze),
+            var(--tna-gold-light)
+        );
+        transform: scaleX(0);
+        transform-origin: left center;
+    }
+
+    body.home-premium .nav-links a:hover::after,
+    body.home-premium .nav-links a:focus-visible::after {
+        transform: scaleX(1);
+    }
+
+    body.home-premium .nav-links a[href="#contact"] {
+        color: var(--tna-gold-light);
+        border-bottom-color: rgba(197, 139, 80, 0.28);
+    }
+
+    body.home-premium .menu-close {
+        position: absolute;
+        top: 22px;
+        right: 22px;
+        display: flex;
+        width: 44px;
+        height: 44px;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgba(197, 139, 80, 0.4);
+        border-radius: 2px;
+        color: var(--tna-gold-light);
+        background: rgba(197, 139, 80, 0.06);
+        font-size: 1.9rem;
+        cursor: pointer;
+    }
+
+    body.home-premium .menu-toggle {
+        min-width: 44px;
+        min-height: 44px;
+        align-items: center;
+        justify-content: center;
+        color: var(--tna-gold-light);
+        background: var(--tna-panel);
+        border: 1px solid rgba(197, 139, 80, 0.48);
+    }
+
+    body.home-premium .menu-overlay {
+        z-index: 1050;
+        background: rgba(5, 5, 4, 0.72);
+        -webkit-backdrop-filter: blur(3px);
+        backdrop-filter: blur(3px);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body.home-premium .nav-links,
+    body.home-premium .menu-overlay {
+        transition: none !important;
+    }
+}
+
+/* JOSH'S ART — REFINED LUXURY HERO */
+body.home-premium .hero {
+    min-height: min(800px, calc(100svh - 84px));
+    padding: clamp(88px, 12vw, 150px) clamp(24px, 9vw, 130px);
+    background-position: center 45%;
+}
+
+body.home-premium .hero-content {
+    width: min(100%, 700px);
+}
+
+body.home-premium .hero-label {
+    margin-bottom: clamp(22px, 3vw, 32px);
+    letter-spacing: .28em;
+}
+
+body.home-premium .hero h2 {
+    max-width: 10ch;
+    margin-bottom: 28px;
+    font-size: clamp(3.2rem, 7.6vw, 7rem);
+    line-height: 1.04;
+    letter-spacing: -.04em;
+    text-wrap: balance;
+}
+
+body.home-premium .hero-text {
+    max-width: 470px;
+    margin-bottom: 36px;
+    line-height: 1.85;
+}
+
+body.home-premium .hero-buttons .button {
+    min-height: 54px;
+    padding: 16px 25px;
+    letter-spacing: .1em;
+}
+
+body.home-premium .hero-decoration {
+    color: rgba(226, 183, 125, .78);
+    letter-spacing: .38em;
+}
+
+@media (max-width: 700px) {
+    body.home-premium .hero {
+        min-height: min(740px, calc(100svh - 70px));
+        padding: 88px 24px 92px;
+        background-position: 57% center;
+    }
+
+    body.home-premium .hero h2 {
+        max-width: 11ch;
+        font-size: clamp(2.8rem, 11.5vw, 4.25rem);
+        line-height: 1.06;
+    }
+
+    body.home-premium .hero-text {
+        max-width: 390px;
+        margin-bottom: 30px;
+        font-size: .98rem;
+    }
+
+    body.home-premium .hero-buttons {
+        max-width: 310px;
+        gap: 12px;
+    }
+
+    body.home-premium .hero-buttons .button {
+        min-height: 52px;
+    }
+}
+
+
+/* JOSH'S ART — LUXURY HERITAGE SECTION */
+body.home-premium .heritage-home {
+    position: relative;
+    padding-top: clamp(82px, 10vw, 132px);
+    padding-bottom: clamp(82px, 10vw, 132px);
+    background:
+        radial-gradient(
+            ellipse at 12% 45%,
+            rgba(197, 139, 80, 0.055),
+            transparent 42%
+        ),
+        var(--tna-bg);
+}
+
+body.home-premium .heritage-heading {
+    max-width: 850px;
+}
+
+body.home-premium .heritage-eyebrow {
+    margin-bottom: 22px;
+    color: var(--tna-gold-light);
+    font-size: .7rem;
+    letter-spacing: .28em;
+}
+
+body.home-premium .heritage-heading h2 {
+    max-width: 18ch;
+    margin-bottom: 0;
+    font-size: clamp(2.25rem, 5.2vw, 4.6rem);
+    line-height: 1.12;
+    letter-spacing: -.035em;
+}
+
+body.home-premium .heritage-content {
+    grid-template-columns: minmax(110px, .45fr) minmax(0, 1.55fr);
+    gap: clamp(32px, 7vw, 100px);
+    align-items: start;
+    margin-top: clamp(38px, 5vw, 60px);
+    padding-top: clamp(30px, 4vw, 44px);
+    border-top-color: rgba(197, 139, 80, .3);
+}
+
+body.home-premium .heritage-mark {
+    width: clamp(96px, 11vw, 124px);
+    height: clamp(96px, 11vw, 124px);
+    border: 1px solid rgba(226, 183, 125, .7);
+    box-shadow:
+        0 0 30px rgba(197, 139, 80, .09),
+        inset 0 0 0 4px rgba(197, 139, 80, .08);
+}
+
+body.home-premium .heritage-copy {
+    max-width: 700px;
+}
+
+body.home-premium .heritage-copy .heritage-lead {
+    margin-bottom: 26px;
+    font-size: clamp(1.35rem, 2.4vw, 1.8rem);
+    line-height: 1.6;
+}
+
+body.home-premium .heritage-copy p:not(.heritage-lead) {
+    max-width: 620px;
+    font-size: .96rem;
+    line-height: 1.95;
+}
+
+body.home-premium .heritage-button {
+    margin-top: 14px;
+    padding: 15px 0;
+    color: var(--tna-gold-light);
+    letter-spacing: .07em;
+}
+
+@media (max-width: 700px) {
+    body.home-premium .heritage-home {
+        padding: 76px 24px 82px;
+    }
+
+    body.home-premium .heritage-heading h2 {
+        max-width: 15ch;
+        font-size: clamp(2.1rem, 8.5vw, 3rem);
+        line-height: 1.15;
+    }
+
+    body.home-premium .heritage-content {
+        grid-template-columns: 1fr;
+        gap: 28px;
+        margin-top: 34px;
+        padding-top: 28px;
+    }
+
+    body.home-premium .heritage-mark {
+        width: 94px;
+        height: 94px;
+    }
+
+    body.home-premium .heritage-copy .heritage-lead {
+        font-size: 1.35rem;
+        line-height: 1.6;
+    }
+}
+
+/* JOSH'S ART — FINAL ABOUT SECTION MONOGRAM */
+body.home-premium .heritage-mark {
+    width: clamp(112px, 13vw, 140px);
+    height: clamp(112px, 13vw, 140px);
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 7px;
+    border: 1px solid rgba(226, 183, 125, 0.75);
+    border-radius: 50%;
+    background: #11110f;
+    box-shadow:
+        0 0 30px rgba(197, 139, 80, 0.13),
+        inset 0 0 0 4px rgba(197, 139, 80, 0.08);
+}
+
+body.home-premium .heritage-mark img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    border-radius: 50%;
+}
+
+@media (max-width: 700px) {
+    body.home-premium .heritage-mark {
+        width: 108px;
+        height: 108px;
+    }
+}
